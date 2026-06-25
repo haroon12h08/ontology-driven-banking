@@ -1,0 +1,77 @@
+@prefix sbi: <http://sbi.co.in/ontology/banking#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Customers
+sbi:Customer_Haroon rdf:type sbi:IndividualCustomer ;
+    sbi:customerId "cust-haroon-9901" ;
+    sbi:firstName "Haroon" ;
+    sbi:lastName "Ahmad" ;
+    sbi:dateOfBirth "1990-05-15"^^xsd:date ;
+    sbi:annualIncome 125000.00^^xsd:decimal ;
+    sbi:riskToleranceScore 75 ;
+    sbi:netWorthClass "MassAffluent" ;
+    sbi:belongsToSegment sbi:Segment_MassAffluent ;
+    sbi:hasKYCRecord sbi:KYCRecord_Haroon ;
+    sbi:ownsAccount sbi:SavingsAccount_1001 .
+
+# KYC Records
+sbi:KYCRecord_Haroon rdf:type sbi:KYCRecord ;
+    sbi:kycRecordId "kyc-haroon-123" ;
+    sbi:verificationDate "2026-01-10"^^xsd:date ;
+    sbi:hasVerificationStatus sbi:VerStatus_Verified ;
+    sbi:reliesOnDocument sbi:Passport_Haroon .
+
+sbi:Passport_Haroon rdf:type sbi:IdentityDocument ;
+    sbi:documentId "doc-passport-5542" ;
+    sbi:documentExpiry "2031-12-31"^^xsd:date .
+
+# Accounts
+sbi:SavingsAccount_1001 rdf:type sbi:SavingsAccount ;
+    sbi:accountId "acc-savings-1001" ;
+    sbi:accountNumber "SBI-99100293021" ;
+    sbi:balance 45000.00^^xsd:decimal ;
+    sbi:availableBalance 45000.00^^xsd:decimal ;
+    sbi:dateOpened "2020-06-25"^^xsd:date ;
+    sbi:hasAccountStatus sbi:Status_Active ;
+    sbi:originatesTransaction sbi:Transaction_001 .
+
+# Transactions
+sbi:Transaction_001 rdf:type sbi:DebitTransaction ;
+    sbi:transactionId "txn-001" ;
+    sbi:amount 150.00^^xsd:decimal ;
+    sbi:timestamp "2026-06-25T14:15:00Z"^^xsd:dateTime ;
+    sbi:occursAtMerchant sbi:Merchant_Amazon ;
+    sbi:hasTransactionStatus sbi:TxnStatus_Settled .
+
+# Merchants
+sbi:Merchant_Amazon rdf:type sbi:Merchant ;
+    sbi:merchantId "mer-amazon-global" ;
+    sbi:merchantName "Amazon Retail" ;
+    sbi:merchantRiskRating 15 ;
+    sbi:belongsToCategory sbi:Category_ECommerce .
+
+sbi:Category_ECommerce rdf:type sbi:MerchantCategory ;
+    sbi:mccCode "5942" ;
+    sbi:industry "Retail E-Commerce" .
+
+# Relationship Manager & Branch
+sbi:RM_Anjali rdf:type sbi:RelationshipManager ;
+    sbi:employeeId "emp-anjali-4332" ;
+    sbi:employeeName "Anjali Sharma" ;
+    sbi:managesCustomer sbi:Customer_Haroon ;
+    sbi:employeeAssignedToBranch sbi:Branch_Mumbai_Fort .
+
+sbi:Branch_Mumbai_Fort rdf:type sbi:Branch ;
+    sbi:branchId "branch-mumbai-01" ;
+    sbi:branchName "Mumbai Fort Branch" ;
+    sbi:branchCashReserves 1500000.00^^xsd:decimal .
+
+# Financial Goals
+sbi:Goal_BuyHouse rdf:type sbi:FinancialGoal ;
+    sbi:goalId "goal-house-887" ;
+    sbi:targetAmount 250000.00^^xsd:decimal ;
+    sbi:targetDate "2030-12-31"^^xsd:date ;
+    sbi:fundedByAccount sbi:SavingsAccount_1001 .

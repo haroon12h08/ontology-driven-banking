@@ -1,0 +1,1267 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sbi: <http://sbi.co.in/ontology/banking#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://sbi.co.in/ontology/banking> a owl:Ontology ;
+    rdfs:label "SBI Enterprise Banking Ontology" ;
+    rdfs:comment "A production-quality OWL 2 DL ontology representing the conceptual domain model of a cognitive enterprise banking platform. Designed for AI agents reasoning over customer profiles, financial goals, loans, risk, fraud, and banking operations." ;
+    owl:versionInfo "1.0.0" .
+
+sbi:ATM a owl:Class ;
+    rdfs:label "ATM" ;
+    rdfs:comment "Automated cash distributor hardware terminals." .
+
+sbi:AmortizationSchedule a owl:Class ;
+    rdfs:label "Amortization Schedule" ;
+    rdfs:comment "Timeline chart mapping principal and interest payments." .
+
+sbi:AssetClass a owl:Class ;
+    rdfs:label "Asset Class" ;
+    rdfs:comment "Taxonomy grouping of securities (e.g., Equity, Fixed Income)." .
+
+sbi:AutoLoan a owl:Class ;
+    rdfs:label "Auto Loan" ;
+    rdfs:comment "A vehicle-secured installment loan." ;
+    rdfs:subClassOf sbi:Loan .
+
+sbi:BillingStatement a owl:Class ;
+    rdfs:label "Billing Statement" ;
+    rdfs:comment "Monthly revolving credit statements summarizing outstanding debt." .
+
+sbi:CheckingAccount a owl:Class ;
+    rdfs:label "Checking Account" ;
+    rdfs:comment "A transactional deposit account." ;
+    rdfs:subClassOf sbi:DepositAccount .
+
+sbi:CreditLimitPolicy a owl:Class ;
+    rdfs:label "Credit Limit Policy" ;
+    rdfs:comment "Revolving credit line rules." ;
+    rdfs:subClassOf sbi:Policy .
+
+sbi:CreditTransaction a owl:Class ;
+    rdfs:label "Credit Transaction" ;
+    rdfs:comment "Fund inflow to an account." ;
+    rdfs:subClassOf sbi:Transaction .
+
+sbi:CustomerFeedback a owl:Class ;
+    rdfs:label "Customer Feedback" ;
+    rdfs:comment "Customer reviews, complaints, and feedback records." .
+
+sbi:CustomerJourney a owl:Class ;
+    rdfs:label "Customer Journey" ;
+    rdfs:comment "Customer lifecycle maps." .
+
+sbi:DebitTransaction a owl:Class ;
+    rdfs:label "Debit Transaction" ;
+    rdfs:comment "Fund outflow from an account." ;
+    rdfs:subClassOf sbi:Transaction .
+
+sbi:DeviceContext a owl:Class ;
+    rdfs:label "Device Context" ;
+    rdfs:comment "Hardware parameters capturing client terminals." .
+
+sbi:DigitalSignature a owl:Class ;
+    rdfs:label "Digital Signature" ;
+    rdfs:comment "Cryptographic audit traces confirming legal consent." .
+
+sbi:DocumentType a owl:Class ;
+    rdfs:label "Document Type" ;
+    rdfs:comment "Classifications mapping compliance retention spans." .
+
+sbi:EngagementCampaign a owl:Class ;
+    rdfs:label "Engagement Campaign" ;
+    rdfs:comment "Marketing campaigns targeting segments of clients." .
+
+sbi:EventPayload a owl:Class ;
+    rdfs:label "Event Payload" ;
+    rdfs:comment "Data content structures mapped to events." .
+
+sbi:EventTopic a owl:Class ;
+    rdfs:label "Event Topic" ;
+    rdfs:comment "Event distribution categories (e.g., CardEvents, TransactionEvents)." .
+
+sbi:FinancialMetric a owl:Class ;
+    rdfs:label "Financial Metric" ;
+    rdfs:comment "Underlying math balances (e.g., Debt-to-Income, Savings Rate)." .
+
+sbi:FraudPattern a owl:Class ;
+    rdfs:label "Fraud Pattern" ;
+    rdfs:comment "Signatures and heuristics of known malicious schemes." .
+
+sbi:GoalMilestone a owl:Class ;
+    rdfs:label "Goal Milestone" ;
+    rdfs:comment "Interim target achievements on the path to goal completion." .
+
+sbi:GoalType a owl:Class ;
+    rdfs:label "Goal Type" ;
+    rdfs:comment "Controlled category classifications for goals (e.g., Retirement, Education)." .
+
+sbi:HomeLoan a owl:Class ;
+    rdfs:label "Home Loan" ;
+    rdfs:comment "A real-estate secured mortgage loan." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty sbi:securedByCollateral ;
+            owl:someValuesFrom sbi:Collateral ],
+        sbi:Loan .
+
+sbi:InteractionContext a owl:Class ;
+    rdfs:label "Interaction Context" ;
+    rdfs:comment "Dynamic context metadata surrounding active interactions." .
+
+sbi:InterestRatePolicy a owl:Class ;
+    rdfs:label "Interest Rate Policy" ;
+    rdfs:comment "Lending/deposit interest rate ranges." ;
+    rdfs:subClassOf sbi:Policy .
+
+sbi:InvestmentProduct a owl:Class ;
+    rdfs:label "InvestmentProduct" ;
+    rdfs:comment "Wealth management product templates (e.g., Brokerage, Mutual Funds)." ;
+    rdfs:subClassOf sbi:BankingProduct .
+
+sbi:JourneyMilestone a owl:Class ;
+    rdfs:label "Journey Milestone" ;
+    rdfs:comment "Key successes completed along the client journey." .
+
+sbi:JourneyStage a owl:Class ;
+    rdfs:label "Journey Stage" ;
+    rdfs:comment "Core lifecycle phases (Lead, Onboarded, Advocate)." .
+
+sbi:Lien a owl:Class ;
+    rdfs:label "Lien" ;
+    rdfs:comment "Legal registry claims held against collateral objects." .
+
+sbi:LoanAccount a owl:Class ;
+    rdfs:label "Loan Account" ;
+    rdfs:comment "A specific term loan ledger." ;
+    rdfs:subClassOf sbi:LendingAccount .
+
+sbi:LocationContext a owl:Class ;
+    rdfs:label "Location Context" ;
+    rdfs:comment "Geographical and IP parameters." .
+
+sbi:NPSMetric a owl:Class ;
+    rdfs:label "NPS Metric" ;
+    rdfs:comment "Customer satisfaction surveys and Net Promoter Scores." .
+
+sbi:NotificationChannel a owl:Class ;
+    rdfs:label "Notification Channel" ;
+    rdfs:comment "Output route identifiers (e.g., SMS, Email, Push)." .
+
+sbi:NotificationTemplate a owl:Class ;
+    rdfs:label "Notification Template" ;
+    rdfs:comment "Standard texts customized for notification messages." .
+
+sbi:OperationalLog a owl:Class ;
+    rdfs:label "Operational Log" ;
+    rdfs:comment "Software execution logs tracking system messages." .
+
+sbi:OperationsQueue a owl:Class ;
+    rdfs:label "Operations Queue" ;
+    rdfs:comment "Manual or automated task buckets waiting for actions." .
+
+sbi:PEPCheckResult a owl:Class ;
+    rdfs:label "PEP Check Result" ;
+    rdfs:comment "Audit validations confirming if a customer is a PEP." .
+
+sbi:PersonalLoan a owl:Class ;
+    rdfs:label "Personal Loan" ;
+    rdfs:comment "An unsecured consumer installment loan." ;
+    rdfs:subClassOf sbi:Loan .
+
+sbi:PolicyException a owl:Class ;
+    rdfs:label "Policy Exception" ;
+    rdfs:comment "Authorized deviations from policy guidelines." .
+
+sbi:PortfolioRebalancingAction a owl:Class ;
+    rdfs:label "Portfolio Rebalancing Action" ;
+    rdfs:comment "Advisory trade directives realigning asset weights." .
+
+sbi:RecommendationAction a owl:Class ;
+    rdfs:label "Recommendation Action" ;
+    rdfs:comment "Trigger actions linked to dynamic recommendations." .
+
+sbi:RecommendationFeedback a owl:Class ;
+    rdfs:label "Recommendation Feedback" ;
+    rdfs:comment "Audit tracking customer click/ignore responses." .
+
+sbi:RegulatoryPolicy a owl:Class ;
+    rdfs:label "Regulatory Policy" ;
+    rdfs:comment "Compliance-aligned operational restrictions." ;
+    rdfs:subClassOf sbi:Policy .
+
+sbi:RegulatoryRequirement a owl:Class ;
+    rdfs:label "Regulatory Requirement" ;
+    rdfs:comment "External regulatory frameworks governed by law." .
+
+sbi:RequestCategory a owl:Class ;
+    rdfs:label "Request Category" ;
+    rdfs:comment "Routing classification (Card Dispute, Fee Waiver, Address Update)." .
+
+sbi:RequestPriority a owl:Class ;
+    rdfs:label "Request Priority" ;
+    rdfs:comment "Severity rankings assigned to service tickets." .
+
+sbi:RewardsProgram a owl:Class ;
+    rdfs:label "Rewards Program" ;
+    rdfs:comment "System tracking customer loyalty points and redemptions." .
+
+sbi:RiskAssessment a owl:Class ;
+    rdfs:label "Risk Assessment" ;
+    rdfs:comment "Audit tracking the generation run of risk engine scores." .
+
+sbi:RiskFactor a owl:Class ;
+    rdfs:label "Risk Factor" ;
+    rdfs:comment "Atomic elements driving a customer risk profile score." .
+
+sbi:SLAAgreement a owl:Class ;
+    rdfs:label "SLA Agreement" ;
+    rdfs:comment "Service Level Agreements bounding resolution durations." .
+
+sbi:SanctionScreeningResult a owl:Class ;
+    rdfs:label "Sanction Screening Result" ;
+    rdfs:comment "List checks matching customers against watchlist profiles." .
+
+sbi:SavingsAccount a owl:Class ;
+    rdfs:label "Savings Account" ;
+    rdfs:comment "An interest-bearing deposit account." ;
+    rdfs:subClassOf sbi:DepositAccount .
+
+sbi:Segment_HNWI a sbi:CustomerSegment ;
+    rdfs:label "High Net Worth Individual Segment" .
+
+sbi:Segment_MassAffluent a sbi:CustomerSegment ;
+    rdfs:label "Mass Affluent Segment" .
+
+sbi:Segment_MassRetail a sbi:CustomerSegment ;
+    rdfs:label "Mass Retail Segment" .
+
+sbi:SpendingBenchmark a owl:Class ;
+    rdfs:label "Spending Benchmark" ;
+    rdfs:comment "Peer-group spending averages mapped to demographics." .
+
+sbi:Status_Active a sbi:AccountStatus ;
+    rdfs:label "Active Account" .
+
+sbi:Status_Closed a sbi:AccountStatus ;
+    rdfs:label "Closed Account" .
+
+sbi:Status_Dormant a sbi:AccountStatus ;
+    rdfs:label "Dormant Account" .
+
+sbi:Status_Frozen a sbi:AccountStatus ;
+    rdfs:label "Frozen Account" .
+
+sbi:SuspiciousActivityReport a owl:Class ;
+    rdfs:label "Suspicious Activity Report" ;
+    rdfs:comment "FinCEN-style AML/CTF regulatory filing documents." .
+
+sbi:SystemOutage a owl:Class ;
+    rdfs:label "System Outage" ;
+    rdfs:comment "Downtime events impacting banking availability." .
+
+sbi:SystemProcess a owl:Class ;
+    rdfs:label "System Process" ;
+    rdfs:comment "Running software systems, APIs, and batch jobs." .
+
+sbi:SystemRole a owl:Class ;
+    rdfs:label "System Role" ;
+    rdfs:comment "Security access configurations matching operations queues." .
+
+sbi:TransferTransaction a owl:Class ;
+    rdfs:label "Transfer Transaction" ;
+    rdfs:comment "Direct fund movement between internal accounts." ;
+    rdfs:subClassOf sbi:Transaction .
+
+sbi:TxnStatus_Declined a sbi:TransactionStatus ;
+    rdfs:label "Declined Transaction" .
+
+sbi:TxnStatus_Pending a sbi:TransactionStatus ;
+    rdfs:label "Pending Transaction" .
+
+sbi:TxnStatus_Settled a sbi:TransactionStatus ;
+    rdfs:label "Settled Transaction" .
+
+sbi:UnderwritingPolicy a owl:Class ;
+    rdfs:label "Underwriting Policy" ;
+    rdfs:comment "Lending criteria policies." ;
+    rdfs:subClassOf sbi:Policy .
+
+sbi:Vault a owl:Class ;
+    rdfs:label "Vault" ;
+    rdfs:comment "Safe deposit boxes and branch cash reserve containment units." .
+
+sbi:VerStatus_Pending a sbi:VerificationStatus ;
+    rdfs:label "Pending Verification" .
+
+sbi:VerStatus_Rejected a sbi:VerificationStatus ;
+    rdfs:label "Rejected Status" .
+
+sbi:VerStatus_Unverified a sbi:VerificationStatus ;
+    rdfs:label "Unverified Status" .
+
+sbi:VerStatus_Verified a sbi:VerificationStatus ;
+    rdfs:label "Verified Status" .
+
+sbi:accountId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "account ID" ;
+    rdfs:comment "Unique account UUID." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range xsd:string .
+
+sbi:alertScore a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "alert score" ;
+    rdfs:comment "ML fraud probability (0.00-1.00)." ;
+    rdfs:domain sbi:FraudAlert ;
+    rdfs:range xsd:decimal .
+
+sbi:amount a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "amount" ;
+    rdfs:comment "Transaction amount value." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range xsd:decimal .
+
+sbi:annualIncome a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "annual income" ;
+    rdfs:comment "Stated annual salary of customer." ;
+    rdfs:domain sbi:IndividualCustomer ;
+    rdfs:range xsd:decimal .
+
+sbi:annualRevenue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "annual revenue" ;
+    rdfs:comment "Stated annual revenue of corporate client." ;
+    rdfs:domain sbi:CorporateCustomer ;
+    rdfs:range xsd:decimal .
+
+sbi:assetCurrentPrice a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "asset current price" ;
+    rdfs:comment "Active feed price value of security." ;
+    rdfs:domain sbi:InvestmentAsset ;
+    rdfs:range xsd:decimal .
+
+sbi:assetTicker a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "asset ticker" ;
+    rdfs:comment "Stock exchange listing ticker." ;
+    rdfs:domain sbi:InvestmentAsset ;
+    rdfs:range xsd:string .
+
+sbi:availableBalance a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "available balance" ;
+    rdfs:comment "Spendable balance minus active hold limits." ;
+    rdfs:domain sbi:DepositAccount ;
+    rdfs:range xsd:decimal .
+
+sbi:balance a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "balance" ;
+    rdfs:comment "Core ledger balance of the account." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range xsd:decimal .
+
+sbi:baseInterestRate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "base interest rate" ;
+    rdfs:comment "Annual percentage rate (APR/APY)." ;
+    rdfs:domain sbi:DepositProduct ;
+    rdfs:range xsd:decimal .
+
+sbi:creditLimit a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "credit limit" ;
+    rdfs:comment "Total approved credit line limit." ;
+    rdfs:domain sbi:CreditCardAccount ;
+    rdfs:range xsd:decimal .
+
+sbi:customerId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "customer ID" ;
+    rdfs:comment "UUID for legal customer identity." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range xsd:string .
+
+sbi:dateOfBirth a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "date of birth" ;
+    rdfs:comment "Date of birth of individual customer." ;
+    rdfs:domain sbi:IndividualCustomer ;
+    rdfs:range xsd:date .
+
+sbi:employeeId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "employee ID" ;
+    rdfs:comment "HR employee profile reference ID." ;
+    rdfs:domain sbi:Employee ;
+    rdfs:range xsd:string .
+
+sbi:eventId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "event ID" ;
+    rdfs:comment "Event bus message reference ID." ;
+    rdfs:domain sbi:BankingEvent ;
+    rdfs:range xsd:string .
+
+sbi:eventTimestamp a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "event timestamp" ;
+    rdfs:comment "Event generation timestamp." ;
+    rdfs:domain sbi:BankingEvent ;
+    rdfs:range xsd:dateTime .
+
+sbi:firstName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "first name" ;
+    rdfs:comment "Given name of individual customer." ;
+    rdfs:domain sbi:IndividualCustomer ;
+    rdfs:range xsd:string .
+
+sbi:fraudLossAmount a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "fraud loss amount" ;
+    rdfs:comment "Financial loss logged under fraud case." ;
+    rdfs:domain sbi:FraudCase ;
+    rdfs:range xsd:decimal .
+
+sbi:healthScoreValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "health score value" ;
+    rdfs:comment "Calculated wellness index (1-100)." ;
+    rdfs:domain sbi:FinancialHealthScore ;
+    rdfs:range xsd:integer .
+
+sbi:lastName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "last name" ;
+    rdfs:comment "Surname of individual customer." ;
+    rdfs:domain sbi:IndividualCustomer ;
+    rdfs:range xsd:string .
+
+sbi:legalName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "legal name" ;
+    rdfs:comment "Registered corporate identity name." ;
+    rdfs:domain sbi:CorporateCustomer ;
+    rdfs:range xsd:string .
+
+sbi:mccCode a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "MCC code" ;
+    rdfs:comment "Standard Merchant Category Code." ;
+    rdfs:domain sbi:MerchantCategory ;
+    rdfs:range xsd:string .
+
+sbi:merchantId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "merchant ID" ;
+    rdfs:comment "Merchant reference code." ;
+    rdfs:domain sbi:Merchant ;
+    rdfs:range xsd:string .
+
+sbi:merchantName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "merchant name" ;
+    rdfs:comment "Business trading name." ;
+    rdfs:domain sbi:Merchant ;
+    rdfs:range xsd:string .
+
+sbi:merchantRiskRating a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "merchant risk rating" ;
+    rdfs:comment "Calculated risk score of merchant." ;
+    rdfs:domain sbi:Merchant ;
+    rdfs:range xsd:integer .
+
+sbi:netWorthClass a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "net worth class" ;
+    rdfs:comment "Stated tier of wealth classification." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range xsd:string .
+
+sbi:onboardingDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "onboarding date" ;
+    rdfs:comment "Official registration date of relationship." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range xsd:date .
+
+sbi:outstandingPrincipal a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "outstanding principal" ;
+    rdfs:comment "Remaining unpaid principal debt." ;
+    rdfs:domain sbi:LendingAccount ;
+    rdfs:range xsd:decimal .
+
+sbi:productId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "product ID" ;
+    rdfs:comment "Unique product template reference ID." ;
+    rdfs:domain sbi:BankingProduct ;
+    rdfs:range xsd:string .
+
+sbi:productName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "product name" ;
+    rdfs:comment "Marketing name of product offering." ;
+    rdfs:domain sbi:BankingProduct ;
+    rdfs:range xsd:string .
+
+sbi:recommendationConfidence a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "recommendation confidence" ;
+    rdfs:comment "ML model predictive confidence." ;
+    rdfs:domain sbi:Recommendation ;
+    rdfs:range xsd:decimal .
+
+sbi:riskToleranceScore a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "risk tolerance score" ;
+    rdfs:comment "Risk tolerance assessment score (1-100)." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range xsd:integer .
+
+sbi:sentimentScore a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "sentiment score" ;
+    rdfs:comment "Calculated interaction sentiment (-1.0 to 1.0)." ;
+    rdfs:domain sbi:InteractionHistory ;
+    rdfs:range xsd:decimal .
+
+sbi:targetAmount a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "target amount" ;
+    rdfs:comment "Target savings goal." ;
+    rdfs:domain sbi:FinancialGoal ;
+    rdfs:range xsd:decimal .
+
+sbi:targetDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "target date" ;
+    rdfs:comment "Target goal completion date." ;
+    rdfs:domain sbi:FinancialGoal ;
+    rdfs:range xsd:date .
+
+sbi:timestamp a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "timestamp" ;
+    rdfs:comment "Time transaction cleared." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range xsd:dateTime .
+
+sbi:transactionId a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "transaction ID" ;
+    rdfs:comment "Unique ledger transaction ID." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range xsd:string .
+
+sbi:verificationDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "verification date" ;
+    rdfs:comment "Date KYC record audit completed." ;
+    rdfs:domain sbi:KYCRecord ;
+    rdfs:range xsd:date .
+
+sbi:DepositProduct a owl:Class ;
+    rdfs:label "Deposit Product" ;
+    rdfs:comment "Asset-gathering product templates (e.g., Savings, Checking, CDs)." ;
+    rdfs:subClassOf sbi:BankingProduct .
+
+sbi:Document a owl:Class ;
+    rdfs:label "Document" ;
+    rdfs:comment "Digital files supporting legal contracts or verification." .
+
+sbi:FraudCase a owl:Class ;
+    rdfs:label "Fraud Case" ;
+    rdfs:comment "Active operations investigation file for suspect transactions." .
+
+sbi:LendingProduct a owl:Class ;
+    rdfs:label "Lending Product" ;
+    rdfs:comment "Credit-granting product templates (e.g., Mortgages, Personal Loans)." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty sbi:minimumCreditScore ;
+            owl:someValuesFrom xsd:integer ],
+        sbi:BankingProduct .
+
+sbi:alertedTransaction a owl:ObjectProperty ;
+    rdfs:label "alerted transaction" ;
+    rdfs:comment "Inverse of triggersFraudAlert." ;
+    rdfs:domain sbi:FraudAlert ;
+    rdfs:range sbi:Transaction ;
+    owl:inverseOf sbi:triggersFraudAlert .
+
+sbi:belongsToCategory a owl:ObjectProperty ;
+    rdfs:label "belongs to category" ;
+    rdfs:comment "Links a merchant to their MCC category." ;
+    rdfs:domain sbi:Merchant ;
+    rdfs:range sbi:MerchantCategory ;
+    owl:inverseOf sbi:containsMerchant .
+
+sbi:belongsToSegment a owl:ObjectProperty ;
+    rdfs:label "belongs to segment" ;
+    rdfs:comment "Links a customer to their service segment." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:CustomerSegment ;
+    owl:inverseOf sbi:segmentHasCustomer .
+
+sbi:beneficialOwnerOf a owl:ObjectProperty ;
+    rdfs:label "beneficial owner of" ;
+    rdfs:comment "Inverse of hasBeneficialOwner." ;
+    rdfs:domain sbi:IndividualCustomer ;
+    rdfs:range sbi:CorporateCustomer ;
+    owl:inverseOf sbi:hasBeneficialOwner .
+
+sbi:beneficiaryOf a owl:ObjectProperty ;
+    rdfs:label "beneficiary of" ;
+    rdfs:comment "Inverse of hasBeneficiary." ;
+    rdfs:domain sbi:IndividualCustomer ;
+    rdfs:range sbi:Account ;
+    owl:inverseOf sbi:hasBeneficiary .
+
+sbi:categorizedAs a owl:ObjectProperty ;
+    rdfs:label "categorized as" ;
+    rdfs:comment "Links a transaction to its category." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range sbi:TransactionCategorization ;
+    owl:inverseOf sbi:categorizes .
+
+sbi:categorizes a owl:ObjectProperty ;
+    rdfs:label "categorizes" ;
+    rdfs:comment "Inverse of categorizedAs." ;
+    rdfs:domain sbi:TransactionCategorization ;
+    rdfs:range sbi:Transaction ;
+    owl:inverseOf sbi:categorizedAs .
+
+sbi:channelUsedBy a owl:ObjectProperty ;
+    rdfs:label "channel used by" ;
+    rdfs:comment "Inverse of initiatedVia." ;
+    rdfs:domain sbi:TransactionChannel ;
+    rdfs:range sbi:Transaction ;
+    owl:inverseOf sbi:initiatedVia .
+
+sbi:constrainsProduct a owl:ObjectProperty ;
+    rdfs:label "constrains product" ;
+    rdfs:comment "Inverse of productConstrainedByPolicy." ;
+    rdfs:domain sbi:Policy ;
+    rdfs:range sbi:BankingProduct ;
+    owl:inverseOf sbi:productConstrainedByPolicy .
+
+sbi:containsMerchant a owl:ObjectProperty ;
+    rdfs:label "contains merchant" ;
+    rdfs:comment "Inverse of belongsToCategory." ;
+    rdfs:domain sbi:MerchantCategory ;
+    rdfs:range sbi:Merchant ;
+    owl:inverseOf sbi:belongsToCategory .
+
+sbi:containsOutlet a owl:ObjectProperty ;
+    rdfs:label "contains outlet" ;
+    rdfs:comment "Inverse of partOfBrand." ;
+    rdfs:domain sbi:MerchantBrand ;
+    rdfs:range sbi:Merchant ;
+    owl:inverseOf sbi:partOfBrand .
+
+sbi:containsPortfolio a owl:ObjectProperty ;
+    rdfs:label "contains portfolio" ;
+    rdfs:comment "Links an investment account to its portfolio." ;
+    rdfs:domain sbi:InvestmentAccount ;
+    rdfs:range sbi:InvestmentPortfolio ;
+    owl:inverseOf sbi:portfolioInAccount .
+
+sbi:employedBy a owl:ObjectProperty ;
+    rdfs:label "employed by" ;
+    rdfs:comment "Links an individual customer to their corporate employer." ;
+    rdfs:domain sbi:IndividualCustomer ;
+    rdfs:range sbi:CorporateCustomer ;
+    owl:inverseOf sbi:employs .
+
+sbi:employeeAssignedToBranch a owl:ObjectProperty ;
+    rdfs:label "employee assigned to branch" ;
+    rdfs:comment "Links employees to their branch location." ;
+    rdfs:domain sbi:Employee ;
+    rdfs:range sbi:Branch ;
+    owl:inverseOf sbi:employeesAtBranch .
+
+sbi:employeesAtBranch a owl:ObjectProperty ;
+    rdfs:label "employees at branch" ;
+    rdfs:comment "Inverse of employeeAssignedToBranch." ;
+    rdfs:domain sbi:Branch ;
+    rdfs:range sbi:Employee ;
+    owl:inverseOf sbi:employeeAssignedToBranch .
+
+sbi:employs a owl:ObjectProperty ;
+    rdfs:label "employs" ;
+    rdfs:comment "Inverse of employedBy." ;
+    rdfs:domain sbi:CorporateCustomer ;
+    rdfs:range sbi:IndividualCustomer ;
+    owl:inverseOf sbi:employedBy .
+
+sbi:fundedByAccount a owl:ObjectProperty ;
+    rdfs:label "funded by account" ;
+    rdfs:comment "Links a financial goal to its funding account." ;
+    rdfs:domain sbi:FinancialGoal ;
+    rdfs:range sbi:Account ;
+    owl:inverseOf sbi:fundsGoal .
+
+sbi:fundsGoal a owl:ObjectProperty ;
+    rdfs:label "funds goal" ;
+    rdfs:comment "Inverse of fundedByAccount." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range sbi:FinancialGoal ;
+    owl:inverseOf sbi:fundedByAccount .
+
+sbi:governedByRules a owl:ObjectProperty ;
+    rdfs:label "governed by rules" ;
+    rdfs:comment "Links a banking product to its parameters." ;
+    rdfs:domain sbi:BankingProduct ;
+    rdfs:range sbi:ProductRules ;
+    owl:inverseOf sbi:rulesApplyTo .
+
+sbi:hasAccountStatus a owl:ObjectProperty ;
+    rdfs:label "has account status" ;
+    rdfs:comment "Links an account to its active state." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range sbi:AccountStatus ;
+    owl:inverseOf sbi:statusOfAccount .
+
+sbi:hasBeneficialOwner a owl:ObjectProperty ;
+    rdfs:label "has beneficial owner" ;
+    rdfs:comment "Links a corporate client to major individual shareholders." ;
+    rdfs:domain sbi:CorporateCustomer ;
+    rdfs:range sbi:IndividualCustomer ;
+    owl:inverseOf sbi:beneficialOwnerOf .
+
+sbi:hasBeneficiary a owl:ObjectProperty ;
+    rdfs:label "has beneficiary" ;
+    rdfs:comment "Links an account to pay-on-death beneficiaries." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range sbi:IndividualCustomer ;
+    owl:inverseOf sbi:beneficiaryOf .
+
+sbi:hasCard a owl:ObjectProperty ;
+    rdfs:label "has card" ;
+    rdfs:comment "Inverse of linkedToAccount." ;
+    rdfs:domain sbi:CreditCardAccount ;
+    rdfs:range sbi:CreditCard ;
+    owl:inverseOf sbi:linkedToAccount .
+
+sbi:hasHouseholdMember a owl:ObjectProperty ;
+    rdfs:label "has household member" ;
+    rdfs:comment "Inverse of memberOfHousehold." ;
+    rdfs:domain sbi:CustomerHousehold ;
+    rdfs:range sbi:IndividualCustomer ;
+    owl:inverseOf sbi:memberOfHousehold .
+
+sbi:hasInteractionLog a owl:ObjectProperty ;
+    rdfs:label "has interaction log" ;
+    rdfs:comment "Links a customer to their communication logs." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:InteractionHistory ;
+    owl:inverseOf sbi:loggedForCustomer .
+
+sbi:hasKYCRecord a owl:ObjectProperty ;
+    rdfs:label "has KYC record" ;
+    rdfs:comment "Links a customer to their compliance KYC record." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:KYCRecord ;
+    owl:inverseOf sbi:kycOfCustomer .
+
+sbi:hasRiskProfile a owl:ObjectProperty ;
+    rdfs:label "has risk profile" ;
+    rdfs:comment "Links a customer to their active risk profile." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:RiskProfile ;
+    owl:inverseOf sbi:riskOfCustomer .
+
+sbi:hasTransactionStatus a owl:ObjectProperty ;
+    rdfs:label "has transaction status" ;
+    rdfs:comment "Links a transaction to its clearing state." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range sbi:TransactionStatus ;
+    owl:inverseOf sbi:statusOfTransaction .
+
+sbi:healthOfCustomer a owl:ObjectProperty ;
+    rdfs:label "health of customer" ;
+    rdfs:comment "Inverse of monitorsHealth." ;
+    rdfs:domain sbi:FinancialHealthScore ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:monitorsHealth .
+
+sbi:heldInPortfolio a owl:ObjectProperty ;
+    rdfs:label "held in portfolio" ;
+    rdfs:comment "Inverse of holdsAssetHolding." ;
+    rdfs:domain sbi:InvestmentAsset ;
+    rdfs:range sbi:InvestmentPortfolio ;
+    owl:inverseOf sbi:holdsAssetHolding .
+
+sbi:holdsAssetHolding a owl:ObjectProperty ;
+    rdfs:label "holds asset holding" ;
+    rdfs:comment "Links a portfolio to its specific assets." ;
+    rdfs:domain sbi:InvestmentPortfolio ;
+    rdfs:range sbi:InvestmentAsset ;
+    owl:inverseOf sbi:heldInPortfolio .
+
+sbi:initiatedVia a owl:ObjectProperty ;
+    rdfs:label "initiated via" ;
+    rdfs:comment "Links a transaction to the channel used." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range sbi:TransactionChannel ;
+    owl:inverseOf sbi:channelUsedBy .
+
+sbi:instantiatesProduct a owl:ObjectProperty ;
+    rdfs:label "instantiates product" ;
+    rdfs:comment "Links a ledger account to its product template." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range sbi:BankingProduct ;
+    owl:inverseOf sbi:productInstantiatedBy .
+
+sbi:kycOfCustomer a owl:ObjectProperty ;
+    rdfs:label "kyc of customer" ;
+    rdfs:comment "Inverse of hasKYCRecord." ;
+    rdfs:domain sbi:KYCRecord ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:hasKYCRecord .
+
+sbi:linkedToAccount a owl:ObjectProperty ;
+    rdfs:label "linked to account" ;
+    rdfs:comment "Links a credit card to its credit account." ;
+    rdfs:domain sbi:CreditCard ;
+    rdfs:range sbi:CreditCardAccount ;
+    owl:inverseOf sbi:hasCard .
+
+sbi:loggedForCustomer a owl:ObjectProperty ;
+    rdfs:label "logged for customer" ;
+    rdfs:comment "Inverse of hasInteractionLog." ;
+    rdfs:domain sbi:InteractionHistory ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:hasInteractionLog .
+
+sbi:managedByRM a owl:ObjectProperty ;
+    rdfs:label "managed by RM" ;
+    rdfs:comment "Inverse of managesCustomer." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:RelationshipManager ;
+    owl:inverseOf sbi:managesCustomer .
+
+sbi:managesCustomer a owl:ObjectProperty ;
+    rdfs:label "manages customer" ;
+    rdfs:comment "Links a Relationship Manager to their assigned clients." ;
+    rdfs:domain sbi:RelationshipManager ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:managedByRM .
+
+sbi:memberOfHousehold a owl:ObjectProperty ;
+    rdfs:label "member of household" ;
+    rdfs:comment "Links an individual to a household." ;
+    rdfs:domain sbi:IndividualCustomer ;
+    rdfs:range sbi:CustomerHousehold ;
+    owl:inverseOf sbi:hasHouseholdMember .
+
+sbi:minimumCreditScore a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "minimum credit score" ;
+    rdfs:comment "Underwriting constraint score required to borrow." ;
+    rdfs:domain sbi:LendingProduct ;
+    rdfs:range xsd:integer .
+
+sbi:monitorsHealth a owl:ObjectProperty ;
+    rdfs:label "monitors health" ;
+    rdfs:comment "Links a customer to their financial health scores." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:FinancialHealthScore ;
+    owl:inverseOf sbi:healthOfCustomer .
+
+sbi:notificationSentTo a owl:ObjectProperty ;
+    rdfs:label "notification sent to" ;
+    rdfs:comment "Inverse of receivesNotification." ;
+    rdfs:domain sbi:Notification ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:receivesNotification .
+
+sbi:occursAtMerchant a owl:ObjectProperty ;
+    rdfs:label "occurs at merchant" ;
+    rdfs:comment "Links a transaction to the receiving merchant." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range sbi:Merchant ;
+    owl:inverseOf sbi:processesTransaction .
+
+sbi:originatesTransaction a owl:ObjectProperty ;
+    rdfs:label "originates transaction" ;
+    rdfs:comment "Links an account to outgoing fund transactions." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range sbi:Transaction ;
+    owl:inverseOf sbi:originatingAccount .
+
+sbi:originatingAccount a owl:ObjectProperty ;
+    rdfs:label "originating account" ;
+    rdfs:comment "Inverse of originatesTransaction." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range sbi:Account ;
+    owl:inverseOf sbi:originatesTransaction .
+
+sbi:ownedBy a owl:ObjectProperty ;
+    rdfs:label "owned by" ;
+    rdfs:comment "Inverse of ownsAccount." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:ownsAccount .
+
+sbi:partOfBrand a owl:ObjectProperty ;
+    rdfs:label "part of brand" ;
+    rdfs:comment "Links a merchant to its parent brand." ;
+    rdfs:domain sbi:Merchant ;
+    rdfs:range sbi:MerchantBrand ;
+    owl:inverseOf sbi:containsOutlet .
+
+sbi:portfolioInAccount a owl:ObjectProperty ;
+    rdfs:label "portfolio in account" ;
+    rdfs:comment "Inverse of containsPortfolio." ;
+    rdfs:domain sbi:InvestmentPortfolio ;
+    rdfs:range sbi:InvestmentAccount ;
+    owl:inverseOf sbi:containsPortfolio .
+
+sbi:processesTransaction a owl:ObjectProperty ;
+    rdfs:label "processes transaction" ;
+    rdfs:comment "Inverse of occursAtMerchant." ;
+    rdfs:domain sbi:Merchant ;
+    rdfs:range sbi:Transaction ;
+    owl:inverseOf sbi:occursAtMerchant .
+
+sbi:productConstrainedByPolicy a owl:ObjectProperty ;
+    rdfs:label "product constrained by policy" ;
+    rdfs:comment "Links a banking product to risk policies." ;
+    rdfs:domain sbi:BankingProduct ;
+    rdfs:range sbi:Policy ;
+    owl:inverseOf sbi:constrainsProduct .
+
+sbi:productInstantiatedBy a owl:ObjectProperty ;
+    rdfs:label "product instantiated by" ;
+    rdfs:comment "Inverse of instantiatesProduct." ;
+    rdfs:domain sbi:BankingProduct ;
+    rdfs:range sbi:Account ;
+    owl:inverseOf sbi:instantiatesProduct .
+
+sbi:pursuedBy a owl:ObjectProperty ;
+    rdfs:label "pursued by" ;
+    rdfs:comment "Inverse of pursuesGoal." ;
+    rdfs:domain sbi:FinancialGoal ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:pursuesGoal .
+
+sbi:pursuesGoal a owl:ObjectProperty ;
+    rdfs:label "pursues goal" ;
+    rdfs:comment "Links a customer to their financial goal." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:FinancialGoal ;
+    owl:inverseOf sbi:pursuedBy .
+
+sbi:receivesNotification a owl:ObjectProperty ;
+    rdfs:label "receives notification" ;
+    rdfs:comment "Links a customer to outgoing alerts." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:Notification ;
+    owl:inverseOf sbi:notificationSentTo .
+
+sbi:receivesRecommendation a owl:ObjectProperty ;
+    rdfs:label "receives recommendation" ;
+    rdfs:comment "Links a customer to recommender alerts." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:Recommendation ;
+    owl:inverseOf sbi:recommendedToCustomer .
+
+sbi:receivesTransaction a owl:ObjectProperty ;
+    rdfs:label "receives transaction" ;
+    rdfs:comment "Links an account to incoming fund transactions." ;
+    rdfs:domain sbi:Account ;
+    rdfs:range sbi:Transaction ;
+    owl:inverseOf sbi:receivingAccount .
+
+sbi:receivingAccount a owl:ObjectProperty ;
+    rdfs:label "receiving account" ;
+    rdfs:comment "Inverse of receivesTransaction." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range sbi:Account ;
+    owl:inverseOf sbi:receivesTransaction .
+
+sbi:recommendedToCustomer a owl:ObjectProperty ;
+    rdfs:label "recommended to customer" ;
+    rdfs:comment "Inverse of receivesRecommendation." ;
+    rdfs:domain sbi:Recommendation ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:receivesRecommendation .
+
+sbi:riskOfCustomer a owl:ObjectProperty ;
+    rdfs:label "risk of customer" ;
+    rdfs:comment "Inverse of hasRiskProfile." ;
+    rdfs:domain sbi:RiskProfile ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:hasRiskProfile .
+
+sbi:rulesApplyTo a owl:ObjectProperty ;
+    rdfs:label "rules apply to" ;
+    rdfs:comment "Inverse of governedByRules." ;
+    rdfs:domain sbi:ProductRules ;
+    rdfs:range sbi:BankingProduct ;
+    owl:inverseOf sbi:governedByRules .
+
+sbi:securesLoan a owl:ObjectProperty ;
+    rdfs:label "secures loan" ;
+    rdfs:comment "Inverse of securedByCollateral." ;
+    rdfs:domain sbi:Collateral ;
+    rdfs:range sbi:Loan ;
+    owl:inverseOf sbi:securedByCollateral .
+
+sbi:segmentHasCustomer a owl:ObjectProperty ;
+    rdfs:label "segment has customer" ;
+    rdfs:comment "Inverse of belongsToSegment." ;
+    rdfs:domain sbi:CustomerSegment ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:belongsToSegment .
+
+sbi:statusOfAccount a owl:ObjectProperty ;
+    rdfs:label "status of account" ;
+    rdfs:comment "Inverse of hasAccountStatus." ;
+    rdfs:domain sbi:AccountStatus ;
+    rdfs:range sbi:Account ;
+    owl:inverseOf sbi:hasAccountStatus .
+
+sbi:statusOfTransaction a owl:ObjectProperty ;
+    rdfs:label "status of transaction" ;
+    rdfs:comment "Inverse of hasTransactionStatus." ;
+    rdfs:domain sbi:TransactionStatus ;
+    rdfs:range sbi:Transaction ;
+    owl:inverseOf sbi:hasTransactionStatus .
+
+sbi:submitsRequest a owl:ObjectProperty ;
+    rdfs:label "submits request" ;
+    rdfs:comment "Links a customer to their service request ticket." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:ServiceRequest ;
+    owl:inverseOf sbi:submittedByCustomerRequest .
+
+sbi:submittedByCustomerRequest a owl:ObjectProperty ;
+    rdfs:label "submitted by customer request" ;
+    rdfs:comment "Inverse of submitsRequest." ;
+    rdfs:domain sbi:ServiceRequest ;
+    rdfs:range sbi:Customer ;
+    owl:inverseOf sbi:submitsRequest .
+
+sbi:triggersFraudAlert a owl:ObjectProperty ;
+    rdfs:label "triggers fraud alert" ;
+    rdfs:comment "Links a transaction to a fraud alert." ;
+    rdfs:domain sbi:Transaction ;
+    rdfs:range sbi:FraudAlert ;
+    owl:inverseOf sbi:alertedTransaction .
+
+sbi:verifiesKYC a owl:ObjectProperty ;
+    rdfs:label "verifies KYC" ;
+    rdfs:comment "Inverse of reliesOnDocument." ;
+    rdfs:domain sbi:IdentityDocument ;
+    rdfs:range sbi:KYCRecord ;
+    owl:inverseOf sbi:reliesOnDocument .
+
+sbi:BankingEvent a owl:Class ;
+    rdfs:label "Banking Event" ;
+    rdfs:comment "System event broker logs tracking core data changes." .
+
+sbi:Branch a owl:Class ;
+    rdfs:label "Branch" ;
+    rdfs:comment "Physical brick-and-mortar office buildings." .
+
+sbi:CreditCard a owl:Class ;
+    rdfs:label "Credit Card" ;
+    rdfs:comment "Plastic or virtual physical card vehicle." .
+
+sbi:CustomerHousehold a owl:Class ;
+    rdfs:label "Customer Household" ;
+    rdfs:comment "A semantic grouping of individuals sharing a residency or shared financial goals." .
+
+sbi:InvestmentAccount a owl:Class ;
+    rdfs:label "Investment Account" ;
+    rdfs:comment "A wealth management account holding securities." ;
+    rdfs:subClassOf sbi:Account .
+
+sbi:MerchantBrand a owl:Class ;
+    rdfs:label "Merchant Brand" ;
+    rdfs:comment "Parent brand tree matching multiple merchant outlets." .
+
+sbi:Notification a owl:Class ;
+    rdfs:label "Notification" ;
+    rdfs:comment "Outgoing alerts dispatched to client channels." .
+
+sbi:ProductRules a owl:Class ;
+    rdfs:label "Product Rules" ;
+    rdfs:comment "Operational constraints, fee tables, and interest policies for a product." .
+
+sbi:RelationshipManager a owl:Class ;
+    rdfs:label "Relationship Manager" ;
+    rdfs:comment "Wealth management and corporate accounts staff advisors." ;
+    rdfs:subClassOf sbi:Employee .
+
+sbi:RiskProfile a owl:Class ;
+    rdfs:label "Risk Profile" ;
+    rdfs:comment "Aggregated risk indicators associated with a customer." .
+
+sbi:ServiceRequest a owl:Class ;
+    rdfs:label "Service Request" ;
+    rdfs:comment "A customer service ticket requiring operational resolution." .
+
+sbi:TransactionCategorization a owl:Class ;
+    rdfs:label "Transaction Categorization" ;
+    rdfs:comment "Spending classification categories (e.g., Groceries, Rent)." .
+
+sbi:TransactionChannel a owl:Class ;
+    rdfs:label "Transaction Channel" ;
+    rdfs:comment "The medium used to initiate a transaction (Mobile, ATM, POS, Branch)." .
+
+sbi:ownsAccount a owl:ObjectProperty ;
+    rdfs:label "owns account" ;
+    rdfs:comment "Links a customer to their financial accounts." ;
+    rdfs:domain sbi:Customer ;
+    rdfs:range sbi:Account ;
+    owl:inverseOf sbi:ownedBy .
+
+sbi:reliesOnDocument a owl:ObjectProperty ;
+    rdfs:label "relies on document" ;
+    rdfs:comment "Links a KYC record to verifying documents." ;
+    rdfs:domain sbi:KYCRecord ;
+    rdfs:range sbi:IdentityDocument ;
+    owl:inverseOf sbi:verifiesKYC .
+
+sbi:securedByCollateral a owl:ObjectProperty ;
+    rdfs:label "secured by collateral" ;
+    rdfs:comment "Links a loan to pledged backing collateral." ;
+    rdfs:domain sbi:Loan ;
+    rdfs:range sbi:Collateral ;
+    owl:inverseOf sbi:securesLoan .
+
+sbi:Collateral a owl:Class ;
+    rdfs:label "Collateral" ;
+    rdfs:comment "An asset pledged by a borrower to secure a loan." .
+
+sbi:CreditCardAccount a owl:Class ;
+    rdfs:label "Credit Card Account" ;
+    rdfs:comment "A revolving credit account ledger." ;
+    rdfs:subClassOf sbi:LendingAccount .
+
+sbi:DepositAccount a owl:Class ;
+    rdfs:label "Deposit Account" ;
+    rdfs:comment "An account holding customer checking or savings balances." ;
+    rdfs:subClassOf sbi:Account .
+
+sbi:FinancialHealthScore a owl:Class ;
+    rdfs:label "Financial Health Score" ;
+    rdfs:comment "Calculated rating representing customer cash flow wellness." .
+
+sbi:FraudAlert a owl:Class ;
+    rdfs:label "Fraud Alert" ;
+    rdfs:comment "Real-time automated warnings flagged by ML and rule engines." .
+
+sbi:IdentityDocument a owl:Class ;
+    rdfs:label "Identity Document" ;
+    rdfs:comment "Official identity files (Passports, Utility Bills, Tax Filings)." ;
+    rdfs:subClassOf sbi:Document .
+
+sbi:InteractionHistory a owl:Class ;
+    rdfs:label "Interaction History" ;
+    rdfs:comment "Logs mapping all communications and touchpoints with clients." .
+
+sbi:LendingAccount a owl:Class ;
+    rdfs:label "Lending Account" ;
+    rdfs:comment "A liability account tracking outstanding credit debt." ;
+    rdfs:subClassOf sbi:Account .
+
+sbi:MerchantCategory a owl:Class ;
+    rdfs:label "Merchant Category" ;
+    rdfs:comment "Classification of business types matching Merchant Category Codes (MCC)." .
+
+sbi:Recommendation a owl:Class ;
+    rdfs:label "Recommendation" ;
+    rdfs:comment "Advisory prompts and product cross-sell outputs." .
+
+sbi:Employee a owl:Class ;
+    rdfs:label "Employee" ;
+    rdfs:comment "Core staff members of the financial institution." .
+
+sbi:InvestmentAsset a owl:Class ;
+    rdfs:label "Investment Asset" ;
+    rdfs:comment "A market-tradable security (e.g., Stock, Bond, Mutual Fund)." .
+
+sbi:InvestmentPortfolio a owl:Class ;
+    rdfs:label "Investment Portfolio" ;
+    rdfs:comment "A managed grouping of securities aligned to a specific strategy." .
+
+sbi:VerificationStatus a owl:Class ;
+    rdfs:label "Verification Status" ;
+    rdfs:comment "States of identity validation audits." .
+
+sbi:CustomerSegment a owl:Class ;
+    rdfs:label "Customer Segment" ;
+    rdfs:comment "Controlled vocabulary defining relationship tiers (e.g., Mass Retail, HNWI)." .
+
+sbi:KYCRecord a owl:Class ;
+    rdfs:label "KYC Record" ;
+    rdfs:comment "Customer identification audit registry tracking verification." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty sbi:reliesOnDocument ;
+            owl:someValuesFrom sbi:IdentityDocument ] .
+
+sbi:Loan a owl:Class ;
+    rdfs:label "Loan" ;
+    rdfs:comment "A debt contract representing borrowed principal and interest constraints." .
+
+sbi:TransactionStatus a owl:Class ;
+    rdfs:label "Transaction Status" ;
+    rdfs:comment "Clearing states (Pending, Settled, Declined, Reversed)." .
+
+sbi:AccountStatus a owl:Class ;
+    rdfs:label "Account Status" ;
+    rdfs:comment "Explicit state designations (Active, Frozen, Dormant, Closed)." .
+
+sbi:CorporateCustomer a owl:Class ;
+    rdfs:label "Corporate Customer" ;
+    rdfs:comment "A registered business, trust, or legal entity client." ;
+    rdfs:subClassOf sbi:Customer .
+
+sbi:FinancialGoal a owl:Class ;
+    rdfs:label "Financial Goal" ;
+    rdfs:comment "A customer-defined target objective with target dates and amounts." .
+
+sbi:Policy a owl:Class ;
+    rdfs:label "Policy" ;
+    rdfs:comment "Internal policies setting operational bounds." .
+
+sbi:Merchant a owl:Class ;
+    rdfs:label "Merchant" ;
+    rdfs:comment "A business terminal receiving transaction expenditures." .
+
+sbi:BankingProduct a owl:Class ;
+    rdfs:label "Banking Product" ;
+    rdfs:comment "Abstract product offering templates defining rules, interest rates, and fees." .
+
+sbi:IndividualCustomer a owl:Class ;
+    rdfs:label "Individual Customer" ;
+    rdfs:comment "A natural person who holds banking relationships." ;
+    rdfs:subClassOf sbi:Customer .
+
+sbi:Account a owl:Class ;
+    rdfs:label "Account" ;
+    rdfs:comment "An instantiated ledger contract owned by a customer representing a financial balance." .
+
+sbi:Transaction a owl:Class ;
+    rdfs:label "Transaction" ;
+    rdfs:comment "An immutable ledger entry recording financial movement." .
+
+sbi:Customer a owl:Class ;
+    rdfs:label "Customer" ;
+    rdfs:comment "Abstract base class for any banking client (Individual or Corporate)." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty sbi:ownsAccount ;
+            owl:someValuesFrom sbi:Account ] .
+

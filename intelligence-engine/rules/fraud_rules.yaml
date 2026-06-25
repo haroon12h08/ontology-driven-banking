@@ -1,0 +1,17 @@
+# Fraud Detection Rules for SBI Intelligence Engine
+
+transaction_risk:
+  name: "SBI Real-time Transaction Risk Policy"
+  id: "POL-FRAUD-TX-001"
+  velocity_limit_per_hour: 5
+  single_tx_amount_threshold_inr: 50000.0
+  distance_anomaly_threshold_km: 200
+  merchant_blacklist: ["M-999", "M-666"]
+  supporting_policy: "SBI AML/CFT Transaction Monitoring Guidelines 2026"
+
+behavioral_risk:
+  name: "SBI Behavioral Fraud Detection Policy"
+  id: "POL-FRAUD-BEH-001"
+  card_utilization_warning_pct: 0.90
+  suspicious_merchant_category_match: ["Gambling", "Cryptocurrency"]
+  supporting_policy: "SBI Card Fraud Prevention Protocol"

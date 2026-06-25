@@ -1,0 +1,41 @@
+# Loan Eligibility Rules for SBI Intelligence Engine
+
+home_loan:
+  name: "SBI Griha Pravesh Home Loan Policy"
+  id: "POL-LOAN-HOME-001"
+  min_credit_score: 650
+  max_dti_ratio: 0.50
+  min_annual_income_inr: 500000
+  min_age: 21
+  max_age: 65
+  supporting_policy: "SBI Griha Pravesh Scheme Guidelines 2026"
+
+car_loan:
+  name: "SBI Auto Loan Policy"
+  id: "POL-LOAN-CAR-001"
+  min_credit_score: 600
+  max_dti_ratio: 0.45
+  min_annual_income_inr: 300000
+  min_age: 21
+  max_age: 60
+  supporting_policy: "SBI Auto Loan Scheme Guidelines 2025"
+
+education_loan:
+  name: "SBI Student Loan Policy"
+  id: "POL-LOAN-EDU-001"
+  min_credit_score: 550
+  max_dti_ratio: 0.60
+  min_annual_income_inr: 240000
+  min_age: 18
+  max_age: 35
+  supporting_policy: "SBI Education Loan Scheme Guidelines 2026"
+
+credit_card:
+  name: "SBI Elite Credit Card Policy"
+  id: "POL-CARD-ELITE-001"
+  min_credit_score: 700
+  max_dti_ratio: 0.40
+  min_annual_income_inr: 600000
+  min_age: 21
+  max_age: 65
+  supporting_policy: "SBI Card Issuance Guidelines 2026"

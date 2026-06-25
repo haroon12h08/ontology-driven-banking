@@ -1,0 +1,201 @@
+recommendationId,customerId,action,confidence,recommendedProductId
+REC-001,CUST-208,Increase Credit Limit,0.66,PROD-026
+REC-002,CUST-167,Invest in Mutual Fund,0.9,PROD-042
+REC-003,CUST-065,Apply for Mortgage,0.69,PROD-030
+REC-004,CUST-172,Apply for Mortgage,0.71,PROD-080
+REC-005,CUST-270,Invest in Mutual Fund,0.94,PROD-038
+REC-006,CUST-362,Invest in Mutual Fund,0.73,PROD-062
+REC-007,CUST-457,Invest in Mutual Fund,0.75,PROD-019
+REC-008,CUST-394,Apply for Mortgage,0.85,PROD-069
+REC-009,CUST-243,Increase Credit Limit,0.65,PROD-075
+REC-010,CUST-223,Invest in Mutual Fund,0.9,PROD-066
+REC-011,CUST-157,Invest in Mutual Fund,0.77,PROD-063
+REC-012,CUST-206,Apply for Mortgage,0.97,PROD-075
+REC-013,CUST-274,Open Savings Account,0.62,PROD-017
+REC-014,CUST-097,Apply for Mortgage,0.66,PROD-057
+REC-015,CUST-497,Increase Credit Limit,0.78,PROD-077
+REC-016,CUST-494,Increase Credit Limit,0.64,PROD-042
+REC-017,CUST-416,Increase Credit Limit,0.73,PROD-023
+REC-018,CUST-078,Invest in Mutual Fund,0.8,PROD-005
+REC-019,CUST-066,Increase Credit Limit,0.84,PROD-070
+REC-020,CUST-011,Apply for Mortgage,0.95,PROD-026
+REC-021,CUST-237,Apply for Mortgage,0.82,PROD-075
+REC-022,CUST-307,Apply for Mortgage,0.69,PROD-038
+REC-023,CUST-176,Apply for Mortgage,0.87,PROD-052
+REC-024,CUST-207,Invest in Mutual Fund,0.68,PROD-059
+REC-025,CUST-095,Apply for Mortgage,0.8,PROD-016
+REC-026,CUST-257,Apply for Mortgage,0.98,PROD-060
+REC-027,CUST-389,Apply for Mortgage,0.79,PROD-054
+REC-028,CUST-335,Apply for Mortgage,0.95,PROD-060
+REC-029,CUST-251,Invest in Mutual Fund,0.86,PROD-025
+REC-030,CUST-401,Open Savings Account,0.7,PROD-050
+REC-031,CUST-494,Invest in Mutual Fund,0.87,PROD-076
+REC-032,CUST-337,Open Savings Account,0.93,PROD-039
+REC-033,CUST-372,Invest in Mutual Fund,0.62,PROD-071
+REC-034,CUST-056,Invest in Mutual Fund,0.96,PROD-050
+REC-035,CUST-109,Increase Credit Limit,0.85,PROD-039
+REC-036,CUST-201,Open Savings Account,0.81,PROD-053
+REC-037,CUST-485,Increase Credit Limit,0.64,PROD-072
+REC-038,CUST-061,Increase Credit Limit,0.66,PROD-072
+REC-039,CUST-339,Increase Credit Limit,0.63,PROD-054
+REC-040,CUST-224,Increase Credit Limit,0.71,PROD-069
+REC-041,CUST-438,Apply for Mortgage,0.61,PROD-026
+REC-042,CUST-431,Invest in Mutual Fund,0.93,PROD-045
+REC-043,CUST-116,Open Savings Account,0.75,PROD-028
+REC-044,CUST-226,Open Savings Account,0.78,PROD-046
+REC-045,CUST-248,Invest in Mutual Fund,0.94,PROD-014
+REC-046,CUST-209,Apply for Mortgage,0.95,PROD-023
+REC-047,CUST-249,Open Savings Account,0.6,PROD-059
+REC-048,CUST-460,Open Savings Account,0.66,PROD-045
+REC-049,CUST-220,Invest in Mutual Fund,0.96,PROD-071
+REC-050,CUST-370,Increase Credit Limit,0.78,PROD-018
+REC-051,CUST-407,Increase Credit Limit,0.69,PROD-044
+REC-052,CUST-163,Increase Credit Limit,0.76,PROD-036
+REC-053,CUST-005,Invest in Mutual Fund,0.68,PROD-033
+REC-054,CUST-109,Open Savings Account,0.7,PROD-063
+REC-055,CUST-413,Increase Credit Limit,0.71,PROD-047
+REC-056,CUST-135,Open Savings Account,0.6,PROD-076
+REC-057,CUST-343,Apply for Mortgage,0.72,PROD-052
+REC-058,CUST-348,Apply for Mortgage,0.74,PROD-068
+REC-059,CUST-359,Apply for Mortgage,0.69,PROD-079
+REC-060,CUST-370,Invest in Mutual Fund,0.7,PROD-056
+REC-061,CUST-065,Increase Credit Limit,0.71,PROD-011
+REC-062,CUST-361,Apply for Mortgage,0.86,PROD-005
+REC-063,CUST-415,Open Savings Account,0.99,PROD-054
+REC-064,CUST-464,Open Savings Account,0.84,PROD-035
+REC-065,CUST-351,Increase Credit Limit,0.8,PROD-075
+REC-066,CUST-484,Open Savings Account,0.83,PROD-061
+REC-067,CUST-089,Open Savings Account,0.86,PROD-060
+REC-068,CUST-299,Open Savings Account,0.96,PROD-067
+REC-069,CUST-116,Apply for Mortgage,0.72,PROD-051
+REC-070,CUST-236,Increase Credit Limit,0.82,PROD-029
+REC-071,CUST-475,Increase Credit Limit,0.96,PROD-072
+REC-072,CUST-409,Apply for Mortgage,0.94,PROD-044
+REC-073,CUST-400,Apply for Mortgage,0.81,PROD-080
+REC-074,CUST-161,Apply for Mortgage,0.66,PROD-051
+REC-075,CUST-065,Invest in Mutual Fund,0.73,PROD-078
+REC-076,CUST-033,Apply for Mortgage,0.88,PROD-020
+REC-077,CUST-204,Apply for Mortgage,0.98,PROD-076
+REC-078,CUST-390,Increase Credit Limit,0.69,PROD-053
+REC-079,CUST-052,Increase Credit Limit,0.96,PROD-078
+REC-080,CUST-189,Invest in Mutual Fund,0.87,PROD-037
+REC-081,CUST-316,Increase Credit Limit,0.86,PROD-064
+REC-082,CUST-015,Open Savings Account,0.81,PROD-077
+REC-083,CUST-084,Open Savings Account,0.62,PROD-008
+REC-084,CUST-234,Open Savings Account,0.73,PROD-013
+REC-085,CUST-453,Invest in Mutual Fund,0.82,PROD-036
+REC-086,CUST-292,Increase Credit Limit,0.86,PROD-033
+REC-087,CUST-458,Open Savings Account,0.77,PROD-062
+REC-088,CUST-262,Invest in Mutual Fund,0.75,PROD-024
+REC-089,CUST-011,Open Savings Account,0.6,PROD-052
+REC-090,CUST-035,Invest in Mutual Fund,0.94,PROD-005
+REC-091,CUST-202,Open Savings Account,0.78,PROD-050
+REC-092,CUST-305,Apply for Mortgage,0.89,PROD-075
+REC-093,CUST-193,Apply for Mortgage,0.73,PROD-048
+REC-094,CUST-477,Apply for Mortgage,0.76,PROD-040
+REC-095,CUST-063,Invest in Mutual Fund,0.63,PROD-051
+REC-096,CUST-113,Increase Credit Limit,0.98,PROD-025
+REC-097,CUST-436,Apply for Mortgage,0.63,PROD-069
+REC-098,CUST-032,Invest in Mutual Fund,0.79,PROD-008
+REC-099,CUST-208,Open Savings Account,0.67,PROD-035
+REC-100,CUST-083,Invest in Mutual Fund,0.66,PROD-058
+REC-101,CUST-232,Apply for Mortgage,0.65,PROD-064
+REC-102,CUST-291,Increase Credit Limit,0.95,PROD-060
+REC-103,CUST-258,Increase Credit Limit,0.88,PROD-067
+REC-104,CUST-078,Open Savings Account,0.61,PROD-010
+REC-105,CUST-327,Open Savings Account,0.77,PROD-062
+REC-106,CUST-493,Apply for Mortgage,0.98,PROD-075
+REC-107,CUST-310,Invest in Mutual Fund,0.83,PROD-005
+REC-108,CUST-064,Apply for Mortgage,0.8,PROD-069
+REC-109,CUST-457,Open Savings Account,0.77,PROD-075
+REC-110,CUST-360,Increase Credit Limit,0.73,PROD-033
+REC-111,CUST-115,Increase Credit Limit,0.96,PROD-066
+REC-112,CUST-212,Increase Credit Limit,0.72,PROD-034
+REC-113,CUST-277,Apply for Mortgage,0.78,PROD-080
+REC-114,CUST-029,Increase Credit Limit,0.95,PROD-053
+REC-115,CUST-171,Open Savings Account,0.96,PROD-028
+REC-116,CUST-353,Open Savings Account,0.82,PROD-059
+REC-117,CUST-324,Invest in Mutual Fund,0.86,PROD-004
+REC-118,CUST-211,Apply for Mortgage,0.62,PROD-039
+REC-119,CUST-415,Increase Credit Limit,0.89,PROD-024
+REC-120,CUST-228,Apply for Mortgage,0.63,PROD-059
+REC-121,CUST-319,Increase Credit Limit,0.9,PROD-022
+REC-122,CUST-046,Invest in Mutual Fund,0.72,PROD-050
+REC-123,CUST-220,Invest in Mutual Fund,0.74,PROD-031
+REC-124,CUST-104,Invest in Mutual Fund,0.67,PROD-067
+REC-125,CUST-175,Increase Credit Limit,0.74,PROD-060
+REC-126,CUST-377,Apply for Mortgage,0.78,PROD-050
+REC-127,CUST-273,Open Savings Account,0.99,PROD-015
+REC-128,CUST-086,Increase Credit Limit,0.94,PROD-070
+REC-129,CUST-255,Increase Credit Limit,0.76,PROD-047
+REC-130,CUST-096,Invest in Mutual Fund,0.77,PROD-014
+REC-131,CUST-223,Invest in Mutual Fund,0.73,PROD-006
+REC-132,CUST-021,Increase Credit Limit,0.86,PROD-079
+REC-133,CUST-372,Increase Credit Limit,0.68,PROD-051
+REC-134,CUST-378,Increase Credit Limit,0.73,PROD-055
+REC-135,CUST-051,Increase Credit Limit,0.95,PROD-072
+REC-136,CUST-111,Apply for Mortgage,0.8,PROD-065
+REC-137,CUST-492,Apply for Mortgage,0.65,PROD-030
+REC-138,CUST-264,Apply for Mortgage,0.69,PROD-052
+REC-139,CUST-312,Invest in Mutual Fund,0.68,PROD-034
+REC-140,CUST-244,Increase Credit Limit,0.66,PROD-054
+REC-141,CUST-311,Increase Credit Limit,0.78,PROD-067
+REC-142,CUST-089,Increase Credit Limit,0.72,PROD-022
+REC-143,CUST-348,Invest in Mutual Fund,0.82,PROD-036
+REC-144,CUST-283,Increase Credit Limit,0.66,PROD-049
+REC-145,CUST-378,Open Savings Account,0.62,PROD-012
+REC-146,CUST-460,Apply for Mortgage,0.7,PROD-040
+REC-147,CUST-136,Invest in Mutual Fund,0.7,PROD-039
+REC-148,CUST-253,Invest in Mutual Fund,0.88,PROD-011
+REC-149,CUST-016,Open Savings Account,0.91,PROD-068
+REC-150,CUST-419,Invest in Mutual Fund,0.85,PROD-069
+REC-151,CUST-486,Open Savings Account,0.66,PROD-058
+REC-152,CUST-286,Apply for Mortgage,0.76,PROD-016
+REC-153,CUST-130,Open Savings Account,0.73,PROD-075
+REC-154,CUST-431,Open Savings Account,0.7,PROD-004
+REC-155,CUST-392,Invest in Mutual Fund,0.78,PROD-012
+REC-156,CUST-112,Apply for Mortgage,0.83,PROD-039
+REC-157,CUST-454,Open Savings Account,0.76,PROD-070
+REC-158,CUST-271,Apply for Mortgage,0.74,PROD-021
+REC-159,CUST-499,Open Savings Account,0.91,PROD-078
+REC-160,CUST-004,Open Savings Account,0.73,PROD-056
+REC-161,CUST-312,Apply for Mortgage,0.7,PROD-017
+REC-162,CUST-275,Apply for Mortgage,0.99,PROD-015
+REC-163,CUST-027,Open Savings Account,0.86,PROD-034
+REC-164,CUST-110,Increase Credit Limit,0.97,PROD-021
+REC-165,CUST-110,Increase Credit Limit,0.8,PROD-014
+REC-166,CUST-171,Apply for Mortgage,0.85,PROD-060
+REC-167,CUST-182,Apply for Mortgage,0.82,PROD-039
+REC-168,CUST-367,Invest in Mutual Fund,0.76,PROD-028
+REC-169,CUST-082,Apply for Mortgage,0.87,PROD-071
+REC-170,CUST-348,Apply for Mortgage,0.86,PROD-066
+REC-171,CUST-390,Open Savings Account,0.73,PROD-034
+REC-172,CUST-188,Open Savings Account,0.7,PROD-027
+REC-173,CUST-085,Increase Credit Limit,0.95,PROD-038
+REC-174,CUST-340,Invest in Mutual Fund,0.76,PROD-017
+REC-175,CUST-400,Increase Credit Limit,0.84,PROD-018
+REC-176,CUST-411,Increase Credit Limit,0.6,PROD-071
+REC-177,CUST-003,Invest in Mutual Fund,0.61,PROD-067
+REC-178,CUST-261,Apply for Mortgage,0.92,PROD-021
+REC-179,CUST-304,Apply for Mortgage,0.71,PROD-032
+REC-180,CUST-112,Open Savings Account,0.87,PROD-044
+REC-181,CUST-101,Increase Credit Limit,0.97,PROD-047
+REC-182,CUST-099,Increase Credit Limit,0.73,PROD-051
+REC-183,CUST-436,Open Savings Account,0.84,PROD-017
+REC-184,CUST-424,Open Savings Account,0.92,PROD-066
+REC-185,CUST-207,Apply for Mortgage,0.89,PROD-049
+REC-186,CUST-026,Increase Credit Limit,0.81,PROD-011
+REC-187,CUST-175,Open Savings Account,0.76,PROD-012
+REC-188,CUST-305,Apply for Mortgage,0.69,PROD-042
+REC-189,CUST-360,Invest in Mutual Fund,0.86,PROD-007
+REC-190,CUST-389,Invest in Mutual Fund,0.61,PROD-062
+REC-191,CUST-110,Apply for Mortgage,0.95,PROD-006
+REC-192,CUST-349,Open Savings Account,0.89,PROD-011
+REC-193,CUST-449,Apply for Mortgage,0.85,PROD-037
+REC-194,CUST-313,Invest in Mutual Fund,0.91,PROD-038
+REC-195,CUST-311,Apply for Mortgage,0.77,PROD-023
+REC-196,CUST-171,Invest in Mutual Fund,0.65,PROD-044
+REC-197,CUST-331,Apply for Mortgage,0.85,PROD-044
+REC-198,CUST-053,Invest in Mutual Fund,0.63,PROD-055
+REC-199,CUST-085,Increase Credit Limit,0.68,PROD-006
+REC-200,CUST-497,Increase Credit Limit,0.9,PROD-046

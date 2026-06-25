@@ -1,0 +1,1509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#receivesRecommendation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>receives recommendation</rdfs:label>
+    <rdfs:comment>Links a customer to recommender alerts.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Recommendation"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#recommendedToCustomer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#instantiatesProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>instantiates product</rdfs:label>
+    <rdfs:comment>Links a ledger account to its product template.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#productInstantiatedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RiskAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Risk Assessment</rdfs:label>
+    <rdfs:comment>Audit tracking the generation run of risk engine scores.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#submitsRequest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>submits request</rdfs:label>
+    <rdfs:comment>Links a customer to their service request ticket.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#ServiceRequest"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#submittedByCustomerRequest"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Transaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Transaction</rdfs:label>
+    <rdfs:comment>An immutable ledger entry recording financial movement.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#InvestmentPortfolio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Investment Portfolio</rdfs:label>
+    <rdfs:comment>A managed grouping of securities aligned to a specific strategy.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#dateOfBirth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>date of birth</rdfs:label>
+    <rdfs:comment>Date of birth of individual customer.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#recommendedToCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>recommended to customer</rdfs:label>
+    <rdfs:comment>Inverse of receivesRecommendation.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Recommendation"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#receivesRecommendation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#productConstrainedByPolicy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>product constrained by policy</rdfs:label>
+    <rdfs:comment>Links a banking product to risk policies.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Policy"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#constrainsProduct"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#targetAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>target amount</rdfs:label>
+    <rdfs:comment>Target savings goal.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FinancialGoal"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#belongsToCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>belongs to category</rdfs:label>
+    <rdfs:comment>Links a merchant to their MCC category.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#MerchantCategory"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#containsMerchant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#accountId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>account ID</rdfs:label>
+    <rdfs:comment>Unique account UUID.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#legalName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>legal name</rdfs:label>
+    <rdfs:comment>Registered corporate identity name.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CorporateCustomer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#channelUsedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>channel used by</rdfs:label>
+    <rdfs:comment>Inverse of initiatedVia.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#TransactionChannel"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#initiatedVia"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#fundedByAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>funded by account</rdfs:label>
+    <rdfs:comment>Links a financial goal to its funding account.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FinancialGoal"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#fundsGoal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#securesLoan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>secures loan</rdfs:label>
+    <rdfs:comment>Inverse of securedByCollateral.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Collateral"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Loan"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#securedByCollateral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CorporateCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Corporate Customer</rdfs:label>
+    <rdfs:comment>A registered business, trust, or legal entity client.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#eventTimestamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>event timestamp</rdfs:label>
+    <rdfs:comment>Event generation timestamp.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#BankingEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#availableBalance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>available balance</rdfs:label>
+    <rdfs:comment>Spendable balance minus active hold limits.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#DepositAccount"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RegulatoryPolicy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Regulatory Policy</rdfs:label>
+    <rdfs:comment>Compliance-aligned operational restrictions.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Policy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CreditTransaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Credit Transaction</rdfs:label>
+    <rdfs:comment>Fund inflow to an account.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Loan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Loan</rdfs:label>
+    <rdfs:comment>A debt contract representing borrowed principal and interest constraints.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#KYCRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>KYC Record</rdfs:label>
+    <rdfs:comment>Customer identification audit registry tracking verification.</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="N574e596539db4746aa94830b8f0ba22e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasAccountStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has account status</rdfs:label>
+    <rdfs:comment>Links an account to its active state.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#AccountStatus"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#statusOfAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#receivesNotification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>receives notification</rdfs:label>
+    <rdfs:comment>Links a customer to outgoing alerts.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Notification"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#notificationSentTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasInteractionLog">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has interaction log</rdfs:label>
+    <rdfs:comment>Links a customer to their communication logs.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#InteractionHistory"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#loggedForCustomer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Document</rdfs:label>
+    <rdfs:comment>Digital files supporting legal contracts or verification.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#occursAtMerchant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>occurs at merchant</rdfs:label>
+    <rdfs:comment>Links a transaction to the receiving merchant.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#processesTransaction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#HomeLoan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Home Loan</rdfs:label>
+    <rdfs:comment>A real-estate secured mortgage loan.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Loan"/>
+    <rdfs:subClassOf rdf:nodeID="N4ad9fab46cc141d3b6a1648f7ab64d6d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RiskProfile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Risk Profile</rdfs:label>
+    <rdfs:comment>Aggregated risk indicators associated with a customer.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#managesCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>manages customer</rdfs:label>
+    <rdfs:comment>Links a Relationship Manager to their assigned clients.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#RelationshipManager"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#managedByRM"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Policy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Policy</rdfs:label>
+    <rdfs:comment>Internal policies setting operational bounds.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#merchantId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>merchant ID</rdfs:label>
+    <rdfs:comment>Merchant reference code.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#containsOutlet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>contains outlet</rdfs:label>
+    <rdfs:comment>Inverse of partOfBrand.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#MerchantBrand"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#partOfBrand"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#ProductRules">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Product Rules</rdfs:label>
+    <rdfs:comment>Operational constraints, fee tables, and interest policies for a product.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#DigitalSignature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Digital Signature</rdfs:label>
+    <rdfs:comment>Cryptographic audit traces confirming legal consent.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#submittedByCustomerRequest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>submitted by customer request</rdfs:label>
+    <rdfs:comment>Inverse of submitsRequest.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#ServiceRequest"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#submitsRequest"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#fundsGoal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>funds goal</rdfs:label>
+    <rdfs:comment>Inverse of fundedByAccount.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#FinancialGoal"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#fundedByAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#outstandingPrincipal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>outstanding principal</rdfs:label>
+    <rdfs:comment>Remaining unpaid principal debt.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#LendingAccount"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#InvestmentAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Investment Account</rdfs:label>
+    <rdfs:comment>A wealth management account holding securities.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#healthScoreValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>health score value</rdfs:label>
+    <rdfs:comment>Calculated wellness index (1-100).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FinancialHealthScore"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#holdsAssetHolding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>holds asset holding</rdfs:label>
+    <rdfs:comment>Links a portfolio to its specific assets.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#InvestmentPortfolio"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#InvestmentAsset"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#heldInPortfolio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#TransactionStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Transaction Status</rdfs:label>
+    <rdfs:comment>Clearing states (Pending, Settled, Declined, Reversed).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#minimumCreditScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>minimum credit score</rdfs:label>
+    <rdfs:comment>Underwriting constraint score required to borrow.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#LendingProduct"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#amount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>amount</rdfs:label>
+    <rdfs:comment>Transaction amount value.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#TransferTransaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Transfer Transaction</rdfs:label>
+    <rdfs:comment>Direct fund movement between internal accounts.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#AssetClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Asset Class</rdfs:label>
+    <rdfs:comment>Taxonomy grouping of securities (e.g., Equity, Fixed Income).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#InterestRatePolicy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Interest Rate Policy</rdfs:label>
+    <rdfs:comment>Lending/deposit interest rate ranges.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Policy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#governedByRules">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>governed by rules</rdfs:label>
+    <rdfs:comment>Links a banking product to its parameters.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#ProductRules"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#rulesApplyTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CreditLimitPolicy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Credit Limit Policy</rdfs:label>
+    <rdfs:comment>Revolving credit line rules.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Policy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasBeneficialOwner">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has beneficial owner</rdfs:label>
+    <rdfs:comment>Links a corporate client to major individual shareholders.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CorporateCustomer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#beneficialOwnerOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#InteractionContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Interaction Context</rdfs:label>
+    <rdfs:comment>Dynamic context metadata surrounding active interactions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#initiatedVia">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>initiated via</rdfs:label>
+    <rdfs:comment>Links a transaction to the channel used.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#TransactionChannel"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#channelUsedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#verificationDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>verification date</rdfs:label>
+    <rdfs:comment>Date KYC record audit completed.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#KYCRecord"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#LendingProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Lending Product</rdfs:label>
+    <rdfs:comment>Credit-granting product templates (e.g., Mortgages, Personal Loans).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <rdfs:subClassOf rdf:nodeID="N529180dde7ff43e1a21b745c28c0d2fd"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#originatingAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>originating account</rdfs:label>
+    <rdfs:comment>Inverse of originatesTransaction.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#originatesTransaction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Notification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Notification</rdfs:label>
+    <rdfs:comment>Outgoing alerts dispatched to client channels.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#receivesTransaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>receives transaction</rdfs:label>
+    <rdfs:comment>Links an account to incoming fund transactions.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#receivingAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#netWorthClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>net worth class</rdfs:label>
+    <rdfs:comment>Stated tier of wealth classification.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#EventTopic">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Event Topic</rdfs:label>
+    <rdfs:comment>Event distribution categories (e.g., CardEvents, TransactionEvents).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#statusOfAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>status of account</rdfs:label>
+    <rdfs:comment>Inverse of hasAccountStatus.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#AccountStatus"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasAccountStatus"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#SpendingBenchmark">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Spending Benchmark</rdfs:label>
+    <rdfs:comment>Peer-group spending averages mapped to demographics.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#PersonalLoan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Personal Loan</rdfs:label>
+    <rdfs:comment>An unsecured consumer installment loan.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Loan"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#belongsToSegment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>belongs to segment</rdfs:label>
+    <rdfs:comment>Links a customer to their service segment.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#CustomerSegment"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#segmentHasCustomer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#mccCode">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>MCC code</rdfs:label>
+    <rdfs:comment>Standard Merchant Category Code.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#MerchantCategory"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#transactionId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>transaction ID</rdfs:label>
+    <rdfs:comment>Unique ledger transaction ID.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#IdentityDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Identity Document</rdfs:label>
+    <rdfs:comment>Official identity files (Passports, Utility Bills, Tax Filings).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#triggersFraudAlert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>triggers fraud alert</rdfs:label>
+    <rdfs:comment>Links a transaction to a fraud alert.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#FraudAlert"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#alertedTransaction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#ATM">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ATM</rdfs:label>
+    <rdfs:comment>Automated cash distributor hardware terminals.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#segmentHasCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>segment has customer</rdfs:label>
+    <rdfs:comment>Inverse of belongsToSegment.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CustomerSegment"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#belongsToSegment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CustomerFeedback">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Customer Feedback</rdfs:label>
+    <rdfs:comment>Customer reviews, complaints, and feedback records.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasHouseholdMember">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has household member</rdfs:label>
+    <rdfs:comment>Inverse of memberOfHousehold.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CustomerHousehold"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#memberOfHousehold"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#pursuedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>pursued by</rdfs:label>
+    <rdfs:comment>Inverse of pursuesGoal.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FinancialGoal"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#pursuesGoal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#securedByCollateral">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>secured by collateral</rdfs:label>
+    <rdfs:comment>Links a loan to pledged backing collateral.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Loan"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Collateral"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#securesLoan"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#kycOfCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>kyc of customer</rdfs:label>
+    <rdfs:comment>Inverse of hasKYCRecord.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#KYCRecord"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasKYCRecord"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#NPSMetric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>NPS Metric</rdfs:label>
+    <rdfs:comment>Customer satisfaction surveys and Net Promoter Scores.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#partOfBrand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>part of brand</rdfs:label>
+    <rdfs:comment>Links a merchant to its parent brand.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#MerchantBrand"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#containsOutlet"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#categorizes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>categorizes</rdfs:label>
+    <rdfs:comment>Inverse of categorizedAs.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#TransactionCategorization"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#categorizedAs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#timestamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>timestamp</rdfs:label>
+    <rdfs:comment>Time transaction cleared.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N709ae0d46ef645edaf6b05a6cc1d9de9">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbi.co.in/ontology/banking#ownsAccount"/>
+    <owl:someValuesFrom rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#assetTicker">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>asset ticker</rdfs:label>
+    <rdfs:comment>Stock exchange listing ticker.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#InvestmentAsset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasTransactionStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has transaction status</rdfs:label>
+    <rdfs:comment>Links a transaction to its clearing state.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#TransactionStatus"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#statusOfTransaction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#merchantRiskRating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>merchant risk rating</rdfs:label>
+    <rdfs:comment>Calculated risk score of merchant.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#productInstantiatedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>product instantiated by</rdfs:label>
+    <rdfs:comment>Inverse of instantiatesProduct.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#instantiatesProduct"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#InvestmentProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>InvestmentProduct</rdfs:label>
+    <rdfs:comment>Wealth management product templates (e.g., Brokerage, Mutual Funds).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#SystemOutage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>System Outage</rdfs:label>
+    <rdfs:comment>Downtime events impacting banking availability.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#JourneyMilestone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Journey Milestone</rdfs:label>
+    <rdfs:comment>Key successes completed along the client journey.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#baseInterestRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>base interest rate</rdfs:label>
+    <rdfs:comment>Annual percentage rate (APR/APY).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#DepositProduct"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#linkedToAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>linked to account</rdfs:label>
+    <rdfs:comment>Links a credit card to its credit account.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CreditCard"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#CreditCardAccount"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasCard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#pursuesGoal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>pursues goal</rdfs:label>
+    <rdfs:comment>Links a customer to their financial goal.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#FinancialGoal"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#pursuedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#DeviceContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Device Context</rdfs:label>
+    <rdfs:comment>Hardware parameters capturing client terminals.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#PEPCheckResult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>PEP Check Result</rdfs:label>
+    <rdfs:comment>Audit validations confirming if a customer is a PEP.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#employedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>employed by</rdfs:label>
+    <rdfs:comment>Links an individual customer to their corporate employer.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#CorporateCustomer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#employs"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#SuspiciousActivityReport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Suspicious Activity Report</rdfs:label>
+    <rdfs:comment>FinCEN-style AML/CTF regulatory filing documents.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#ownedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>owned by</rdfs:label>
+    <rdfs:comment>Inverse of ownsAccount.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#ownsAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#heldInPortfolio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>held in portfolio</rdfs:label>
+    <rdfs:comment>Inverse of holdsAssetHolding.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#InvestmentAsset"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#InvestmentPortfolio"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#holdsAssetHolding"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#NotificationChannel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Notification Channel</rdfs:label>
+    <rdfs:comment>Output route identifiers (e.g., SMS, Email, Push).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#creditLimit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>credit limit</rdfs:label>
+    <rdfs:comment>Total approved credit line limit.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CreditCardAccount"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasBeneficiary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has beneficiary</rdfs:label>
+    <rdfs:comment>Links an account to pay-on-death beneficiaries.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#beneficiaryOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#annualIncome">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>annual income</rdfs:label>
+    <rdfs:comment>Stated annual salary of customer.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#portfolioInAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>portfolio in account</rdfs:label>
+    <rdfs:comment>Inverse of containsPortfolio.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#InvestmentPortfolio"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#InvestmentAccount"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#containsPortfolio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#categorizedAs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>categorized as</rdfs:label>
+    <rdfs:comment>Links a transaction to its category.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#TransactionCategorization"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#categorizes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#InvestmentAsset">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Investment Asset</rdfs:label>
+    <rdfs:comment>A market-tradable security (e.g., Stock, Bond, Mutual Fund).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#containsMerchant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>contains merchant</rdfs:label>
+    <rdfs:comment>Inverse of belongsToCategory.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#MerchantCategory"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#belongsToCategory"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#FraudAlert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Fraud Alert</rdfs:label>
+    <rdfs:comment>Real-time automated warnings flagged by ML and rule engines.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#annualRevenue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>annual revenue</rdfs:label>
+    <rdfs:comment>Stated annual revenue of corporate client.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CorporateCustomer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#beneficiaryOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>beneficiary of</rdfs:label>
+    <rdfs:comment>Inverse of hasBeneficiary.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasBeneficiary"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#SanctionScreeningResult">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Sanction Screening Result</rdfs:label>
+    <rdfs:comment>List checks matching customers against watchlist profiles.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#NotificationTemplate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Notification Template</rdfs:label>
+    <rdfs:comment>Standard texts customized for notification messages.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N529180dde7ff43e1a21b745c28c0d2fd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbi.co.in/ontology/banking#minimumCreditScore"/>
+    <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Employee">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Employee</rdfs:label>
+    <rdfs:comment>Core staff members of the financial institution.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#IndividualCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Individual Customer</rdfs:label>
+    <rdfs:comment>A natural person who holds banking relationships.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#firstName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>first name</rdfs:label>
+    <rdfs:comment>Given name of individual customer.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#alertedTransaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>alerted transaction</rdfs:label>
+    <rdfs:comment>Inverse of triggersFraudAlert.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FraudAlert"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#triggersFraudAlert"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#employeeAssignedToBranch">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>employee assigned to branch</rdfs:label>
+    <rdfs:comment>Links employees to their branch location.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Employee"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Branch"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#employeesAtBranch"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RiskFactor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Risk Factor</rdfs:label>
+    <rdfs:comment>Atomic elements driving a customer risk profile score.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#employeesAtBranch">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>employees at branch</rdfs:label>
+    <rdfs:comment>Inverse of employeeAssignedToBranch.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Branch"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Employee"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#employeeAssignedToBranch"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RewardsProgram">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Rewards Program</rdfs:label>
+    <rdfs:comment>System tracking customer loyalty points and redemptions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#TransactionChannel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Transaction Channel</rdfs:label>
+    <rdfs:comment>The medium used to initiate a transaction (Mobile, ATM, POS, Branch).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#DebitTransaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Debit Transaction</rdfs:label>
+    <rdfs:comment>Fund outflow from an account.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#monitorsHealth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>monitors health</rdfs:label>
+    <rdfs:comment>Links a customer to their financial health scores.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#FinancialHealthScore"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#healthOfCustomer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#alertScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>alert score</rdfs:label>
+    <rdfs:comment>ML fraud probability (0.00-1.00).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FraudAlert"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#reliesOnDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>relies on document</rdfs:label>
+    <rdfs:comment>Links a KYC record to verifying documents.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#KYCRecord"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#IdentityDocument"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#verifiesKYC"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#SystemProcess">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>System Process</rdfs:label>
+    <rdfs:comment>Running software systems, APIs, and batch jobs.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#constrainsProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>constrains product</rdfs:label>
+    <rdfs:comment>Inverse of productConstrainedByPolicy.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Policy"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#productConstrainedByPolicy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#beneficialOwnerOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>beneficial owner of</rdfs:label>
+    <rdfs:comment>Inverse of hasBeneficialOwner.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#CorporateCustomer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasBeneficialOwner"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RelationshipManager">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Relationship Manager</rdfs:label>
+    <rdfs:comment>Wealth management and corporate accounts staff advisors.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Employee"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#VerStatus_Pending">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#VerificationStatus"/>
+    <rdfs:label>Pending Verification</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#healthOfCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>health of customer</rdfs:label>
+    <rdfs:comment>Inverse of monitorsHealth.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FinancialHealthScore"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#monitorsHealth"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#riskToleranceScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>risk tolerance score</rdfs:label>
+    <rdfs:comment>Risk tolerance assessment score (1-100).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Status_Dormant">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#AccountStatus"/>
+    <rdfs:label>Dormant Account</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Status_Frozen">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#AccountStatus"/>
+    <rdfs:label>Frozen Account</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#FinancialMetric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Financial Metric</rdfs:label>
+    <rdfs:comment>Underlying math balances (e.g., Debt-to-Income, Savings Rate).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#receivingAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>receiving account</rdfs:label>
+    <rdfs:comment>Inverse of receivesTransaction.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#receivesTransaction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#assetCurrentPrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>asset current price</rdfs:label>
+    <rdfs:comment>Active feed price value of security.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#InvestmentAsset"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#DepositAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Deposit Account</rdfs:label>
+    <rdfs:comment>An account holding customer checking or savings balances.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#DepositProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Deposit Product</rdfs:label>
+    <rdfs:comment>Asset-gathering product templates (e.g., Savings, Checking, CDs).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#PortfolioRebalancingAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Portfolio Rebalancing Action</rdfs:label>
+    <rdfs:comment>Advisory trade directives realigning asset weights.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#BillingStatement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Billing Statement</rdfs:label>
+    <rdfs:comment>Monthly revolving credit statements summarizing outstanding debt.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#JourneyStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Journey Stage</rdfs:label>
+    <rdfs:comment>Core lifecycle phases (Lead, Onboarded, Advocate).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#fraudLossAmount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>fraud loss amount</rdfs:label>
+    <rdfs:comment>Financial loss logged under fraud case.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FraudCase"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>SBI Enterprise Banking Ontology</rdfs:label>
+    <rdfs:comment>A production-quality OWL 2 DL ontology representing the conceptual domain model of a cognitive enterprise banking platform. Designed for AI agents reasoning over customer profiles, financial goals, loans, risk, fraud, and banking operations.</rdfs:comment>
+    <owl:versionInfo>1.0.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N574e596539db4746aa94830b8f0ba22e">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbi.co.in/ontology/banking#reliesOnDocument"/>
+    <owl:someValuesFrom rdf:resource="http://sbi.co.in/ontology/banking#IdentityDocument"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasKYCRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has KYC record</rdfs:label>
+    <rdfs:comment>Links a customer to their compliance KYC record.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#KYCRecord"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#kycOfCustomer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Segment_MassRetail">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#CustomerSegment"/>
+    <rdfs:label>Mass Retail Segment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CreditCard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Credit Card</rdfs:label>
+    <rdfs:comment>Plastic or virtual physical card vehicle.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#verifiesKYC">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>verifies KYC</rdfs:label>
+    <rdfs:comment>Inverse of reliesOnDocument.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IdentityDocument"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#KYCRecord"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#reliesOnDocument"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#rulesApplyTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>rules apply to</rdfs:label>
+    <rdfs:comment>Inverse of governedByRules.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#ProductRules"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#governedByRules"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#originatesTransaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>originates transaction</rdfs:label>
+    <rdfs:comment>Links an account to outgoing fund transactions.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#originatingAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#lastName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>last name</rdfs:label>
+    <rdfs:comment>Surname of individual customer.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#BankingEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Banking Event</rdfs:label>
+    <rdfs:comment>System event broker logs tracking core data changes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Account">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Account</rdfs:label>
+    <rdfs:comment>An instantiated ledger contract owned by a customer representing a financial balance.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#loggedForCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>logged for customer</rdfs:label>
+    <rdfs:comment>Inverse of hasInteractionLog.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#InteractionHistory"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasInteractionLog"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#targetDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>target date</rdfs:label>
+    <rdfs:comment>Target goal completion date.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#FinancialGoal"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#EngagementCampaign">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Engagement Campaign</rdfs:label>
+    <rdfs:comment>Marketing campaigns targeting segments of clients.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasRiskProfile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has risk profile</rdfs:label>
+    <rdfs:comment>Links a customer to their active risk profile.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#RiskProfile"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#riskOfCustomer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#VerStatus_Unverified">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#VerificationStatus"/>
+    <rdfs:label>Unverified Status</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#statusOfTransaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>status of transaction</rdfs:label>
+    <rdfs:comment>Inverse of hasTransactionStatus.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#TransactionStatus"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasTransactionStatus"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#AutoLoan">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Auto Loan</rdfs:label>
+    <rdfs:comment>A vehicle-secured installment loan.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Loan"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#MerchantBrand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Merchant Brand</rdfs:label>
+    <rdfs:comment>Parent brand tree matching multiple merchant outlets.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#ownsAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>owns account</rdfs:label>
+    <rdfs:comment>Links a customer to their financial accounts.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#ownedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Collateral">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Collateral</rdfs:label>
+    <rdfs:comment>An asset pledged by a borrower to secure a loan.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#productId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>product ID</rdfs:label>
+    <rdfs:comment>Unique product template reference ID.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#balance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>balance</rdfs:label>
+    <rdfs:comment>Core ledger balance of the account.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#TxnStatus_Pending">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#TransactionStatus"/>
+    <rdfs:label>Pending Transaction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#employeeId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>employee ID</rdfs:label>
+    <rdfs:comment>HR employee profile reference ID.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Employee"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#hasCard">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has card</rdfs:label>
+    <rdfs:comment>Inverse of linkedToAccount.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CreditCardAccount"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#CreditCard"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#linkedToAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#OperationsQueue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Operations Queue</rdfs:label>
+    <rdfs:comment>Manual or automated task buckets waiting for actions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#SLAAgreement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>SLA Agreement</rdfs:label>
+    <rdfs:comment>Service Level Agreements bounding resolution durations.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CustomerSegment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Customer Segment</rdfs:label>
+    <rdfs:comment>Controlled vocabulary defining relationship tiers (e.g., Mass Retail, HNWI).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#AccountStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Account Status</rdfs:label>
+    <rdfs:comment>Explicit state designations (Active, Frozen, Dormant, Closed).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RequestCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Request Category</rdfs:label>
+    <rdfs:comment>Routing classification (Card Dispute, Fee Waiver, Address Update).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#SystemRole">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>System Role</rdfs:label>
+    <rdfs:comment>Security access configurations matching operations queues.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#notificationSentTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>notification sent to</rdfs:label>
+    <rdfs:comment>Inverse of receivesNotification.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Notification"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#receivesNotification"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RegulatoryRequirement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Regulatory Requirement</rdfs:label>
+    <rdfs:comment>External regulatory frameworks governed by law.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Segment_HNWI">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#CustomerSegment"/>
+    <rdfs:label>High Net Worth Individual Segment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#sentimentScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>sentiment score</rdfs:label>
+    <rdfs:comment>Calculated interaction sentiment (-1.0 to 1.0).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#InteractionHistory"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#PolicyException">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Policy Exception</rdfs:label>
+    <rdfs:comment>Authorized deviations from policy guidelines.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#onboardingDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>onboarding date</rdfs:label>
+    <rdfs:comment>Official registration date of relationship.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#managedByRM">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>managed by RM</rdfs:label>
+    <rdfs:comment>Inverse of managesCustomer.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#RelationshipManager"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#managesCustomer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#memberOfHousehold">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>member of household</rdfs:label>
+    <rdfs:comment>Links an individual to a household.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#CustomerHousehold"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasHouseholdMember"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#customerId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>customer ID</rdfs:label>
+    <rdfs:comment>UUID for legal customer identity.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#VerificationStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Verification Status</rdfs:label>
+    <rdfs:comment>States of identity validation audits.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#processesTransaction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>processes transaction</rdfs:label>
+    <rdfs:comment>Inverse of occursAtMerchant.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Transaction"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#occursAtMerchant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#SavingsAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Savings Account</rdfs:label>
+    <rdfs:comment>An interest-bearing deposit account.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#DepositAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#BankingProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Banking Product</rdfs:label>
+    <rdfs:comment>Abstract product offering templates defining rules, interest rates, and fees.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Vault">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Vault</rdfs:label>
+    <rdfs:comment>Safe deposit boxes and branch cash reserve containment units.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#AmortizationSchedule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Amortization Schedule</rdfs:label>
+    <rdfs:comment>Timeline chart mapping principal and interest payments.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#LocationContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Location Context</rdfs:label>
+    <rdfs:comment>Geographical and IP parameters.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#LendingAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Lending Account</rdfs:label>
+    <rdfs:comment>A liability account tracking outstanding credit debt.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Account"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RequestPriority">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Request Priority</rdfs:label>
+    <rdfs:comment>Severity rankings assigned to service tickets.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CheckingAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Checking Account</rdfs:label>
+    <rdfs:comment>A transactional deposit account.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#DepositAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#ServiceRequest">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Service Request</rdfs:label>
+    <rdfs:comment>A customer service ticket requiring operational resolution.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#UnderwritingPolicy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Underwriting Policy</rdfs:label>
+    <rdfs:comment>Lending criteria policies.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#Policy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#eventId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>event ID</rdfs:label>
+    <rdfs:comment>Event bus message reference ID.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#BankingEvent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#MerchantCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Merchant Category</rdfs:label>
+    <rdfs:comment>Classification of business types matching Merchant Category Codes (MCC).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#merchantName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>merchant name</rdfs:label>
+    <rdfs:comment>Business trading name.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Merchant"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#GoalType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Goal Type</rdfs:label>
+    <rdfs:comment>Controlled category classifications for goals (e.g., Retirement, Education).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#FinancialHealthScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Financial Health Score</rdfs:label>
+    <rdfs:comment>Calculated rating representing customer cash flow wellness.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#containsPortfolio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>contains portfolio</rdfs:label>
+    <rdfs:comment>Links an investment account to its portfolio.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#InvestmentAccount"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#InvestmentPortfolio"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#portfolioInAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#FraudCase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Fraud Case</rdfs:label>
+    <rdfs:comment>Active operations investigation file for suspect transactions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#productName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>product name</rdfs:label>
+    <rdfs:comment>Marketing name of product offering.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#BankingProduct"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#OperationalLog">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Operational Log</rdfs:label>
+    <rdfs:comment>Software execution logs tracking system messages.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#riskOfCustomer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>risk of customer</rdfs:label>
+    <rdfs:comment>Inverse of hasRiskProfile.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#RiskProfile"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#Customer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#hasRiskProfile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#TxnStatus_Settled">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#TransactionStatus"/>
+    <rdfs:label>Settled Transaction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#DocumentType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Document Type</rdfs:label>
+    <rdfs:comment>Classifications mapping compliance retention spans.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#FinancialGoal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Financial Goal</rdfs:label>
+    <rdfs:comment>A customer-defined target objective with target dates and amounts.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Merchant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Merchant</rdfs:label>
+    <rdfs:comment>A business terminal receiving transaction expenditures.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#recommendationConfidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label>recommendation confidence</rdfs:label>
+    <rdfs:comment>ML model predictive confidence.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#Recommendation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CustomerHousehold">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Customer Household</rdfs:label>
+    <rdfs:comment>A semantic grouping of individuals sharing a residency or shared financial goals.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#employs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>employs</rdfs:label>
+    <rdfs:comment>Inverse of employedBy.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://sbi.co.in/ontology/banking#CorporateCustomer"/>
+    <rdfs:range rdf:resource="http://sbi.co.in/ontology/banking#IndividualCustomer"/>
+    <owl:inverseOf rdf:resource="http://sbi.co.in/ontology/banking#employedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#VerStatus_Verified">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#VerificationStatus"/>
+    <rdfs:label>Verified Status</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Recommendation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Recommendation</rdfs:label>
+    <rdfs:comment>Advisory prompts and product cross-sell outputs.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#EventPayload">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Event Payload</rdfs:label>
+    <rdfs:comment>Data content structures mapped to events.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CustomerJourney">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Customer Journey</rdfs:label>
+    <rdfs:comment>Customer lifecycle maps.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#GoalMilestone">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Goal Milestone</rdfs:label>
+    <rdfs:comment>Interim target achievements on the path to goal completion.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#InteractionHistory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Interaction History</rdfs:label>
+    <rdfs:comment>Logs mapping all communications and touchpoints with clients.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Status_Closed">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#AccountStatus"/>
+    <rdfs:label>Closed Account</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Branch">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Branch</rdfs:label>
+    <rdfs:comment>Physical brick-and-mortar office buildings.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4ad9fab46cc141d3b6a1648f7ab64d6d">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://sbi.co.in/ontology/banking#securedByCollateral"/>
+    <owl:someValuesFrom rdf:resource="http://sbi.co.in/ontology/banking#Collateral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#TxnStatus_Declined">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#TransactionStatus"/>
+    <rdfs:label>Declined Transaction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#CreditCardAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Credit Card Account</rdfs:label>
+    <rdfs:comment>A revolving credit account ledger.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#LendingAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Lien">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Lien</rdfs:label>
+    <rdfs:comment>Legal registry claims held against collateral objects.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RecommendationAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Recommendation Action</rdfs:label>
+    <rdfs:comment>Trigger actions linked to dynamic recommendations.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#TransactionCategorization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Transaction Categorization</rdfs:label>
+    <rdfs:comment>Spending classification categories (e.g., Groceries, Rent).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#LoanAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Loan Account</rdfs:label>
+    <rdfs:comment>A specific term loan ledger.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://sbi.co.in/ontology/banking#LendingAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Segment_MassAffluent">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#CustomerSegment"/>
+    <rdfs:label>Mass Affluent Segment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Customer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Customer</rdfs:label>
+    <rdfs:comment>Abstract base class for any banking client (Individual or Corporate).</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="N709ae0d46ef645edaf6b05a6cc1d9de9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#Status_Active">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#AccountStatus"/>
+    <rdfs:label>Active Account</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#RecommendationFeedback">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Recommendation Feedback</rdfs:label>
+    <rdfs:comment>Audit tracking customer click/ignore responses.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#VerStatus_Rejected">
+    <rdf:type rdf:resource="http://sbi.co.in/ontology/banking#VerificationStatus"/>
+    <rdfs:label>Rejected Status</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sbi.co.in/ontology/banking#FraudPattern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Fraud Pattern</rdfs:label>
+    <rdfs:comment>Signatures and heuristics of known malicious schemes.</rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>

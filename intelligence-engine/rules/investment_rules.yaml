@@ -1,0 +1,33 @@
+# Investment Product Rules for SBI Intelligence Engine
+
+fixed_deposit:
+  name: "SBI Regular Fixed Deposit Policy"
+  id: "POL-INV-FD-001"
+  min_deposit_amount_inr: 1000
+  min_tenure_days: 7
+  max_tenure_years: 10
+  supporting_policy: "SBI Fixed Deposit Scheme Rules 2024"
+
+mutual_fund_conservative:
+  name: "SBI Conservative Mutual Fund Policy"
+  id: "POL-INV-MF-CONS-001"
+  min_age: 18
+  min_credit_score: 500
+  allowed_customer_segments: ["MassRetail", "MassAffluent", "HNWI"]
+  supporting_policy: "SBI Asset Management Debt Scheme Guidelines"
+
+mutual_fund_aggressive:
+  name: "SBI Aggressive Equity Fund Policy"
+  id: "POL-INV-MF-AGGR-001"
+  min_age: 18
+  min_credit_score: 600
+  allowed_customer_segments: ["MassAffluent", "HNWI"]
+  supporting_policy: "SBI Asset Management Equity Scheme Guidelines"
+
+insurance_term:
+  name: "SBI Term Life Insurance Policy"
+  id: "POL-INS-TERM-001"
+  min_age: 18
+  max_age: 65
+  min_annual_income_inr: 300000
+  supporting_policy: "SBI Life Shield Guidelines"

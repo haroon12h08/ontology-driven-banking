@@ -1,0 +1,24 @@
+# Risk Rating Rules for SBI Intelligence Engine
+
+credit_risk:
+  name: "SBI Credit Risk Evaluation Policy"
+  id: "POL-RISK-CREDIT-001"
+  high_risk_credit_score_limit: 500
+  medium_risk_credit_score_limit: 650
+  low_risk_credit_score_limit: 850
+  supporting_policy: "SBI Credit Risk Framework 2026"
+
+financial_risk:
+  name: "SBI Financial Exposure Risk Policy"
+  id: "POL-RISK-FIN-001"
+  max_dti_ratio_high: 0.60
+  max_dti_ratio_medium: 0.45
+  min_savings_ratio_low: 0.10
+  supporting_policy: "SBI Retail Debt Monitoring Protocol"
+
+event_risk:
+  name: "SBI Operational and Event Risk Policy"
+  id: "POL-RISK-EVENT-001"
+  max_missed_emis: 1
+  kyc_expiry_grace_days: 30
+  supporting_policy: "SBI Operational Risk Control Policy"

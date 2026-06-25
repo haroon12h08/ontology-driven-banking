@@ -1,0 +1,501 @@
+customerId,firstName,lastName,dateOfBirth,annualIncome,occupation,city,segment,creditScore,relationshipManagerId
+CUST-001,CustomerFirstName1,CustomerLastName1,1960-08-26,20749.2,Student,Ahmedabad,HNWI,598,EMP-003
+CUST-002,CustomerFirstName2,CustomerLastName2,1965-10-02,100669.37,Consultant,Ahmedabad,MassRetail,372,
+CUST-003,CustomerFirstName3,CustomerLastName3,1968-01-02,240591.85,Business Owner,Pune,HNWI,417,EMP-008
+CUST-004,CustomerFirstName4,CustomerLastName4,1994-01-27,61717.03,Consultant,Bengaluru,HNWI,373,EMP-008
+CUST-005,CustomerFirstName5,CustomerLastName5,1961-04-17,241936.0,Consultant,Ahmedabad,MassRetail,427,
+CUST-006,CustomerFirstName6,CustomerLastName6,1997-08-13,132702.39,Consultant,Ahmedabad,MassAffluent,748,EMP-010
+CUST-007,CustomerFirstName7,CustomerLastName7,1990-09-12,31161.02,Retired,Hyderabad,MassRetail,556,
+CUST-008,CustomerFirstName8,CustomerLastName8,1956-03-19,84098.84,Engineer,Kolkata,MassRetail,341,
+CUST-009,CustomerFirstName9,CustomerLastName9,1982-01-07,165309.88,Student,Kolkata,MassRetail,485,
+CUST-010,CustomerFirstName10,CustomerLastName10,1993-03-13,247988.58,Doctor,Ahmedabad,HNWI,656,EMP-014
+CUST-011,CustomerFirstName11,CustomerLastName11,1971-11-06,207637.38,Teacher,Hyderabad,MassAffluent,721,EMP-011
+CUST-012,CustomerFirstName12,CustomerLastName12,1969-08-12,205523.39,Retired,Mumbai,HNWI,765,EMP-016
+CUST-013,CustomerFirstName13,CustomerLastName13,1971-05-28,90671.68,Doctor,Pune,MassRetail,826,
+CUST-014,CustomerFirstName14,CustomerLastName14,1994-10-03,263422.9,Student,Pune,MassRetail,355,
+CUST-015,CustomerFirstName15,CustomerLastName15,1985-04-12,121298.22,Student,Ahmedabad,MassRetail,352,
+CUST-016,CustomerFirstName16,CustomerLastName16,1968-03-04,173781.5,Consultant,Ahmedabad,MassRetail,796,
+CUST-017,CustomerFirstName17,CustomerLastName17,1951-12-19,292481.11,Business Owner,Bengaluru,MassRetail,618,
+CUST-018,CustomerFirstName18,CustomerLastName18,1987-08-01,134237.39,Business Owner,Delhi,HNWI,772,EMP-001
+CUST-019,CustomerFirstName19,CustomerLastName19,1994-01-28,253000.09,Student,Kolkata,MassRetail,821,
+CUST-020,CustomerFirstName20,CustomerLastName20,1978-04-11,253722.7,Student,Chennai,HNWI,767,EMP-009
+CUST-021,CustomerFirstName21,CustomerLastName21,1976-02-08,73370.9,Teacher,Delhi,HNWI,582,EMP-005
+CUST-022,CustomerFirstName22,CustomerLastName22,2003-08-09,162166.55,Engineer,Kolkata,MassAffluent,605,EMP-011
+CUST-023,CustomerFirstName23,CustomerLastName23,1994-11-28,157099.3,Teacher,Ahmedabad,HNWI,795,EMP-019
+CUST-024,CustomerFirstName24,CustomerLastName24,1987-07-23,233604.35,Retired,Ahmedabad,MassAffluent,629,EMP-011
+CUST-025,CustomerFirstName25,CustomerLastName25,1997-06-19,86865.55,Retired,Chennai,MassRetail,720,
+CUST-026,CustomerFirstName26,CustomerLastName26,1971-08-27,228517.44,Retired,Pune,MassRetail,455,
+CUST-027,CustomerFirstName27,CustomerLastName27,1958-08-04,160641.52,Artist,Delhi,MassAffluent,750,EMP-002
+CUST-028,CustomerFirstName28,CustomerLastName28,1985-10-16,274923.67,Engineer,Bengaluru,MassRetail,719,
+CUST-029,CustomerFirstName29,CustomerLastName29,1955-02-03,151457.37,Consultant,Hyderabad,HNWI,707,EMP-005
+CUST-030,CustomerFirstName30,CustomerLastName30,1972-05-11,258655.57,Retired,Hyderabad,HNWI,799,EMP-003
+CUST-031,CustomerFirstName31,CustomerLastName31,1992-01-08,39157.81,Consultant,Chennai,HNWI,392,EMP-002
+CUST-032,CustomerFirstName32,CustomerLastName32,2001-09-29,197449.39,Doctor,Ahmedabad,MassAffluent,470,EMP-004
+CUST-033,CustomerFirstName33,CustomerLastName33,1951-12-21,32877.47,Engineer,Kolkata,HNWI,667,EMP-010
+CUST-034,CustomerFirstName34,CustomerLastName34,1959-11-28,88375.28,Retired,Bengaluru,MassAffluent,474,EMP-014
+CUST-035,CustomerFirstName35,CustomerLastName35,1955-05-17,190657.7,Retired,Chennai,MassRetail,809,
+CUST-036,CustomerFirstName36,CustomerLastName36,1965-10-20,149121.98,Consultant,Ahmedabad,HNWI,561,EMP-005
+CUST-037,CustomerFirstName37,CustomerLastName37,2004-10-03,150270.91,Consultant,Bengaluru,HNWI,375,EMP-001
+CUST-038,CustomerFirstName38,CustomerLastName38,1989-12-26,103763.19,Retired,Kolkata,MassAffluent,767,EMP-012
+CUST-039,CustomerFirstName39,CustomerLastName39,1976-03-06,258933.93,Doctor,Chennai,MassAffluent,690,EMP-007
+CUST-040,CustomerFirstName40,CustomerLastName40,1989-02-12,102844.27,Consultant,Mumbai,HNWI,705,EMP-012
+CUST-041,CustomerFirstName41,CustomerLastName41,1988-07-06,262218.87,Engineer,Ahmedabad,MassAffluent,593,EMP-001
+CUST-042,CustomerFirstName42,CustomerLastName42,1991-04-24,244540.95,Business Owner,Chennai,MassRetail,556,
+CUST-043,CustomerFirstName43,CustomerLastName43,1992-10-02,47205.9,Engineer,Kolkata,HNWI,751,EMP-005
+CUST-044,CustomerFirstName44,CustomerLastName44,1989-06-10,122161.15,Teacher,Delhi,MassRetail,602,
+CUST-045,CustomerFirstName45,CustomerLastName45,1961-12-14,76222.54,Artist,Kolkata,MassAffluent,468,EMP-014
+CUST-046,CustomerFirstName46,CustomerLastName46,2004-11-18,102639.61,Artist,Delhi,MassAffluent,779,EMP-016
+CUST-047,CustomerFirstName47,CustomerLastName47,1959-07-31,231162.42,Business Owner,Pune,MassRetail,674,
+CUST-048,CustomerFirstName48,CustomerLastName48,2003-10-22,130480.88,Consultant,Delhi,MassRetail,765,
+CUST-049,CustomerFirstName49,CustomerLastName49,1989-10-12,126687.14,Artist,Delhi,MassAffluent,539,EMP-009
+CUST-050,CustomerFirstName50,CustomerLastName50,1992-02-28,267585.76,Artist,Chennai,MassAffluent,364,EMP-001
+CUST-051,CustomerFirstName51,CustomerLastName51,1997-09-16,104613.25,Retired,Delhi,HNWI,443,EMP-015
+CUST-052,CustomerFirstName52,CustomerLastName52,1952-07-13,105222.08,Student,Delhi,MassRetail,399,
+CUST-053,CustomerFirstName53,CustomerLastName53,1986-07-31,57985.93,Student,Hyderabad,MassRetail,729,
+CUST-054,CustomerFirstName54,CustomerLastName54,1978-03-27,203378.13,Student,Pune,HNWI,586,EMP-005
+CUST-055,CustomerFirstName55,CustomerLastName55,1996-12-22,123748.39,Student,Ahmedabad,MassRetail,541,
+CUST-056,CustomerFirstName56,CustomerLastName56,1996-08-29,122853.79,Artist,Mumbai,MassAffluent,707,EMP-004
+CUST-057,CustomerFirstName57,CustomerLastName57,1958-04-25,285723.02,Student,Delhi,MassAffluent,517,EMP-007
+CUST-058,CustomerFirstName58,CustomerLastName58,1951-06-15,34161.98,Artist,Chennai,HNWI,428,EMP-020
+CUST-059,CustomerFirstName59,CustomerLastName59,1954-09-02,252348.99,Business Owner,Chennai,HNWI,538,EMP-007
+CUST-060,CustomerFirstName60,CustomerLastName60,2003-09-01,272148.69,Engineer,Kolkata,MassAffluent,448,EMP-005
+CUST-061,CustomerFirstName61,CustomerLastName61,1986-10-06,90183.18,Teacher,Delhi,MassRetail,326,
+CUST-062,CustomerFirstName62,CustomerLastName62,1951-01-05,120307.84,Business Owner,Hyderabad,MassRetail,316,
+CUST-063,CustomerFirstName63,CustomerLastName63,1968-01-22,34671.73,Retired,Delhi,MassRetail,365,
+CUST-064,CustomerFirstName64,CustomerLastName64,2002-12-11,121370.91,Doctor,Ahmedabad,MassAffluent,815,EMP-015
+CUST-065,CustomerFirstName65,CustomerLastName65,1991-11-10,32142.21,Consultant,Ahmedabad,MassRetail,331,
+CUST-066,CustomerFirstName66,CustomerLastName66,1982-08-06,257243.59,Retired,Delhi,MassRetail,802,
+CUST-067,CustomerFirstName67,CustomerLastName67,1955-01-01,271794.69,Artist,Bengaluru,HNWI,367,EMP-015
+CUST-068,CustomerFirstName68,CustomerLastName68,1968-09-18,194808.9,Artist,Pune,MassRetail,843,
+CUST-069,CustomerFirstName69,CustomerLastName69,1984-05-27,189519.5,Doctor,Delhi,MassAffluent,520,EMP-015
+CUST-070,CustomerFirstName70,CustomerLastName70,1965-07-20,135867.8,Student,Pune,MassAffluent,725,EMP-015
+CUST-071,CustomerFirstName71,CustomerLastName71,1971-04-09,139493.92,Consultant,Hyderabad,HNWI,456,EMP-004
+CUST-072,CustomerFirstName72,CustomerLastName72,1954-07-27,45542.94,Doctor,Delhi,HNWI,742,EMP-016
+CUST-073,CustomerFirstName73,CustomerLastName73,2000-09-01,226862.88,Teacher,Mumbai,MassRetail,637,
+CUST-074,CustomerFirstName74,CustomerLastName74,1977-12-15,119007.46,Retired,Mumbai,HNWI,594,EMP-004
+CUST-075,CustomerFirstName75,CustomerLastName75,1973-12-06,49008.16,Business Owner,Bengaluru,HNWI,793,EMP-010
+CUST-076,CustomerFirstName76,CustomerLastName76,1957-05-13,118031.92,Artist,Delhi,MassRetail,585,
+CUST-077,CustomerFirstName77,CustomerLastName77,2004-12-06,140151.48,Engineer,Kolkata,HNWI,329,EMP-008
+CUST-078,CustomerFirstName78,CustomerLastName78,1968-08-06,216755.66,Consultant,Hyderabad,MassRetail,659,
+CUST-079,CustomerFirstName79,CustomerLastName79,1962-05-06,263561.56,Retired,Delhi,MassRetail,445,
+CUST-080,CustomerFirstName80,CustomerLastName80,1956-03-30,228911.29,Business Owner,Pune,HNWI,729,EMP-001
+CUST-081,CustomerFirstName81,CustomerLastName81,1960-09-17,123614.87,Artist,Delhi,MassAffluent,353,EMP-011
+CUST-082,CustomerFirstName82,CustomerLastName82,1960-09-17,231242.05,Engineer,Delhi,MassRetail,578,
+CUST-083,CustomerFirstName83,CustomerLastName83,1983-01-19,189981.28,Retired,Kolkata,MassAffluent,520,EMP-014
+CUST-084,CustomerFirstName84,CustomerLastName84,1973-06-28,140375.82,Consultant,Ahmedabad,HNWI,839,EMP-004
+CUST-085,CustomerFirstName85,CustomerLastName85,1953-02-02,81745.16,Engineer,Mumbai,HNWI,509,EMP-010
+CUST-086,CustomerFirstName86,CustomerLastName86,2002-03-21,58425.75,Consultant,Kolkata,MassAffluent,635,EMP-007
+CUST-087,CustomerFirstName87,CustomerLastName87,1950-07-12,159267.89,Retired,Bengaluru,MassRetail,432,
+CUST-088,CustomerFirstName88,CustomerLastName88,1997-11-19,84431.0,Artist,Delhi,MassAffluent,706,EMP-018
+CUST-089,CustomerFirstName89,CustomerLastName89,1979-09-08,25247.63,Doctor,Hyderabad,HNWI,739,EMP-002
+CUST-090,CustomerFirstName90,CustomerLastName90,1998-04-13,199239.67,Consultant,Delhi,HNWI,714,EMP-013
+CUST-091,CustomerFirstName91,CustomerLastName91,1972-02-07,68124.49,Student,Hyderabad,MassRetail,390,
+CUST-092,CustomerFirstName92,CustomerLastName92,1966-07-23,141989.43,Retired,Delhi,MassAffluent,705,EMP-004
+CUST-093,CustomerFirstName93,CustomerLastName93,1965-01-29,113259.21,Teacher,Delhi,MassAffluent,822,EMP-011
+CUST-094,CustomerFirstName94,CustomerLastName94,1986-02-09,162786.58,Artist,Hyderabad,HNWI,451,EMP-004
+CUST-095,CustomerFirstName95,CustomerLastName95,1956-12-30,61004.38,Business Owner,Bengaluru,MassRetail,456,
+CUST-096,CustomerFirstName96,CustomerLastName96,1962-01-20,286361.8,Student,Ahmedabad,HNWI,759,EMP-003
+CUST-097,CustomerFirstName97,CustomerLastName97,1993-10-03,197883.53,Artist,Hyderabad,HNWI,454,EMP-019
+CUST-098,CustomerFirstName98,CustomerLastName98,1981-11-29,143818.26,Consultant,Kolkata,MassAffluent,357,EMP-003
+CUST-099,CustomerFirstName99,CustomerLastName99,1955-01-19,106914.2,Student,Mumbai,MassAffluent,358,EMP-017
+CUST-100,CustomerFirstName100,CustomerLastName100,1955-03-23,200506.61,Doctor,Pune,MassAffluent,773,EMP-010
+CUST-101,CustomerFirstName101,CustomerLastName101,2003-11-19,226897.89,Engineer,Ahmedabad,HNWI,492,EMP-018
+CUST-102,CustomerFirstName102,CustomerLastName102,1982-05-14,160382.84,Engineer,Ahmedabad,MassAffluent,405,EMP-020
+CUST-103,CustomerFirstName103,CustomerLastName103,1984-05-02,200915.59,Engineer,Chennai,MassAffluent,748,EMP-003
+CUST-104,CustomerFirstName104,CustomerLastName104,1985-07-28,190745.51,Artist,Hyderabad,MassAffluent,589,EMP-017
+CUST-105,CustomerFirstName105,CustomerLastName105,2002-09-14,114742.8,Engineer,Hyderabad,MassAffluent,367,EMP-014
+CUST-106,CustomerFirstName106,CustomerLastName106,1987-12-21,209946.22,Consultant,Kolkata,MassAffluent,453,EMP-004
+CUST-107,CustomerFirstName107,CustomerLastName107,1989-08-28,205811.39,Artist,Kolkata,MassAffluent,701,EMP-003
+CUST-108,CustomerFirstName108,CustomerLastName108,1990-06-29,218473.52,Doctor,Kolkata,MassRetail,685,
+CUST-109,CustomerFirstName109,CustomerLastName109,2005-05-03,55782.25,Doctor,Pune,HNWI,820,EMP-011
+CUST-110,CustomerFirstName110,CustomerLastName110,1974-09-04,106482.5,Business Owner,Hyderabad,MassAffluent,797,EMP-001
+CUST-111,CustomerFirstName111,CustomerLastName111,1965-06-01,299993.45,Teacher,Delhi,MassRetail,602,
+CUST-112,CustomerFirstName112,CustomerLastName112,1984-07-19,235844.92,Engineer,Hyderabad,MassRetail,434,
+CUST-113,CustomerFirstName113,CustomerLastName113,1960-06-30,65429.22,Teacher,Ahmedabad,HNWI,344,EMP-013
+CUST-114,CustomerFirstName114,CustomerLastName114,1996-01-11,221483.99,Student,Kolkata,MassAffluent,759,EMP-012
+CUST-115,CustomerFirstName115,CustomerLastName115,1986-05-04,86967.18,Student,Chennai,MassRetail,676,
+CUST-116,CustomerFirstName116,CustomerLastName116,1979-12-26,149270.39,Consultant,Pune,HNWI,814,EMP-019
+CUST-117,CustomerFirstName117,CustomerLastName117,1961-01-10,248729.55,Teacher,Kolkata,HNWI,353,EMP-014
+CUST-118,CustomerFirstName118,CustomerLastName118,1975-04-06,175271.41,Doctor,Delhi,HNWI,591,EMP-016
+CUST-119,CustomerFirstName119,CustomerLastName119,2001-12-06,64887.45,Student,Bengaluru,MassRetail,747,
+CUST-120,CustomerFirstName120,CustomerLastName120,1965-02-09,248676.91,Artist,Mumbai,MassRetail,724,
+CUST-121,CustomerFirstName121,CustomerLastName121,1976-12-23,160561.99,Business Owner,Pune,MassRetail,383,
+CUST-122,CustomerFirstName122,CustomerLastName122,1951-12-02,109231.77,Doctor,Hyderabad,MassAffluent,449,EMP-008
+CUST-123,CustomerFirstName123,CustomerLastName123,1952-08-10,100326.23,Student,Bengaluru,MassRetail,780,
+CUST-124,CustomerFirstName124,CustomerLastName124,1950-05-11,273640.1,Engineer,Kolkata,MassAffluent,520,EMP-020
+CUST-125,CustomerFirstName125,CustomerLastName125,1987-05-07,283263.27,Retired,Delhi,MassRetail,595,
+CUST-126,CustomerFirstName126,CustomerLastName126,1970-06-30,54117.54,Business Owner,Pune,MassRetail,768,
+CUST-127,CustomerFirstName127,CustomerLastName127,1957-07-18,254272.56,Student,Mumbai,MassRetail,827,
+CUST-128,CustomerFirstName128,CustomerLastName128,1998-11-24,60201.52,Retired,Mumbai,HNWI,661,EMP-008
+CUST-129,CustomerFirstName129,CustomerLastName129,1988-10-31,136638.93,Doctor,Hyderabad,MassRetail,369,
+CUST-130,CustomerFirstName130,CustomerLastName130,1984-07-10,240195.45,Engineer,Pune,HNWI,781,EMP-018
+CUST-131,CustomerFirstName131,CustomerLastName131,1993-04-04,128326.77,Artist,Kolkata,MassRetail,316,
+CUST-132,CustomerFirstName132,CustomerLastName132,1973-06-19,87515.26,Doctor,Hyderabad,MassAffluent,436,EMP-003
+CUST-133,CustomerFirstName133,CustomerLastName133,1973-12-22,172883.85,Teacher,Ahmedabad,MassRetail,790,
+CUST-134,CustomerFirstName134,CustomerLastName134,2005-03-22,57758.72,Student,Mumbai,HNWI,600,EMP-006
+CUST-135,CustomerFirstName135,CustomerLastName135,1952-12-24,241510.58,Engineer,Hyderabad,MassRetail,617,
+CUST-136,CustomerFirstName136,CustomerLastName136,1986-12-15,152551.93,Engineer,Chennai,HNWI,592,EMP-013
+CUST-137,CustomerFirstName137,CustomerLastName137,1994-08-16,112938.91,Doctor,Hyderabad,MassAffluent,747,EMP-002
+CUST-138,CustomerFirstName138,CustomerLastName138,1976-04-24,114930.26,Teacher,Ahmedabad,MassAffluent,809,EMP-015
+CUST-139,CustomerFirstName139,CustomerLastName139,1968-02-25,244321.46,Retired,Delhi,MassAffluent,740,EMP-017
+CUST-140,CustomerFirstName140,CustomerLastName140,1987-02-13,102254.6,Doctor,Delhi,HNWI,635,EMP-006
+CUST-141,CustomerFirstName141,CustomerLastName141,1970-11-09,144856.41,Retired,Bengaluru,HNWI,754,EMP-010
+CUST-142,CustomerFirstName142,CustomerLastName142,1952-11-18,223508.03,Artist,Pune,MassAffluent,581,EMP-015
+CUST-143,CustomerFirstName143,CustomerLastName143,1955-02-09,207931.49,Retired,Hyderabad,HNWI,825,EMP-002
+CUST-144,CustomerFirstName144,CustomerLastName144,1952-02-14,59978.25,Student,Mumbai,HNWI,429,EMP-006
+CUST-145,CustomerFirstName145,CustomerLastName145,1966-01-22,237984.3,Artist,Hyderabad,MassRetail,692,
+CUST-146,CustomerFirstName146,CustomerLastName146,1991-03-06,62962.69,Student,Hyderabad,HNWI,680,EMP-002
+CUST-147,CustomerFirstName147,CustomerLastName147,1989-01-20,58554.63,Artist,Pune,MassAffluent,621,EMP-003
+CUST-148,CustomerFirstName148,CustomerLastName148,1966-12-27,288945.61,Engineer,Bengaluru,HNWI,811,EMP-009
+CUST-149,CustomerFirstName149,CustomerLastName149,1988-03-22,52973.08,Consultant,Ahmedabad,HNWI,519,EMP-013
+CUST-150,CustomerFirstName150,CustomerLastName150,1997-03-23,276614.09,Student,Chennai,HNWI,425,EMP-010
+CUST-151,CustomerFirstName151,CustomerLastName151,1955-01-15,146571.95,Student,Delhi,MassRetail,627,
+CUST-152,CustomerFirstName152,CustomerLastName152,1998-04-14,38182.94,Consultant,Kolkata,HNWI,461,EMP-012
+CUST-153,CustomerFirstName153,CustomerLastName153,2004-01-05,121217.81,Business Owner,Delhi,HNWI,505,EMP-006
+CUST-154,CustomerFirstName154,CustomerLastName154,1966-02-10,241304.46,Engineer,Hyderabad,MassRetail,677,
+CUST-155,CustomerFirstName155,CustomerLastName155,1958-10-31,191345.54,Doctor,Delhi,MassAffluent,616,EMP-018
+CUST-156,CustomerFirstName156,CustomerLastName156,1985-10-10,135022.63,Retired,Delhi,MassAffluent,428,EMP-016
+CUST-157,CustomerFirstName157,CustomerLastName157,1980-08-15,150433.3,Artist,Bengaluru,MassAffluent,486,EMP-003
+CUST-158,CustomerFirstName158,CustomerLastName158,1979-06-10,160801.86,Engineer,Delhi,MassRetail,830,
+CUST-159,CustomerFirstName159,CustomerLastName159,1970-09-12,66103.98,Artist,Chennai,MassRetail,654,
+CUST-160,CustomerFirstName160,CustomerLastName160,1955-05-15,90169.49,Consultant,Bengaluru,HNWI,610,EMP-010
+CUST-161,CustomerFirstName161,CustomerLastName161,1956-05-11,160720.48,Teacher,Bengaluru,HNWI,475,EMP-018
+CUST-162,CustomerFirstName162,CustomerLastName162,1999-01-15,272560.25,Artist,Mumbai,HNWI,329,EMP-020
+CUST-163,CustomerFirstName163,CustomerLastName163,1953-02-03,285593.12,Consultant,Chennai,MassRetail,726,
+CUST-164,CustomerFirstName164,CustomerLastName164,1983-11-22,268919.13,Consultant,Kolkata,HNWI,794,EMP-001
+CUST-165,CustomerFirstName165,CustomerLastName165,2004-10-04,246057.81,Retired,Kolkata,MassRetail,764,
+CUST-166,CustomerFirstName166,CustomerLastName166,1996-11-10,36775.65,Student,Pune,MassRetail,795,
+CUST-167,CustomerFirstName167,CustomerLastName167,1973-02-24,189864.87,Artist,Hyderabad,MassAffluent,653,EMP-007
+CUST-168,CustomerFirstName168,CustomerLastName168,2001-10-06,123751.26,Doctor,Hyderabad,MassAffluent,547,EMP-005
+CUST-169,CustomerFirstName169,CustomerLastName169,1968-03-15,145886.88,Teacher,Delhi,MassAffluent,351,EMP-004
+CUST-170,CustomerFirstName170,CustomerLastName170,1991-11-17,137077.73,Teacher,Hyderabad,MassAffluent,620,EMP-013
+CUST-171,CustomerFirstName171,CustomerLastName171,2001-12-06,64615.88,Student,Ahmedabad,MassRetail,615,
+CUST-172,CustomerFirstName172,CustomerLastName172,1956-02-17,284665.19,Student,Chennai,MassAffluent,520,EMP-001
+CUST-173,CustomerFirstName173,CustomerLastName173,1953-04-24,34151.31,Student,Ahmedabad,HNWI,592,EMP-012
+CUST-174,CustomerFirstName174,CustomerLastName174,1957-04-25,140659.78,Consultant,Hyderabad,HNWI,712,EMP-001
+CUST-175,CustomerFirstName175,CustomerLastName175,1977-04-05,34324.15,Business Owner,Hyderabad,MassAffluent,595,EMP-002
+CUST-176,CustomerFirstName176,CustomerLastName176,1976-04-16,161191.55,Consultant,Delhi,MassRetail,431,
+CUST-177,CustomerFirstName177,CustomerLastName177,1976-10-21,124495.53,Artist,Hyderabad,MassRetail,447,
+CUST-178,CustomerFirstName178,CustomerLastName178,1990-12-31,162554.3,Engineer,Mumbai,MassRetail,339,
+CUST-179,CustomerFirstName179,CustomerLastName179,1998-07-24,113251.4,Student,Ahmedabad,MassRetail,452,
+CUST-180,CustomerFirstName180,CustomerLastName180,1959-07-07,111830.44,Artist,Bengaluru,HNWI,702,EMP-017
+CUST-181,CustomerFirstName181,CustomerLastName181,1990-05-28,114184.57,Student,Kolkata,HNWI,786,EMP-010
+CUST-182,CustomerFirstName182,CustomerLastName182,1975-01-25,112747.09,Doctor,Pune,MassRetail,615,
+CUST-183,CustomerFirstName183,CustomerLastName183,1990-08-15,152885.26,Business Owner,Mumbai,HNWI,791,EMP-001
+CUST-184,CustomerFirstName184,CustomerLastName184,1985-09-03,196127.07,Retired,Bengaluru,MassRetail,548,
+CUST-185,CustomerFirstName185,CustomerLastName185,1988-12-18,285497.45,Doctor,Chennai,MassRetail,319,
+CUST-186,CustomerFirstName186,CustomerLastName186,1978-07-01,62400.75,Business Owner,Pune,MassAffluent,813,EMP-011
+CUST-187,CustomerFirstName187,CustomerLastName187,2000-01-28,223672.59,Teacher,Chennai,HNWI,632,EMP-016
+CUST-188,CustomerFirstName188,CustomerLastName188,1985-10-04,125510.94,Teacher,Ahmedabad,HNWI,845,EMP-016
+CUST-189,CustomerFirstName189,CustomerLastName189,1974-02-09,209243.2,Consultant,Ahmedabad,MassAffluent,496,EMP-018
+CUST-190,CustomerFirstName190,CustomerLastName190,1968-12-26,176264.26,Business Owner,Kolkata,MassRetail,595,
+CUST-191,CustomerFirstName191,CustomerLastName191,1996-12-21,217396.71,Artist,Ahmedabad,HNWI,657,EMP-007
+CUST-192,CustomerFirstName192,CustomerLastName192,1969-08-02,54124.75,Retired,Pune,HNWI,653,EMP-009
+CUST-193,CustomerFirstName193,CustomerLastName193,1969-10-07,31778.62,Doctor,Hyderabad,MassRetail,752,
+CUST-194,CustomerFirstName194,CustomerLastName194,2000-11-09,154142.19,Business Owner,Kolkata,HNWI,578,EMP-009
+CUST-195,CustomerFirstName195,CustomerLastName195,1957-06-07,192389.57,Business Owner,Chennai,MassRetail,351,
+CUST-196,CustomerFirstName196,CustomerLastName196,1965-05-11,198624.48,Engineer,Delhi,HNWI,723,EMP-017
+CUST-197,CustomerFirstName197,CustomerLastName197,1956-11-04,210733.76,Teacher,Mumbai,MassAffluent,461,EMP-016
+CUST-198,CustomerFirstName198,CustomerLastName198,1982-06-29,202150.83,Consultant,Hyderabad,MassAffluent,592,EMP-016
+CUST-199,CustomerFirstName199,CustomerLastName199,2002-04-24,45049.0,Business Owner,Mumbai,HNWI,479,EMP-002
+CUST-200,CustomerFirstName200,CustomerLastName200,1952-06-22,299208.1,Retired,Ahmedabad,MassAffluent,490,EMP-006
+CUST-201,CustomerFirstName201,CustomerLastName201,1952-07-20,22594.81,Doctor,Hyderabad,HNWI,591,EMP-010
+CUST-202,CustomerFirstName202,CustomerLastName202,1985-09-06,158295.48,Teacher,Ahmedabad,MassAffluent,579,EMP-018
+CUST-203,CustomerFirstName203,CustomerLastName203,2005-01-15,51541.09,Teacher,Ahmedabad,MassRetail,563,
+CUST-204,CustomerFirstName204,CustomerLastName204,1950-12-17,226253.01,Consultant,Chennai,HNWI,479,EMP-006
+CUST-205,CustomerFirstName205,CustomerLastName205,1979-02-08,164278.58,Doctor,Pune,HNWI,397,EMP-013
+CUST-206,CustomerFirstName206,CustomerLastName206,1959-07-27,153687.15,Business Owner,Mumbai,MassRetail,567,
+CUST-207,CustomerFirstName207,CustomerLastName207,1980-05-26,231051.86,Artist,Kolkata,MassAffluent,311,EMP-008
+CUST-208,CustomerFirstName208,CustomerLastName208,1997-02-21,86164.72,Doctor,Ahmedabad,MassAffluent,614,EMP-012
+CUST-209,CustomerFirstName209,CustomerLastName209,1977-08-03,212100.61,Consultant,Delhi,MassRetail,602,
+CUST-210,CustomerFirstName210,CustomerLastName210,1965-01-11,81356.01,Teacher,Ahmedabad,MassAffluent,456,EMP-020
+CUST-211,CustomerFirstName211,CustomerLastName211,1975-06-05,136436.77,Student,Chennai,MassAffluent,553,EMP-020
+CUST-212,CustomerFirstName212,CustomerLastName212,2003-08-01,42923.69,Student,Hyderabad,HNWI,379,EMP-020
+CUST-213,CustomerFirstName213,CustomerLastName213,1954-03-16,252056.74,Business Owner,Bengaluru,HNWI,468,EMP-004
+CUST-214,CustomerFirstName214,CustomerLastName214,1980-01-26,52547.21,Business Owner,Ahmedabad,MassAffluent,393,EMP-017
+CUST-215,CustomerFirstName215,CustomerLastName215,2005-01-12,35578.03,Teacher,Pune,HNWI,767,EMP-015
+CUST-216,CustomerFirstName216,CustomerLastName216,1988-01-10,149465.93,Consultant,Mumbai,HNWI,705,EMP-002
+CUST-217,CustomerFirstName217,CustomerLastName217,2000-10-02,81012.37,Doctor,Mumbai,MassAffluent,733,EMP-001
+CUST-218,CustomerFirstName218,CustomerLastName218,1986-10-29,298354.62,Doctor,Ahmedabad,MassAffluent,332,EMP-003
+CUST-219,CustomerFirstName219,CustomerLastName219,1962-04-01,235312.18,Retired,Hyderabad,MassAffluent,691,EMP-014
+CUST-220,CustomerFirstName220,CustomerLastName220,1975-07-25,42470.0,Teacher,Hyderabad,MassAffluent,421,EMP-013
+CUST-221,CustomerFirstName221,CustomerLastName221,1986-07-24,130056.42,Teacher,Chennai,MassRetail,303,
+CUST-222,CustomerFirstName222,CustomerLastName222,1970-04-21,149641.09,Retired,Pune,MassRetail,535,
+CUST-223,CustomerFirstName223,CustomerLastName223,1981-05-06,116924.73,Consultant,Chennai,MassRetail,415,
+CUST-224,CustomerFirstName224,CustomerLastName224,2005-01-31,204855.35,Engineer,Chennai,MassRetail,511,
+CUST-225,CustomerFirstName225,CustomerLastName225,1956-11-12,186304.36,Student,Mumbai,MassRetail,550,
+CUST-226,CustomerFirstName226,CustomerLastName226,1977-05-17,142909.59,Business Owner,Mumbai,HNWI,443,EMP-002
+CUST-227,CustomerFirstName227,CustomerLastName227,1965-12-08,248420.15,Artist,Hyderabad,HNWI,542,EMP-010
+CUST-228,CustomerFirstName228,CustomerLastName228,1994-12-05,165950.3,Retired,Kolkata,MassAffluent,581,EMP-005
+CUST-229,CustomerFirstName229,CustomerLastName229,1987-11-20,285585.67,Teacher,Pune,MassRetail,807,
+CUST-230,CustomerFirstName230,CustomerLastName230,1973-06-09,283644.19,Retired,Hyderabad,MassRetail,726,
+CUST-231,CustomerFirstName231,CustomerLastName231,1970-05-29,125408.85,Student,Chennai,MassAffluent,530,EMP-005
+CUST-232,CustomerFirstName232,CustomerLastName232,2004-10-31,149647.04,Engineer,Pune,MassAffluent,726,EMP-005
+CUST-233,CustomerFirstName233,CustomerLastName233,1959-02-15,128757.33,Consultant,Chennai,HNWI,638,EMP-017
+CUST-234,CustomerFirstName234,CustomerLastName234,1980-08-10,257197.35,Doctor,Chennai,HNWI,352,EMP-003
+CUST-235,CustomerFirstName235,CustomerLastName235,1995-11-05,189391.44,Engineer,Delhi,MassAffluent,492,EMP-013
+CUST-236,CustomerFirstName236,CustomerLastName236,1964-10-07,154230.38,Artist,Kolkata,HNWI,315,EMP-018
+CUST-237,CustomerFirstName237,CustomerLastName237,1962-12-07,289381.72,Doctor,Ahmedabad,MassRetail,548,
+CUST-238,CustomerFirstName238,CustomerLastName238,1997-11-22,77263.68,Business Owner,Hyderabad,HNWI,589,EMP-020
+CUST-239,CustomerFirstName239,CustomerLastName239,1986-04-25,201641.98,Consultant,Kolkata,MassAffluent,668,EMP-015
+CUST-240,CustomerFirstName240,CustomerLastName240,1981-09-17,47610.3,Student,Hyderabad,HNWI,508,EMP-016
+CUST-241,CustomerFirstName241,CustomerLastName241,1978-03-03,32800.33,Business Owner,Bengaluru,MassAffluent,316,EMP-011
+CUST-242,CustomerFirstName242,CustomerLastName242,1989-09-29,182160.02,Retired,Kolkata,MassAffluent,456,EMP-018
+CUST-243,CustomerFirstName243,CustomerLastName243,1972-06-12,84405.22,Business Owner,Ahmedabad,MassRetail,645,
+CUST-244,CustomerFirstName244,CustomerLastName244,1999-03-29,199674.45,Student,Ahmedabad,MassAffluent,472,EMP-016
+CUST-245,CustomerFirstName245,CustomerLastName245,1961-07-09,59188.39,Student,Bengaluru,HNWI,360,EMP-012
+CUST-246,CustomerFirstName246,CustomerLastName246,1955-01-22,284652.67,Engineer,Mumbai,HNWI,722,EMP-002
+CUST-247,CustomerFirstName247,CustomerLastName247,1992-12-02,84801.35,Teacher,Mumbai,MassRetail,523,
+CUST-248,CustomerFirstName248,CustomerLastName248,1975-05-25,36926.03,Student,Ahmedabad,HNWI,316,EMP-015
+CUST-249,CustomerFirstName249,CustomerLastName249,1986-03-21,174460.2,Engineer,Mumbai,MassRetail,842,
+CUST-250,CustomerFirstName250,CustomerLastName250,1986-06-16,293694.22,Engineer,Pune,HNWI,483,EMP-009
+CUST-251,CustomerFirstName251,CustomerLastName251,1956-07-21,166827.91,Business Owner,Chennai,MassRetail,839,
+CUST-252,CustomerFirstName252,CustomerLastName252,1968-03-11,242582.17,Doctor,Hyderabad,MassAffluent,715,EMP-012
+CUST-253,CustomerFirstName253,CustomerLastName253,1966-07-20,297265.25,Business Owner,Kolkata,MassAffluent,382,EMP-019
+CUST-254,CustomerFirstName254,CustomerLastName254,1956-05-12,133477.92,Retired,Ahmedabad,HNWI,357,EMP-002
+CUST-255,CustomerFirstName255,CustomerLastName255,1997-10-30,67987.4,Student,Pune,HNWI,639,EMP-001
+CUST-256,CustomerFirstName256,CustomerLastName256,1985-12-10,277362.62,Business Owner,Chennai,HNWI,786,EMP-004
+CUST-257,CustomerFirstName257,CustomerLastName257,1955-01-22,211640.05,Consultant,Mumbai,MassAffluent,483,EMP-002
+CUST-258,CustomerFirstName258,CustomerLastName258,1964-02-05,184370.11,Retired,Delhi,MassAffluent,606,EMP-001
+CUST-259,CustomerFirstName259,CustomerLastName259,1988-05-18,87332.21,Retired,Hyderabad,MassRetail,693,
+CUST-260,CustomerFirstName260,CustomerLastName260,2003-10-17,296773.83,Doctor,Hyderabad,HNWI,354,EMP-005
+CUST-261,CustomerFirstName261,CustomerLastName261,1979-09-29,85000.32,Doctor,Hyderabad,MassRetail,706,
+CUST-262,CustomerFirstName262,CustomerLastName262,1993-02-25,96531.57,Student,Ahmedabad,MassAffluent,533,EMP-001
+CUST-263,CustomerFirstName263,CustomerLastName263,1975-07-20,140917.42,Retired,Delhi,MassAffluent,602,EMP-018
+CUST-264,CustomerFirstName264,CustomerLastName264,1998-07-12,40581.87,Consultant,Bengaluru,MassRetail,689,
+CUST-265,CustomerFirstName265,CustomerLastName265,2000-05-02,129094.15,Artist,Delhi,HNWI,393,EMP-005
+CUST-266,CustomerFirstName266,CustomerLastName266,1970-12-24,144526.04,Consultant,Delhi,MassRetail,435,
+CUST-267,CustomerFirstName267,CustomerLastName267,1962-10-02,140674.26,Retired,Delhi,MassRetail,326,
+CUST-268,CustomerFirstName268,CustomerLastName268,1974-01-31,175181.55,Artist,Pune,MassRetail,312,
+CUST-269,CustomerFirstName269,CustomerLastName269,1976-05-22,238167.35,Business Owner,Bengaluru,MassAffluent,689,EMP-014
+CUST-270,CustomerFirstName270,CustomerLastName270,1959-06-13,95297.31,Consultant,Ahmedabad,MassRetail,449,
+CUST-271,CustomerFirstName271,CustomerLastName271,1961-05-18,141709.36,Retired,Kolkata,MassRetail,795,
+CUST-272,CustomerFirstName272,CustomerLastName272,1974-07-29,90475.93,Business Owner,Ahmedabad,MassRetail,500,
+CUST-273,CustomerFirstName273,CustomerLastName273,1959-03-22,105304.24,Retired,Hyderabad,MassAffluent,689,EMP-004
+CUST-274,CustomerFirstName274,CustomerLastName274,1972-10-11,140572.54,Teacher,Kolkata,MassAffluent,628,EMP-015
+CUST-275,CustomerFirstName275,CustomerLastName275,1982-08-06,107971.32,Retired,Hyderabad,HNWI,598,EMP-007
+CUST-276,CustomerFirstName276,CustomerLastName276,1989-03-10,238952.82,Artist,Pune,HNWI,587,EMP-016
+CUST-277,CustomerFirstName277,CustomerLastName277,1957-10-01,280978.8,Business Owner,Bengaluru,MassAffluent,327,EMP-012
+CUST-278,CustomerFirstName278,CustomerLastName278,1998-03-16,78701.55,Consultant,Delhi,HNWI,718,EMP-015
+CUST-279,CustomerFirstName279,CustomerLastName279,1959-06-22,197334.09,Business Owner,Kolkata,HNWI,457,EMP-016
+CUST-280,CustomerFirstName280,CustomerLastName280,2003-09-12,125557.43,Student,Ahmedabad,HNWI,710,EMP-014
+CUST-281,CustomerFirstName281,CustomerLastName281,1997-01-26,137124.19,Engineer,Hyderabad,HNWI,849,EMP-017
+CUST-282,CustomerFirstName282,CustomerLastName282,1957-06-11,235307.13,Artist,Bengaluru,HNWI,345,EMP-003
+CUST-283,CustomerFirstName283,CustomerLastName283,2001-03-22,112847.08,Retired,Delhi,HNWI,310,EMP-013
+CUST-284,CustomerFirstName284,CustomerLastName284,1967-08-10,82160.3,Business Owner,Ahmedabad,MassRetail,683,
+CUST-285,CustomerFirstName285,CustomerLastName285,2002-07-23,210275.54,Teacher,Hyderabad,MassAffluent,325,EMP-015
+CUST-286,CustomerFirstName286,CustomerLastName286,1970-02-08,136473.12,Doctor,Delhi,MassAffluent,445,EMP-004
+CUST-287,CustomerFirstName287,CustomerLastName287,1973-05-06,147493.14,Business Owner,Ahmedabad,MassAffluent,656,EMP-010
+CUST-288,CustomerFirstName288,CustomerLastName288,1979-10-26,222158.3,Student,Hyderabad,MassAffluent,368,EMP-004
+CUST-289,CustomerFirstName289,CustomerLastName289,2005-02-18,219018.12,Engineer,Hyderabad,MassAffluent,411,EMP-002
+CUST-290,CustomerFirstName290,CustomerLastName290,2000-05-22,88295.63,Teacher,Bengaluru,HNWI,638,EMP-006
+CUST-291,CustomerFirstName291,CustomerLastName291,1981-06-11,84919.55,Retired,Bengaluru,HNWI,490,EMP-014
+CUST-292,CustomerFirstName292,CustomerLastName292,1976-12-02,28173.84,Business Owner,Ahmedabad,HNWI,739,EMP-014
+CUST-293,CustomerFirstName293,CustomerLastName293,1997-12-16,80142.91,Consultant,Delhi,MassAffluent,404,EMP-001
+CUST-294,CustomerFirstName294,CustomerLastName294,1974-11-22,111275.78,Student,Delhi,HNWI,568,EMP-006
+CUST-295,CustomerFirstName295,CustomerLastName295,1985-11-29,290456.59,Artist,Pune,HNWI,701,EMP-016
+CUST-296,CustomerFirstName296,CustomerLastName296,1973-09-04,118555.78,Student,Bengaluru,HNWI,604,EMP-004
+CUST-297,CustomerFirstName297,CustomerLastName297,1955-10-08,208190.82,Artist,Delhi,HNWI,544,EMP-019
+CUST-298,CustomerFirstName298,CustomerLastName298,1962-06-16,124525.7,Teacher,Pune,MassAffluent,728,EMP-004
+CUST-299,CustomerFirstName299,CustomerLastName299,1989-02-11,127438.79,Teacher,Ahmedabad,HNWI,850,EMP-005
+CUST-300,CustomerFirstName300,CustomerLastName300,1987-10-06,66722.35,Consultant,Bengaluru,HNWI,491,EMP-006
+CUST-301,CustomerFirstName301,CustomerLastName301,1992-02-25,35011.15,Artist,Mumbai,MassAffluent,796,EMP-015
+CUST-302,CustomerFirstName302,CustomerLastName302,1963-04-12,248260.46,Student,Pune,MassRetail,803,
+CUST-303,CustomerFirstName303,CustomerLastName303,1983-04-04,66830.98,Engineer,Chennai,MassAffluent,599,EMP-015
+CUST-304,CustomerFirstName304,CustomerLastName304,1968-09-14,82956.16,Consultant,Bengaluru,MassRetail,768,
+CUST-305,CustomerFirstName305,CustomerLastName305,1987-05-30,163025.67,Doctor,Kolkata,HNWI,675,EMP-016
+CUST-306,CustomerFirstName306,CustomerLastName306,2001-09-20,221314.47,Business Owner,Pune,HNWI,404,EMP-002
+CUST-307,CustomerFirstName307,CustomerLastName307,1970-04-05,264946.76,Engineer,Ahmedabad,HNWI,569,EMP-008
+CUST-308,CustomerFirstName308,CustomerLastName308,1979-11-18,262281.33,Doctor,Chennai,MassAffluent,514,EMP-003
+CUST-309,CustomerFirstName309,CustomerLastName309,1996-11-23,118176.64,Retired,Bengaluru,HNWI,442,EMP-019
+CUST-310,CustomerFirstName310,CustomerLastName310,2005-05-12,77943.96,Engineer,Hyderabad,MassRetail,845,
+CUST-311,CustomerFirstName311,CustomerLastName311,1986-08-31,67145.66,Consultant,Kolkata,MassAffluent,573,EMP-020
+CUST-312,CustomerFirstName312,CustomerLastName312,1959-03-25,289576.16,Retired,Mumbai,HNWI,583,EMP-004
+CUST-313,CustomerFirstName313,CustomerLastName313,1997-09-25,262502.06,Business Owner,Bengaluru,HNWI,629,EMP-005
+CUST-314,CustomerFirstName314,CustomerLastName314,2001-10-26,256195.58,Retired,Ahmedabad,MassRetail,445,
+CUST-315,CustomerFirstName315,CustomerLastName315,1992-09-21,135983.03,Student,Delhi,HNWI,395,EMP-009
+CUST-316,CustomerFirstName316,CustomerLastName316,2001-01-09,97903.19,Artist,Ahmedabad,MassAffluent,799,EMP-017
+CUST-317,CustomerFirstName317,CustomerLastName317,1950-03-03,263294.17,Doctor,Ahmedabad,MassAffluent,666,EMP-019
+CUST-318,CustomerFirstName318,CustomerLastName318,2004-02-23,169638.85,Business Owner,Pune,MassRetail,516,
+CUST-319,CustomerFirstName319,CustomerLastName319,1971-12-21,251936.21,Artist,Bengaluru,MassAffluent,796,EMP-009
+CUST-320,CustomerFirstName320,CustomerLastName320,1953-02-15,47880.93,Student,Mumbai,MassAffluent,427,EMP-002
+CUST-321,CustomerFirstName321,CustomerLastName321,1980-01-12,147825.08,Retired,Chennai,MassRetail,435,
+CUST-322,CustomerFirstName322,CustomerLastName322,1960-10-26,264838.54,Consultant,Delhi,HNWI,669,EMP-010
+CUST-323,CustomerFirstName323,CustomerLastName323,1975-04-22,206062.47,Teacher,Mumbai,MassAffluent,705,EMP-003
+CUST-324,CustomerFirstName324,CustomerLastName324,1999-05-28,215843.58,Business Owner,Pune,HNWI,393,EMP-010
+CUST-325,CustomerFirstName325,CustomerLastName325,1950-01-28,79757.93,Doctor,Bengaluru,HNWI,531,EMP-004
+CUST-326,CustomerFirstName326,CustomerLastName326,1950-08-19,22257.52,Artist,Delhi,HNWI,732,EMP-015
+CUST-327,CustomerFirstName327,CustomerLastName327,1982-07-05,39831.93,Retired,Delhi,HNWI,404,EMP-005
+CUST-328,CustomerFirstName328,CustomerLastName328,1971-04-29,122917.27,Consultant,Bengaluru,MassRetail,691,
+CUST-329,CustomerFirstName329,CustomerLastName329,1993-08-29,298023.24,Teacher,Delhi,MassRetail,843,
+CUST-330,CustomerFirstName330,CustomerLastName330,1991-07-14,202005.66,Student,Hyderabad,HNWI,518,EMP-001
+CUST-331,CustomerFirstName331,CustomerLastName331,1978-01-07,192501.28,Student,Chennai,HNWI,388,EMP-005
+CUST-332,CustomerFirstName332,CustomerLastName332,1959-07-13,230684.78,Retired,Hyderabad,MassRetail,739,
+CUST-333,CustomerFirstName333,CustomerLastName333,1966-11-11,97550.94,Doctor,Chennai,MassAffluent,591,EMP-005
+CUST-334,CustomerFirstName334,CustomerLastName334,1994-10-21,265231.61,Business Owner,Chennai,HNWI,701,EMP-001
+CUST-335,CustomerFirstName335,CustomerLastName335,2003-05-04,271415.52,Business Owner,Ahmedabad,MassAffluent,695,EMP-002
+CUST-336,CustomerFirstName336,CustomerLastName336,1966-05-29,159883.11,Doctor,Mumbai,MassRetail,669,
+CUST-337,CustomerFirstName337,CustomerLastName337,1976-04-28,261027.92,Retired,Hyderabad,MassAffluent,476,EMP-005
+CUST-338,CustomerFirstName338,CustomerLastName338,1951-02-19,184461.78,Engineer,Kolkata,MassAffluent,520,EMP-003
+CUST-339,CustomerFirstName339,CustomerLastName339,1954-02-11,285630.4,Retired,Kolkata,MassRetail,813,
+CUST-340,CustomerFirstName340,CustomerLastName340,1997-10-04,132637.67,Teacher,Kolkata,MassAffluent,385,EMP-014
+CUST-341,CustomerFirstName341,CustomerLastName341,1984-10-17,277858.96,Teacher,Hyderabad,MassAffluent,700,EMP-003
+CUST-342,CustomerFirstName342,CustomerLastName342,1971-02-09,215629.25,Business Owner,Mumbai,HNWI,550,EMP-003
+CUST-343,CustomerFirstName343,CustomerLastName343,1979-07-27,52476.24,Engineer,Kolkata,MassRetail,479,
+CUST-344,CustomerFirstName344,CustomerLastName344,1950-11-11,218212.17,Engineer,Bengaluru,MassRetail,808,
+CUST-345,CustomerFirstName345,CustomerLastName345,1985-03-13,239236.39,Consultant,Bengaluru,MassAffluent,680,EMP-017
+CUST-346,CustomerFirstName346,CustomerLastName346,2001-01-08,238714.71,Consultant,Delhi,MassRetail,330,
+CUST-347,CustomerFirstName347,CustomerLastName347,1968-07-05,166679.18,Consultant,Delhi,MassAffluent,808,EMP-014
+CUST-348,CustomerFirstName348,CustomerLastName348,1974-07-04,35522.95,Teacher,Hyderabad,MassAffluent,461,EMP-017
+CUST-349,CustomerFirstName349,CustomerLastName349,1989-01-20,208753.72,Doctor,Chennai,MassAffluent,821,EMP-004
+CUST-350,CustomerFirstName350,CustomerLastName350,1952-12-30,260432.92,Engineer,Chennai,MassRetail,347,
+CUST-351,CustomerFirstName351,CustomerLastName351,1976-01-24,277663.43,Teacher,Mumbai,MassAffluent,729,EMP-012
+CUST-352,CustomerFirstName352,CustomerLastName352,1971-11-25,89513.69,Artist,Kolkata,MassRetail,379,
+CUST-353,CustomerFirstName353,CustomerLastName353,1958-02-15,160571.46,Engineer,Bengaluru,HNWI,528,EMP-012
+CUST-354,CustomerFirstName354,CustomerLastName354,1977-04-14,39299.4,Student,Kolkata,HNWI,618,EMP-002
+CUST-355,CustomerFirstName355,CustomerLastName355,1987-08-22,147888.93,Artist,Chennai,MassAffluent,598,EMP-003
+CUST-356,CustomerFirstName356,CustomerLastName356,2000-04-30,194360.91,Student,Hyderabad,HNWI,805,EMP-010
+CUST-357,CustomerFirstName357,CustomerLastName357,1999-11-05,272124.12,Business Owner,Bengaluru,MassRetail,306,
+CUST-358,CustomerFirstName358,CustomerLastName358,1965-11-09,171632.66,Engineer,Hyderabad,MassAffluent,301,EMP-001
+CUST-359,CustomerFirstName359,CustomerLastName359,2000-03-24,223620.21,Doctor,Chennai,HNWI,842,EMP-013
+CUST-360,CustomerFirstName360,CustomerLastName360,1978-07-27,157768.09,Engineer,Bengaluru,MassRetail,586,
+CUST-361,CustomerFirstName361,CustomerLastName361,1952-12-27,277956.83,Retired,Hyderabad,MassRetail,769,
+CUST-362,CustomerFirstName362,CustomerLastName362,1989-07-10,46761.56,Teacher,Pune,HNWI,376,EMP-003
+CUST-363,CustomerFirstName363,CustomerLastName363,1954-03-29,141795.21,Teacher,Chennai,HNWI,598,EMP-019
+CUST-364,CustomerFirstName364,CustomerLastName364,2004-06-30,130026.75,Artist,Hyderabad,MassAffluent,763,EMP-011
+CUST-365,CustomerFirstName365,CustomerLastName365,1955-01-31,284195.31,Teacher,Delhi,MassAffluent,459,EMP-008
+CUST-366,CustomerFirstName366,CustomerLastName366,1961-03-09,145878.69,Artist,Pune,MassRetail,423,
+CUST-367,CustomerFirstName367,CustomerLastName367,2002-06-03,78138.14,Consultant,Ahmedabad,HNWI,571,EMP-012
+CUST-368,CustomerFirstName368,CustomerLastName368,1956-02-26,64132.31,Consultant,Mumbai,MassRetail,520,
+CUST-369,CustomerFirstName369,CustomerLastName369,1956-03-17,219124.07,Artist,Pune,MassAffluent,825,EMP-005
+CUST-370,CustomerFirstName370,CustomerLastName370,1996-01-31,103675.4,Teacher,Mumbai,MassRetail,714,
+CUST-371,CustomerFirstName371,CustomerLastName371,2000-11-27,174033.85,Doctor,Ahmedabad,MassAffluent,404,EMP-018
+CUST-372,CustomerFirstName372,CustomerLastName372,1958-04-07,23347.94,Business Owner,Bengaluru,MassRetail,502,
+CUST-373,CustomerFirstName373,CustomerLastName373,1996-09-13,196483.31,Doctor,Kolkata,MassAffluent,376,EMP-012
+CUST-374,CustomerFirstName374,CustomerLastName374,1954-05-22,75370.09,Student,Bengaluru,MassRetail,394,
+CUST-375,CustomerFirstName375,CustomerLastName375,1952-11-27,283838.59,Engineer,Bengaluru,MassAffluent,743,EMP-004
+CUST-376,CustomerFirstName376,CustomerLastName376,1983-10-06,28255.04,Retired,Bengaluru,HNWI,662,EMP-013
+CUST-377,CustomerFirstName377,CustomerLastName377,1962-09-26,96994.9,Student,Bengaluru,MassRetail,335,
+CUST-378,CustomerFirstName378,CustomerLastName378,1991-12-27,88819.74,Consultant,Ahmedabad,HNWI,721,EMP-020
+CUST-379,CustomerFirstName379,CustomerLastName379,1954-02-24,44562.03,Retired,Bengaluru,HNWI,729,EMP-016
+CUST-380,CustomerFirstName380,CustomerLastName380,1993-09-25,267702.7,Business Owner,Mumbai,MassRetail,691,
+CUST-381,CustomerFirstName381,CustomerLastName381,1982-08-23,172464.99,Student,Hyderabad,HNWI,814,EMP-012
+CUST-382,CustomerFirstName382,CustomerLastName382,1968-05-27,70348.44,Artist,Chennai,MassAffluent,330,EMP-013
+CUST-383,CustomerFirstName383,CustomerLastName383,2005-01-11,297628.77,Artist,Chennai,MassAffluent,463,EMP-002
+CUST-384,CustomerFirstName384,CustomerLastName384,1966-11-13,203922.04,Consultant,Mumbai,MassRetail,524,
+CUST-385,CustomerFirstName385,CustomerLastName385,1974-02-22,281857.69,Teacher,Bengaluru,HNWI,542,EMP-013
+CUST-386,CustomerFirstName386,CustomerLastName386,2004-11-11,226669.43,Artist,Mumbai,HNWI,660,EMP-011
+CUST-387,CustomerFirstName387,CustomerLastName387,1959-09-02,177670.49,Business Owner,Ahmedabad,HNWI,616,EMP-019
+CUST-388,CustomerFirstName388,CustomerLastName388,1983-05-17,30629.85,Engineer,Chennai,MassRetail,524,
+CUST-389,CustomerFirstName389,CustomerLastName389,1985-10-28,153836.92,Artist,Chennai,MassRetail,433,
+CUST-390,CustomerFirstName390,CustomerLastName390,2004-08-09,256399.54,Artist,Mumbai,MassAffluent,322,EMP-006
+CUST-391,CustomerFirstName391,CustomerLastName391,1989-12-02,217314.98,Teacher,Delhi,MassRetail,838,
+CUST-392,CustomerFirstName392,CustomerLastName392,1975-06-04,217270.64,Retired,Delhi,MassAffluent,644,EMP-003
+CUST-393,CustomerFirstName393,CustomerLastName393,1959-04-15,293240.99,Retired,Ahmedabad,MassAffluent,624,EMP-011
+CUST-394,CustomerFirstName394,CustomerLastName394,1998-02-15,291248.01,Artist,Chennai,MassRetail,479,
+CUST-395,CustomerFirstName395,CustomerLastName395,1999-12-13,212779.56,Teacher,Bengaluru,MassAffluent,301,EMP-010
+CUST-396,CustomerFirstName396,CustomerLastName396,1976-08-25,258211.95,Engineer,Bengaluru,HNWI,625,EMP-019
+CUST-397,CustomerFirstName397,CustomerLastName397,1993-07-12,178354.07,Student,Bengaluru,HNWI,639,EMP-008
+CUST-398,CustomerFirstName398,CustomerLastName398,1966-03-13,117106.83,Artist,Bengaluru,HNWI,390,EMP-003
+CUST-399,CustomerFirstName399,CustomerLastName399,1980-05-24,23190.77,Business Owner,Chennai,HNWI,369,EMP-011
+CUST-400,CustomerFirstName400,CustomerLastName400,2003-07-23,50249.69,Engineer,Mumbai,MassAffluent,695,EMP-009
+CUST-401,CustomerFirstName401,CustomerLastName401,1961-04-27,267674.56,Student,Pune,MassAffluent,659,EMP-014
+CUST-402,CustomerFirstName402,CustomerLastName402,1956-11-26,252065.95,Business Owner,Bengaluru,HNWI,762,EMP-013
+CUST-403,CustomerFirstName403,CustomerLastName403,2004-05-21,256813.5,Consultant,Mumbai,MassRetail,626,
+CUST-404,CustomerFirstName404,CustomerLastName404,1955-01-19,115706.3,Retired,Bengaluru,MassAffluent,376,EMP-004
+CUST-405,CustomerFirstName405,CustomerLastName405,1972-12-30,186328.55,Student,Mumbai,HNWI,741,EMP-003
+CUST-406,CustomerFirstName406,CustomerLastName406,1991-04-30,269130.92,Teacher,Mumbai,HNWI,403,EMP-006
+CUST-407,CustomerFirstName407,CustomerLastName407,1962-12-06,134598.36,Consultant,Kolkata,MassAffluent,604,EMP-007
+CUST-408,CustomerFirstName408,CustomerLastName408,1956-07-12,33897.92,Student,Bengaluru,MassRetail,355,
+CUST-409,CustomerFirstName409,CustomerLastName409,1979-02-06,44535.94,Student,Chennai,MassAffluent,399,EMP-001
+CUST-410,CustomerFirstName410,CustomerLastName410,1964-01-31,67833.01,Consultant,Delhi,MassRetail,784,
+CUST-411,CustomerFirstName411,CustomerLastName411,1970-12-26,239765.44,Student,Ahmedabad,MassRetail,571,
+CUST-412,CustomerFirstName412,CustomerLastName412,1993-09-05,172355.29,Teacher,Hyderabad,MassRetail,690,
+CUST-413,CustomerFirstName413,CustomerLastName413,1980-05-02,32492.74,Student,Ahmedabad,MassAffluent,569,EMP-006
+CUST-414,CustomerFirstName414,CustomerLastName414,1968-04-11,177989.04,Teacher,Delhi,MassRetail,387,
+CUST-415,CustomerFirstName415,CustomerLastName415,2004-12-30,171605.72,Business Owner,Mumbai,HNWI,696,EMP-012
+CUST-416,CustomerFirstName416,CustomerLastName416,1986-06-11,212379.02,Student,Chennai,HNWI,787,EMP-014
+CUST-417,CustomerFirstName417,CustomerLastName417,1976-11-12,272777.62,Engineer,Bengaluru,MassAffluent,423,EMP-003
+CUST-418,CustomerFirstName418,CustomerLastName418,1961-05-17,292206.17,Business Owner,Bengaluru,MassAffluent,343,EMP-006
+CUST-419,CustomerFirstName419,CustomerLastName419,1996-06-27,141910.11,Teacher,Kolkata,MassAffluent,627,EMP-003
+CUST-420,CustomerFirstName420,CustomerLastName420,1955-12-04,128667.76,Retired,Hyderabad,HNWI,582,EMP-003
+CUST-421,CustomerFirstName421,CustomerLastName421,1950-11-04,240234.18,Retired,Delhi,HNWI,724,EMP-015
+CUST-422,CustomerFirstName422,CustomerLastName422,1960-02-01,178646.3,Doctor,Delhi,MassRetail,403,
+CUST-423,CustomerFirstName423,CustomerLastName423,1973-05-26,265810.2,Consultant,Pune,MassAffluent,797,EMP-018
+CUST-424,CustomerFirstName424,CustomerLastName424,1982-03-11,30490.39,Consultant,Pune,HNWI,447,EMP-020
+CUST-425,CustomerFirstName425,CustomerLastName425,1996-04-30,214225.15,Engineer,Pune,HNWI,639,EMP-020
+CUST-426,CustomerFirstName426,CustomerLastName426,1953-05-10,228809.95,Consultant,Hyderabad,HNWI,320,EMP-008
+CUST-427,CustomerFirstName427,CustomerLastName427,1971-02-28,98497.06,Student,Delhi,MassAffluent,533,EMP-010
+CUST-428,CustomerFirstName428,CustomerLastName428,1970-06-13,292781.44,Student,Hyderabad,MassRetail,575,
+CUST-429,CustomerFirstName429,CustomerLastName429,1991-03-03,200755.35,Business Owner,Ahmedabad,HNWI,516,EMP-014
+CUST-430,CustomerFirstName430,CustomerLastName430,2001-09-07,164620.4,Artist,Mumbai,MassAffluent,827,EMP-016
+CUST-431,CustomerFirstName431,CustomerLastName431,1954-06-19,107114.47,Retired,Bengaluru,MassRetail,836,
+CUST-432,CustomerFirstName432,CustomerLastName432,1961-10-28,73973.77,Business Owner,Mumbai,HNWI,555,EMP-001
+CUST-433,CustomerFirstName433,CustomerLastName433,1981-01-23,34156.6,Artist,Chennai,MassRetail,580,
+CUST-434,CustomerFirstName434,CustomerLastName434,1984-05-16,131143.84,Doctor,Mumbai,MassAffluent,547,EMP-015
+CUST-435,CustomerFirstName435,CustomerLastName435,1990-06-05,144908.96,Student,Hyderabad,MassAffluent,652,EMP-016
+CUST-436,CustomerFirstName436,CustomerLastName436,1967-08-09,229709.12,Doctor,Kolkata,MassRetail,328,
+CUST-437,CustomerFirstName437,CustomerLastName437,1961-02-01,259069.97,Business Owner,Chennai,MassAffluent,530,EMP-002
+CUST-438,CustomerFirstName438,CustomerLastName438,1968-04-24,202444.45,Engineer,Mumbai,HNWI,785,EMP-007
+CUST-439,CustomerFirstName439,CustomerLastName439,1994-01-20,68496.18,Engineer,Chennai,MassRetail,558,
+CUST-440,CustomerFirstName440,CustomerLastName440,1998-07-03,290766.84,Consultant,Pune,HNWI,685,EMP-010
+CUST-441,CustomerFirstName441,CustomerLastName441,1967-02-24,81098.54,Consultant,Pune,MassAffluent,404,EMP-015
+CUST-442,CustomerFirstName442,CustomerLastName442,1984-10-22,299840.23,Artist,Kolkata,MassRetail,605,
+CUST-443,CustomerFirstName443,CustomerLastName443,1982-10-13,37874.38,Consultant,Hyderabad,HNWI,583,EMP-004
+CUST-444,CustomerFirstName444,CustomerLastName444,1962-10-26,61980.2,Business Owner,Mumbai,MassAffluent,713,EMP-010
+CUST-445,CustomerFirstName445,CustomerLastName445,1996-04-29,59180.26,Engineer,Ahmedabad,HNWI,602,EMP-011
+CUST-446,CustomerFirstName446,CustomerLastName446,1977-07-14,128716.98,Engineer,Chennai,MassAffluent,651,EMP-014
+CUST-447,CustomerFirstName447,CustomerLastName447,1996-09-14,169697.83,Student,Hyderabad,HNWI,819,EMP-008
+CUST-448,CustomerFirstName448,CustomerLastName448,1994-10-02,265418.54,Teacher,Kolkata,MassAffluent,399,EMP-006
+CUST-449,CustomerFirstName449,CustomerLastName449,2000-06-02,92422.52,Teacher,Hyderabad,MassAffluent,391,EMP-005
+CUST-450,CustomerFirstName450,CustomerLastName450,1974-03-06,82531.82,Consultant,Pune,MassRetail,639,
+CUST-451,CustomerFirstName451,CustomerLastName451,1989-11-06,102334.31,Doctor,Ahmedabad,MassAffluent,354,EMP-009
+CUST-452,CustomerFirstName452,CustomerLastName452,1989-06-28,284404.28,Doctor,Ahmedabad,HNWI,499,EMP-019
+CUST-453,CustomerFirstName453,CustomerLastName453,1996-04-27,126867.38,Consultant,Pune,HNWI,355,EMP-004
+CUST-454,CustomerFirstName454,CustomerLastName454,1959-05-08,297857.4,Artist,Pune,MassRetail,768,
+CUST-455,CustomerFirstName455,CustomerLastName455,1971-07-13,261470.3,Teacher,Delhi,MassRetail,799,
+CUST-456,CustomerFirstName456,CustomerLastName456,1971-04-30,197659.71,Engineer,Ahmedabad,MassAffluent,580,EMP-006
+CUST-457,CustomerFirstName457,CustomerLastName457,2001-10-19,236591.84,Teacher,Ahmedabad,MassRetail,390,
+CUST-458,CustomerFirstName458,CustomerLastName458,1991-10-25,141439.2,Retired,Pune,MassRetail,739,
+CUST-459,CustomerFirstName459,CustomerLastName459,1950-04-27,30563.09,Business Owner,Hyderabad,MassAffluent,314,EMP-013
+CUST-460,CustomerFirstName460,CustomerLastName460,1962-12-20,25016.52,Engineer,Chennai,MassAffluent,531,EMP-017
+CUST-461,CustomerFirstName461,CustomerLastName461,1971-03-29,56100.62,Retired,Kolkata,HNWI,471,EMP-012
+CUST-462,CustomerFirstName462,CustomerLastName462,1953-02-10,103496.63,Consultant,Ahmedabad,MassRetail,832,
+CUST-463,CustomerFirstName463,CustomerLastName463,1972-12-27,141426.26,Teacher,Hyderabad,HNWI,801,EMP-017
+CUST-464,CustomerFirstName464,CustomerLastName464,1961-03-22,285463.62,Retired,Mumbai,MassAffluent,533,EMP-007
+CUST-465,CustomerFirstName465,CustomerLastName465,1999-06-26,295766.27,Business Owner,Mumbai,MassRetail,816,
+CUST-466,CustomerFirstName466,CustomerLastName466,1958-05-20,122645.61,Engineer,Pune,MassRetail,561,
+CUST-467,CustomerFirstName467,CustomerLastName467,1953-04-22,186298.74,Engineer,Delhi,HNWI,320,EMP-020
+CUST-468,CustomerFirstName468,CustomerLastName468,1996-12-08,52421.15,Student,Pune,MassRetail,426,
+CUST-469,CustomerFirstName469,CustomerLastName469,1982-04-14,216523.1,Business Owner,Mumbai,HNWI,608,EMP-009
+CUST-470,CustomerFirstName470,CustomerLastName470,1995-01-31,165686.59,Teacher,Pune,MassAffluent,407,EMP-004
+CUST-471,CustomerFirstName471,CustomerLastName471,1958-01-05,99157.9,Doctor,Ahmedabad,HNWI,503,EMP-020
+CUST-472,CustomerFirstName472,CustomerLastName472,2002-12-10,93638.3,Business Owner,Hyderabad,HNWI,719,EMP-007
+CUST-473,CustomerFirstName473,CustomerLastName473,1952-09-06,173478.85,Business Owner,Ahmedabad,MassAffluent,638,EMP-006
+CUST-474,CustomerFirstName474,CustomerLastName474,1950-03-10,23569.83,Doctor,Delhi,MassRetail,805,
+CUST-475,CustomerFirstName475,CustomerLastName475,1956-02-18,238267.34,Doctor,Delhi,MassRetail,562,
+CUST-476,CustomerFirstName476,CustomerLastName476,1981-01-30,296826.46,Consultant,Kolkata,HNWI,775,EMP-008
+CUST-477,CustomerFirstName477,CustomerLastName477,1956-10-16,247689.96,Engineer,Kolkata,MassRetail,668,
+CUST-478,CustomerFirstName478,CustomerLastName478,1978-12-28,226791.25,Doctor,Mumbai,HNWI,309,EMP-011
+CUST-479,CustomerFirstName479,CustomerLastName479,1995-02-21,201215.62,Artist,Hyderabad,MassRetail,748,
+CUST-480,CustomerFirstName480,CustomerLastName480,1999-11-20,46026.37,Artist,Bengaluru,HNWI,416,EMP-009
+CUST-481,CustomerFirstName481,CustomerLastName481,1981-01-25,96113.27,Retired,Ahmedabad,MassAffluent,731,EMP-013
+CUST-482,CustomerFirstName482,CustomerLastName482,1957-09-11,57103.24,Engineer,Bengaluru,HNWI,406,EMP-006
+CUST-483,CustomerFirstName483,CustomerLastName483,1982-11-05,244634.14,Student,Bengaluru,MassAffluent,688,EMP-019
+CUST-484,CustomerFirstName484,CustomerLastName484,1951-12-18,261521.22,Teacher,Ahmedabad,MassAffluent,799,EMP-020
+CUST-485,CustomerFirstName485,CustomerLastName485,1977-12-27,143392.61,Doctor,Kolkata,MassRetail,621,
+CUST-486,CustomerFirstName486,CustomerLastName486,1997-12-12,263133.04,Business Owner,Hyderabad,MassRetail,831,
+CUST-487,CustomerFirstName487,CustomerLastName487,1956-06-25,141197.41,Business Owner,Ahmedabad,HNWI,654,EMP-020
+CUST-488,CustomerFirstName488,CustomerLastName488,1960-02-12,254929.25,Engineer,Mumbai,HNWI,460,EMP-013
+CUST-489,CustomerFirstName489,CustomerLastName489,1983-09-29,263436.38,Doctor,Ahmedabad,HNWI,628,EMP-016
+CUST-490,CustomerFirstName490,CustomerLastName490,1972-07-08,291640.61,Engineer,Chennai,MassRetail,687,
+CUST-491,CustomerFirstName491,CustomerLastName491,1955-05-14,148546.49,Student,Delhi,MassAffluent,810,EMP-008
+CUST-492,CustomerFirstName492,CustomerLastName492,1958-01-29,294587.81,Engineer,Delhi,MassAffluent,713,EMP-011
+CUST-493,CustomerFirstName493,CustomerLastName493,1987-11-30,173747.66,Doctor,Kolkata,MassAffluent,820,EMP-002
+CUST-494,CustomerFirstName494,CustomerLastName494,1994-07-19,208012.82,Artist,Hyderabad,HNWI,355,EMP-007
+CUST-495,CustomerFirstName495,CustomerLastName495,1980-12-04,112952.34,Student,Hyderabad,MassRetail,763,
+CUST-496,CustomerFirstName496,CustomerLastName496,1956-08-18,232609.59,Business Owner,Mumbai,MassRetail,649,
+CUST-497,CustomerFirstName497,CustomerLastName497,1987-04-09,166155.82,Doctor,Mumbai,MassAffluent,468,EMP-010
+CUST-498,CustomerFirstName498,CustomerLastName498,1998-10-13,227903.05,Retired,Delhi,MassAffluent,560,EMP-005
+CUST-499,CustomerFirstName499,CustomerLastName499,1962-10-06,53808.83,Retired,Chennai,HNWI,768,EMP-007
+CUST-500,CustomerFirstName500,CustomerLastName500,1998-10-11,114621.39,Retired,Mumbai,MassRetail,426,

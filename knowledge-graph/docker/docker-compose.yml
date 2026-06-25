@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.18.0-community
+    container_name: sbi_banking_graph
+    ports:
+      - "7474:7474" # HTTP Connector
+      - "7687:7687" # Bolt Connector
+    environment:
+      - NEO4J_AUTH=neo4j/sbi_banking_password
+      - NEO4J_PLUGINS=["apoc", "n10s"]
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*,n10s.*
+      - NEO4J_dbms_security_procedures_allowlist=apoc.*,n10s.*
+      - NEO4J_dbms_connector_bolt_enabled=true
+      - NEO4J_server_directories_import=/var/lib/neo4j/import
+    volumes:
+      - ../neo4j/import:/var/lib/neo4j/import
+      - ../neo4j/plugins:/plugins
+      - ../neo4j/conf:/var/lib/neo4j/conf
+      - ../ontology:/var/lib/neo4j/import/ontology
+    user: "1000:1000"
+    restart: always

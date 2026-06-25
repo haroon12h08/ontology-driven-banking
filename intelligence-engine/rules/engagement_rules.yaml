@@ -1,0 +1,22 @@
+# Engagement and Recommendation Rules for SBI Intelligence Engine
+
+affluence_tiering:
+  name: "SBI Wealth Management Segments"
+  id: "POL-ENG-AFF-001"
+  hnwi_income_threshold_inr: 200000
+  mass_affluent_income_threshold_inr: 100000
+  supporting_policy: "SBI Wealth & Affluent Management Division Guidelines"
+
+churn_risk:
+  name: "SBI Customer Retention Policy"
+  id: "POL-ENG-CHURN-001"
+  max_idle_days: 90
+  min_savings_decline_pct: 0.30
+  supporting_policy: "SBI Customer Loyalty and Retention Framework"
+
+next_best_action:
+  name: "SBI Retail Customer Engagement Campaign"
+  id: "POL-ENG-NBA-001"
+  high_digital_adoption_threshold: 0.70
+  nba_loan_refinance_dti_cap: 0.40
+  supporting_policy: "SBI Marketing Campaign Management Guidelines"
