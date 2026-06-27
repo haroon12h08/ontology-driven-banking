@@ -1,0 +1,32 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements from each subproject and install them
+COPY semantic-layer/requirements.txt ./semantic_requirements.txt
+COPY intelligence-engine/requirements.txt ./intelligence_requirements.txt
+COPY agent-platform/requirements.txt ./agent_requirements.txt
+
+RUN pip install --no-cache-dir -r semantic_requirements.txt
+RUN pip install --no-cache-dir -r intelligence_requirements.txt
+RUN pip install --no-cache-dir -r agent_requirements.txt
+
+# Copy source codes
+COPY semantic-layer/ /app/semantic-layer/
+COPY intelligence-engine/ /app/intelligence-engine/
+COPY agent-platform/ /app/agent-platform/
+
+# Set working directory to semantic-layer for execution
+WORKDIR /app/semantic-layer
+
+# Configure PYTHONPATH
+ENV PYTHONPATH="/app/semantic-layer:/app/intelligence-engine:/app/agent-platform"
+
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

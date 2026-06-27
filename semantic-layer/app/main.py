@@ -16,7 +16,8 @@ from app.api import (
     events,
     reasoning,
     ontology,
-    operations
+    operations,
+    agent
 )
 
 # Set up logging
@@ -78,6 +79,7 @@ app.include_router(events.router, prefix="/api/events", tags=["Event Streams & L
 app.include_router(reasoning.router, prefix="/api/reasoning", tags=["Semantic Reasoning Engine"])
 app.include_router(ontology.router, prefix="/api/ontology", tags=["Ontology Schema Navigator"])
 app.include_router(operations.router, prefix="/api/operations", tags=["Banking Operations"])
+app.include_router(agent.router, prefix="/api/agent", tags=["Agent Orchestrator"])
 
 @app.get("/")
 def read_root():

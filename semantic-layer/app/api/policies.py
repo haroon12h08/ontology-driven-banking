@@ -50,3 +50,51 @@ async def get_policy_details(id: str = Path(..., description="Unique Policy ID (
         confidence=1.0,
         timestamp=datetime.utcnow()
     )
+
+from pydantic import BaseModel
+
+class UpdateRulesRequest(BaseModel):
+    file_name: str
+    category: str
+    rules: dict
+
+@router.post("/update-rules", response_model=SemanticResponse)
+async def update_policy_rules(req: UpdateRulesRequest):
+    import sys
+    import os
+    sys.path.insert(0, "/home/haroon/Desktop/SBI/intelligence-engine")
+    from engines.policy_engine import policy_engine
+    
+    file_path = os.path.join(policy_engine.rules_dir, req.file_name)
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=400, detail=f"Rule file {req.file_name} does not exist.")
+        
+    try:
+        import yaml
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+            
+        if req.category not in data:
+            data[req.category] = {}
+            
+        # Update rules
+        for k, v in req.rules.items():
+            data[req.category][k] = v
+            
+        # Write back
+        with open(file_path, "w", encoding="utf-8") as f:
+            yaml.safe_dump(data, f, default_flow_style=False)
+            
+        # Clear engine cache so rules take effect immediately
+        policy_engine._cache.clear()
+        
+        return SemanticResponse(
+            status="success",
+            summary=f"Successfully updated rules for category '{req.category}' in '{req.file_name}' and cleared cache.",
+            entities=[],
+            relationships=[],
+            confidence=1.0,
+            timestamp=datetime.utcnow()
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error updating rules: {str(e)}")

@@ -1,0 +1,90 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Neo4j runtime
+neo4j/data/
+neo4j/logs/
+neo4j/plugins/
+neo4j/run/
+neo4j/import/*.db
+
+# Docker
+*.pid
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+
+# Build
+dist/
+build/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Temporary
+tmp/
+temp/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+.next/
+out/
+
+# Environment
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+htmlcov/
+
+# Neo4j
+neo4j/data/
+neo4j/logs/
+neo4j/plugins/
+neo4j/import/*.csv
+
+# Build
+dist/
+build/

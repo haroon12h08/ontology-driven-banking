@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.18.0-community
+    container_name: sbi_banking_graph
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/sbi_banking_password
+      - NEO4J_PLUGINS=["apoc", "n10s"]
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*,n10s.*
+      - NEO4J_dbms_security_procedures_allowlist=apoc.*,n10s.*
+      - NEO4J_dbms_connector_bolt_enabled=true
+    volumes:
+      - ../../../knowledge-graph/neo4j/import:/var/lib/neo4j/import
+      - ../../../knowledge-graph/neo4j/plugins:/plugins
+      - ../../../knowledge-graph/neo4j/conf:/var/lib/neo4j/conf
+      - ../../../knowledge-graph/ontology:/var/lib/neo4j/import/ontology
+    restart: always
+
+  backend:
+    build:
+      context: ../../../
+      dockerfile: demo/deployment/docker/Dockerfile.backend
+    container_name: sbi_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USERNAME=neo4j
+      - NEO4J_PASSWORD=sbi_banking_password
+    depends_on:
+      - neo4j
+    restart: always
+
+  frontend:
+    build:
+      context: ../../../frontend
+      dockerfile: Dockerfile
+    container_name: sbi_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+    restart: always

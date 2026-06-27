@@ -29,9 +29,19 @@ class AdvisorService:
         annual_income = customer.get("annualIncome") or 0.0
         credit_score = customer.get("creditScore") or 0
         
-        # Policy rules:
-        # 1. Credit Score must be >= 650 (POL-CRD-001)
-        # 2. Debt-to-Income (DTI) including the new loan must not exceed 50% (POL-CRD-002)
+        # Import policy_engine from intelligence-engine
+        import sys
+        import os
+        sys.path.insert(0, "/home/haroon/Desktop/SBI/intelligence-engine")
+        from engines.policy_engine import policy_engine
+        
+        rule = policy_engine.get_loan_policy("home_loan")
+        min_credit = rule.get("min_credit_score", 650)
+        max_dti = rule.get("max_dti_ratio", 0.50) * 100.0
+        min_income = rule.get("min_annual_income_inr", 500000)
+        policy_id = rule.get("id", "POL-LOAN-HOME-001")
+        policy_name = rule.get("name", "SBI Griha Pravesh Home Loan Policy")
+
         # Let's assume EMI on the new loan is roughly: requested_amount / 240 (20 years) * 1.08 (interest multiplier)
         estimated_annual_emi = (requested_amount / 20) * 1.08
         new_dti = ((total_debt + estimated_annual_emi) / annual_income * 100) if annual_income > 0 else 100.0
@@ -41,20 +51,28 @@ class AdvisorService:
         logical_steps = []
 
         logical_steps.append(f"Retrieved credit score of {credit_score} for Customer:{customer_id}")
-        if credit_score < 650:
+        if credit_score < min_credit:
             is_eligible = False
-            rejection_reasons.append("Credit score is below the minimum required threshold of 650.")
-            logical_steps.append("Policy check failed: Credit score is insufficient (< 650)")
+            rejection_reasons.append(f"Credit score is below the minimum required threshold of {min_credit}.")
+            logical_steps.append(f"Policy check failed: Credit score is insufficient (< {min_credit})")
         else:
-            logical_steps.append("Policy check passed: Credit score is sufficient (>= 650)")
+            logical_steps.append(f"Policy check passed: Credit score is sufficient (>= {min_credit})")
+
+        logical_steps.append(f"Retrieved annual income of INR {annual_income:,.2f}")
+        if annual_income < min_income:
+            is_eligible = False
+            rejection_reasons.append(f"Annual income is below the minimum required threshold of INR {min_income:,.2f}.")
+            logical_steps.append(f"Policy check failed: Annual income is insufficient (< INR {min_income:,.2f})")
+        else:
+            logical_steps.append(f"Policy check passed: Annual income is sufficient (>= INR {min_income:,.2f})")
 
         logical_steps.append(f"Computed projected post-loan DTI ratio: {new_dti:.2f}%")
-        if new_dti > 50:
+        if new_dti > max_dti:
             is_eligible = False
-            rejection_reasons.append("Projected Debt-to-Income ratio exceeds the maximum policy limit of 50%.")
-            logical_steps.append("Policy check failed: Projected DTI exceeds limit (> 50%)")
+            rejection_reasons.append(f"Projected Debt-to-Income ratio exceeds the maximum policy limit of {max_dti:.0f}%.")
+            logical_steps.append(f"Policy check failed: Projected DTI exceeds limit (> {max_dti:.0f}%)")
         else:
-            logical_steps.append("Policy check passed: Projected DTI is within acceptable limit (<= 50%)")
+            logical_steps.append(f"Policy check passed: Projected DTI is within acceptable limit (<= {max_dti:.0f}%)")
 
         summary = ""
         if is_eligible:
@@ -65,14 +83,14 @@ class AdvisorService:
         reasoning = SemanticReasoning(
             logical_steps=logical_steps,
             confidence=0.95,
-            supporting_policies=["POL-CRD-001", "POL-CRD-002", "POL-LOAN-005"]
+            supporting_policies=[policy_id, "POL-LOAN-005"]
         )
 
         evidence = SemanticEvidence(
             graph_path=[
                 {"node": f"Customer:{customer_id}"},
-                {"rel": "CONSTRAINED_BY", "node": "Policy:POL-CRD-001 (Credit Rating)"},
-                {"rel": "CONSTRAINED_BY", "node": "Policy:POL-CRD-002 (DTI Threshold)"}
+                {"rel": "CONSTRAINED_BY", "node": f"Policy:{policy_id} ({policy_name})"},
+                {"rel": "CONSTRAINED_BY", "node": "Policy:POL-LOAN-005 (SBI Master Circular)"}
             ],
             metrics={
                 "annual_income": annual_income,

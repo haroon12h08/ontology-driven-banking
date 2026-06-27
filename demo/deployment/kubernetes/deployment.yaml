@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbi-banking-platform
+  labels:
+    app: sbi-banking-platform
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sbi-banking-platform
+  template:
+    metadata:
+      labels:
+        app: sbi-banking-platform
+    spec:
+      containers:
+      - name: backend
+        image: sbi-backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: NEO4J_URI
+          value: "bolt://sbi-neo4j-service:7687"
+        - name: NEO4J_USERNAME
+          value: "neo4j"
+        - name: NEO4J_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: neo4j-secrets
+              key: password
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+      - name: frontend
+        image: sbi-frontend:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NEXT_PUBLIC_API_URL
+          value: "http://sbi-backend-service:8000"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sbi-backend-service
+spec:
+  ports:
+  - port: 8000
+    targetPort: 8000
+  selector:
+    app: sbi-banking-platform
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sbi-frontend-service
+spec:
+  ports:
+  - port: 3000
+    targetPort: 3000
+  type: LoadBalancer
+  selector:
+    app: sbi-banking-platform

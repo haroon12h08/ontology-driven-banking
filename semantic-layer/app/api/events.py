@@ -1,8 +1,14 @@
 from fastapi import APIRouter, Path, Query, HTTPException
 from app.services.graph_service import graph_service
 from app.queries import event_queries
-from app.schemas.responses import SemanticResponse
+from app.schemas.responses import SemanticResponse, SemanticReasoning, SemanticEvidence
 from datetime import datetime
+from pydantic import BaseModel
+import sys
+import os
+
+sys.path.insert(0, "/home/haroon/Desktop/SBI/intelligence-engine")
+from engines.event_engine import event_engine
 
 router = APIRouter()
 
@@ -50,3 +56,61 @@ async def get_large_transactions(
         confidence=1.0,
         timestamp=datetime.utcnow()
     )
+
+class SimulateEventRequest(BaseModel):
+    customerId: str
+    eventName: str
+    eventData: dict = None
+
+@router.post("/simulate")
+async def simulate_event(request: SimulateEventRequest):
+    try:
+        res = await event_engine.process_event(
+            customer_id=request.customerId,
+            event_name=request.eventName,
+            event_data=request.eventData or {}
+        )
+        
+        entities = []
+        for rec in res.get("recommendations", []):
+            entities.append({
+                "type": "Recommendation",
+                "id": rec.get("productId", "unknown"),
+                "properties": rec
+            })
+        for r_upd in res.get("risk_updates", []):
+            entities.append({
+                "type": "RiskUpdate",
+                "id": "risk-upd",
+                "properties": r_upd
+            })
+        for act in res.get("engagement_actions", []):
+            entities.append({
+                "type": "EngagementAction",
+                "id": "eng-act",
+                "properties": act
+            })
+            
+        reasoning_obj = SemanticReasoning(
+            logical_steps=res.get("reasoning_steps", []),
+            confidence=0.95,
+            supporting_policies=[]
+        )
+        evidence_obj = SemanticEvidence(
+            graph_path=[],
+            metrics={"event_response": res}
+        )
+        return SemanticResponse(
+            status="success",
+            summary=f"Event {request.eventName} processed successfully.",
+            entities=entities,
+            relationships=[],
+            reasoning=reasoning_obj,
+            evidence=evidence_obj,
+            confidence=0.95,
+            timestamp=datetime.utcnow()
+        )
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
