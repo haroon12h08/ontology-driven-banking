@@ -84,6 +84,18 @@ try:
     with driver.session() as session:
         print("Connected to Neo4j successfully.")
         
+        # Clear existing data
+        print("Wiping existing nodes and relationships from Neo4j...")
+        session.run("MATCH (n) DETACH DELETE n").consume()
+        
+        # Wipe Neosemantics configuration if present
+        try:
+            session.run("CALL n10s.graphconfig.show()").consume()
+            print("Wiping existing Neosemantics graph config...")
+            session.run("CALL n10s.graphconfig.drop()").consume()
+        except Exception:
+            pass
+        
         # Run constraints
         run_cypher_file(session, os.path.join(cypher_dir, "constraints.cypher"))
         print("Constraints configured successfully.")

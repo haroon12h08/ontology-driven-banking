@@ -33,7 +33,6 @@ export const CopilotPanel: React.FC = () => {
   const handleSendMessage = async (text: string) => {
     if (!text.trim() || isProcessing) return;
 
-    // Add user message
     addChatMessage({
       id: Math.random().toString(),
       sender: "user",
@@ -50,7 +49,6 @@ export const CopilotPanel: React.FC = () => {
       const totalLatency = Date.now() - startTime;
       updateLatencyMetric(totalLatency);
 
-      // Save workflow data to store
       setWorkflowResults({
         workflowName: res.workflow_name || "Custom Intent Query",
         finalOutput: res.final_output || "Query processed successfully.",
@@ -61,7 +59,6 @@ export const CopilotPanel: React.FC = () => {
         confidence: res.explainability?.confidence_score || "100.0%"
       });
 
-      // Add copilot response message
       addChatMessage({
         id: Math.random().toString(),
         sender: "copilot",
@@ -92,44 +89,44 @@ export const CopilotPanel: React.FC = () => {
   }, [chatHistory, isProcessing]);
 
   return (
-    <div className="flex gap-6 h-[calc(100vh-140px)]">
+    <div className="flex gap-4 h-[calc(100vh-120px)] font-mono text-xs">
       {/* Chat Pane */}
-      <div className="flex-1 glass-panel rounded-xl flex flex-col justify-between overflow-hidden">
+      <div className="flex-1 border border-[#2A2A2A] bg-[#171717] flex flex-col justify-between overflow-hidden rounded-sm">
         {/* Chat Header */}
-        <div className="p-4 border-b border-white/5 bg-black/20 flex items-center justify-between">
+        <div className="p-3 border-b border-[#2A2A2A] bg-[#111111] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-blue-400" />
-            <h2 className="font-bold text-white">Live Copilot Session</h2>
+            <Terminal className="w-4 h-4 text-[#808080]" />
+            <span className="font-bold text-[#F2F2F2] uppercase tracking-wider">AGENT SESSION CONSOLE</span>
           </div>
-          <span className="text-xs text-zinc-500 font-medium">Customer: {customerId}</span>
+          <span className="text-[10px] text-[#808080] font-mono">TARGET_ID: {customerId}</span>
         </div>
 
         {/* Message Viewport */}
-        <div className="flex-1 p-6 overflow-y-auto space-y-6">
+        <div className="flex-1 p-4 overflow-y-auto space-y-4">
           {chatHistory.map((msg) => {
             const isCopilot = msg.sender === "copilot";
             const isSystem = msg.sender === "system";
             return (
               <div
                 key={msg.id}
-                className={`flex flex-col max-w-2xl ${
+                className={`flex flex-col max-w-xl ${
                   isCopilot ? "mr-auto" : isSystem ? "mx-auto w-full text-center" : "ml-auto"
                 }`}
               >
                 <div
-                  className={`p-4 rounded-xl text-sm leading-relaxed ${
+                  className={`p-3 rounded-sm leading-relaxed border ${
                     isSystem
-                      ? "bg-rose-500/10 border border-rose-500/20 text-rose-400"
+                      ? "bg-[#111111] border-[#2A2A2A] text-[#808080]"
                       : isCopilot
-                      ? "bg-white/[0.02] border border-white/5 text-zinc-200"
-                      : "bg-blue-600 text-white font-medium shadow-[0_4px_12px_rgba(37,99,235,0.2)]"
+                      ? "bg-[#111111] border-[#2A2A2A] text-[#B8B8B8]"
+                      : "bg-[#1E1E1E] border-[#2A2A2A] text-[#F2F2F2] font-semibold"
                   }`}
                 >
                   <p className="whitespace-pre-wrap">{msg.text}</p>
                 </div>
-                <div className="flex items-center gap-2 mt-1.5 px-1 text-[10px] text-zinc-500">
-                  <span>{msg.sender === "copilot" ? "SBI Agent Core" : msg.sender === "system" ? "Platform Error" : "You"}</span>
-                  <span>•</span>
+                <div className="flex items-center gap-2 mt-1 px-1 text-[9px] text-[#808080] font-mono">
+                  <span>{msg.sender === "copilot" ? "SBI_AGENT_CORE" : msg.sender === "system" ? "SYS_ERR" : "OPERATOR"}</span>
+                  <span>//</span>
                   <span>{msg.timestamp}</span>
                 </div>
               </div>
@@ -138,13 +135,10 @@ export const CopilotPanel: React.FC = () => {
 
           {isProcessing && (
             <div className="flex flex-col mr-auto max-w-lg">
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-zinc-200 flex items-center gap-3">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                <span className="text-xs text-zinc-400 font-medium animate-pulse">
-                  Planner is orchestrating agents (Customer, Advisor, Risk, Operations)...
+              <div className="p-3 rounded-sm bg-[#111111] border border-[#2A2A2A] text-[#808080] flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-white inline-block animate-pulse"></span>
+                <span className="text-[10px] uppercase font-bold tracking-wider">
+                  ORCHESTRATING PIPELINE EVENTS...
                 </span>
               </div>
             </div>
@@ -153,14 +147,14 @@ export const CopilotPanel: React.FC = () => {
         </div>
 
         {/* Suggested Prompts & Input Area */}
-        <div className="p-4 border-t border-white/5 bg-black/20 space-y-3">
+        <div className="p-3 border-t border-[#2A2A2A] bg-[#111111] space-y-2.5">
           {chatHistory.length === 1 && !isProcessing && (
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {suggestedPrompts.map((p, i) => (
                 <button
                   key={i}
                   onClick={() => handleSendMessage(p)}
-                  className="px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.01] hover:bg-white/[0.05] text-xs text-zinc-400 hover:text-zinc-200 transition-all duration-200"
+                  className="px-2.5 py-1 border border-[#2A2A2A] bg-[#171717] hover:bg-[#1E1E1E] text-[10px] text-[#808080] hover:text-[#F2F2F2] transition-all duration-150 rounded-sm"
                 >
                   {p}
                 </button>
@@ -178,45 +172,47 @@ export const CopilotPanel: React.FC = () => {
               type="text"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
-              placeholder="Ask the banking copilot..."
-              className="flex-1 glass-input px-4 py-3 rounded-lg text-sm"
+              placeholder="Query reasoning core..."
+              className="flex-1 bg-[#0D0D0D] border border-[#2A2A2A] px-3 py-2 text-[#F2F2F2] rounded-sm"
               disabled={isProcessing}
             />
             <button
               type="submit"
               disabled={isProcessing || !inputMessage.trim()}
-              className="px-4 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 disabled:opacity-50 text-white transition-all duration-200 flex items-center justify-center"
+              className="px-3.5 py-2 bg-[#F2F2F2] hover:bg-[#B8B8B8] disabled:bg-[#1E1E1E] disabled:text-[#808080] text-black font-semibold flex items-center justify-center rounded-sm"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-3.5 h-3.5" />
             </button>
           </form>
         </div>
       </div>
 
       {/* Meta Sidebar (Explainability & Observability) */}
-      <div className="w-80 space-y-6 overflow-y-auto">
+      <div className="w-72 space-y-4 overflow-y-auto">
         {/* Active Workflow Metadata */}
         {activeWorkflow ? (
-          <div className="glass-panel p-5 rounded-xl space-y-4">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Workflow Resolved</h3>
-            <div className="flex items-center justify-between border-b border-white/5 pb-2.5">
-              <span className="text-xs text-zinc-400">Workflow</span>
-              <span className="text-xs font-semibold text-blue-400">{activeWorkflow}</span>
-            </div>
-            <div className="flex items-center justify-between border-b border-white/5 pb-2.5">
-              <span className="text-xs text-zinc-400">Confidence Score</span>
-              <span className="text-xs font-semibold text-emerald-400">{activeConfidence}</span>
+          <div className="border border-[#2A2A2A] bg-[#171717] p-4 space-y-4 rounded-sm">
+            <h3 className="text-[10px] font-bold text-[#F2F2F2] uppercase tracking-wider">WORKFLOW TELEMETRY</h3>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between border-b border-[#2A2A2A] pb-2">
+                <span className="text-[#808080]">INTENT</span>
+                <span className="font-semibold text-[#F2F2F2]">{activeWorkflow}</span>
+              </div>
+              <div className="flex items-center justify-between border-b border-[#2A2A2A] pb-2">
+                <span className="text-[#808080]">CONFIDENCE</span>
+                <span className="font-mono text-[#F2F2F2] border border-[#2A2A2A] bg-[#111111] px-1.5 py-0.5">{activeConfidence}</span>
+              </div>
             </div>
             
             {/* Policies Consulted */}
             {activePolicies.length > 0 && (
               <div className="space-y-2">
-                <span className="text-xs text-zinc-400 font-semibold block">Policies Consulted</span>
-                <div className="space-y-1.5">
+                <span className="text-[10px] text-[#808080] font-bold block uppercase tracking-wider">POLICIES CONSULTED</span>
+                <div className="space-y-1">
                   {activePolicies.map((p, i) => (
-                    <div key={i} className="flex gap-2 items-start p-1.5 rounded bg-white/[0.02] border border-white/5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-blue-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-[10px] text-zinc-300 leading-normal">{p}</span>
+                    <div key={i} className="flex gap-2 items-center p-1.5 bg-[#111111] border border-[#2A2A2A]">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#F2F2F2] flex-shrink-0" />
+                      <span className="text-[9px] text-[#B8B8B8] truncate">{p}</span>
                     </div>
                   ))}
                 </div>
@@ -225,26 +221,26 @@ export const CopilotPanel: React.FC = () => {
 
             {/* Financial Wellness / Risk Markers */}
             {activeEvidence && (
-              <div className="space-y-2 pt-2 border-t border-white/5">
-                <span className="text-xs text-zinc-400 font-semibold block">Evidence Context</span>
+              <div className="space-y-2 pt-2 border-t border-[#2A2A2A]">
+                <span className="text-[10px] text-[#808080] font-bold block uppercase tracking-wider">EVIDENCE CONTEXT</span>
                 {activeEvidence.financial_health && (
-                  <div className="flex items-center justify-between text-[11px] bg-white/[0.01] p-1.5 rounded">
+                  <div className="flex items-center justify-between text-[10px] bg-[#111111] border border-[#2A2A2A] p-1.5">
                     <div className="flex items-center gap-1.5">
-                      <HeartPulse className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-zinc-300">Financial Wellness</span>
+                      <HeartPulse className="w-3.5 h-3.5 text-[#F2F2F2]" />
+                      <span className="text-[#B8B8B8]">Wellness Status</span>
                     </div>
-                    <span className="font-semibold text-emerald-400">
+                    <span className="font-semibold text-[#F2F2F2]">
                       {activeEvidence.financial_health.decision}
                     </span>
                   </div>
                 )}
                 {activeEvidence.risk_assessment && (
-                  <div className="flex items-center justify-between text-[11px] bg-white/[0.01] p-1.5 rounded">
+                  <div className="flex items-center justify-between text-[10px] bg-[#111111] border border-[#2A2A2A] p-1.5">
                     <div className="flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-                      <span className="text-zinc-300">Credit Risk Level</span>
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#F2F2F2]" />
+                      <span className="text-[#B8B8B8]">Risk Rating</span>
                     </div>
-                    <span className="font-semibold text-amber-400">
+                    <span className="font-semibold text-[#F2F2F2]">
                       {activeEvidence.risk_assessment.risk_rating}
                     </span>
                   </div>
@@ -254,30 +250,30 @@ export const CopilotPanel: React.FC = () => {
 
             <button
               onClick={() => setActiveTab("agents")}
-              className="w-full py-2.5 rounded-lg bg-blue-600/10 border border-blue-500/20 hover:bg-blue-600/20 text-xs text-blue-400 font-medium flex items-center justify-center gap-1 transition-all duration-200"
+              className="w-full py-2 bg-[#111111] border border-[#2A2A2A] hover:bg-[#1E1E1E] text-xs text-[#F2F2F2] font-medium flex items-center justify-center gap-1 transition-all duration-150 rounded-sm"
             >
-              Analyze Agent Timeline <ChevronRight className="w-3.5 h-3.5" />
+              ANALYZE AGENT TIMELINE <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>
         ) : (
-          <div className="glass-panel p-5 rounded-xl text-center py-10 space-y-2">
-            <Clock className="w-8 h-8 text-zinc-600 mx-auto" />
-            <p className="text-xs text-zinc-500">Submit a query to inspect live decision telemetry.</p>
+          <div className="border border-[#2A2A2A] bg-[#171717] p-5 text-center py-10 space-y-2 rounded-sm">
+            <Clock className="w-6 h-6 text-[#808080] mx-auto" />
+            <p className="text-[#808080] text-[10px] uppercase font-bold tracking-wider">Awaiting query...</p>
           </div>
         )}
 
         {/* Performance Latency Trackers */}
         {activeLatencyLogs.length > 0 && (
-          <div className="glass-panel p-5 rounded-xl space-y-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Performance Audit</h3>
-            <div className="space-y-2">
+          <div className="border border-[#2A2A2A] bg-[#171717] p-4 space-y-3 rounded-sm">
+            <h3 className="text-[10px] font-bold text-[#F2F2F2] uppercase tracking-wider">PERFORMANCE LOGS</h3>
+            <div className="space-y-1.5">
               {activeLatencyLogs.map((log, i) => (
-                <div key={i} className="flex justify-between items-center text-[10px] border-b border-white/5 pb-1.5">
+                <div key={i} className="flex justify-between items-center text-[10px] border-b border-[#2A2A2A] pb-1.5">
                   <div className="flex flex-col">
-                    <span className="text-zinc-300 font-medium">{log.action}</span>
-                    <span className="text-zinc-500">{log.resource}</span>
+                    <span className="text-[#B8B8B8] font-medium">{log.action}</span>
+                    <span className="text-[#808080] text-[9px]">{log.resource}</span>
                   </div>
-                  <span className="text-blue-400 font-mono">{log.latency_ms}</span>
+                  <span className="text-[#F2F2F2] font-mono font-bold border border-[#2A2A2A] bg-[#111111] px-1">{log.latency_ms}</span>
                 </div>
               ))}
             </div>

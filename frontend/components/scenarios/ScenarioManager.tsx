@@ -19,48 +19,42 @@ export const ScenarioManager: React.FC = () => {
       title: "Home Loan Application",
       desc: "Evaluates debt-to-income limits and credit score ranges against RBI regulatory rules.",
       prompt: "I want to apply for a SBI Home Loan of INR 3,500,000.",
-      icon: Coins,
-      color: "text-blue-400"
+      icon: Coins
     },
     {
       id: "fraud_assessment",
       title: "Suspicious Transaction Check",
       desc: "Assesses velocity logs, device parameters, and merchant ratings for fraud risk.",
       prompt: "Process transaction: Suspicious charge of INR 60,000.00 at M-999 in Delhi.",
-      icon: BadgeAlert,
-      color: "text-rose-400"
+      icon: BadgeAlert
     },
     {
       id: "credit_card_upgrade",
-      title: "Credit Card Upgrade Suitability",
+      title: "Credit Card Suitability",
       desc: "Analyzes financial wellness, segment profile, and savings affinity rules for premium upgrades.",
       prompt: "I want to upgrade my credit card to SBI Elite.",
-      icon: CreditCard,
-      color: "text-indigo-400"
+      icon: CreditCard
     },
     {
       id: "kyc_renewal",
       title: "KYC Expiration Grace Check",
       desc: "Evaluates compliance flags, sets grace periods, and outlines required KYC update channels.",
       prompt: "Check my KYC status and outline renewal options.",
-      icon: Key,
-      color: "text-amber-400"
+      icon: Key
     },
     {
       id: "loan_refinancing",
       title: "Loan Refinancing Program",
       desc: "Assesses financial health indices and suggests debt refinancing schedules.",
       prompt: "Check if I am eligible for the SBI Loan Refinancing Plan.",
-      icon: RefreshCw,
-      color: "text-emerald-400"
+      icon: RefreshCw
     },
     {
       id: "mutual_fund_investment",
       title: "Investment Portfolio Advisory",
       desc: "Matches wealth management affinity and budget availability against suitabilities.",
       prompt: "I want to find the best mutual fund investment portfolio.",
-      icon: ShieldCheck,
-      color: "text-purple-400"
+      icon: ShieldCheck
     }
   ];
 
@@ -68,7 +62,6 @@ export const ScenarioManager: React.FC = () => {
     setIsProcessing(true);
     setActiveTab("copilot");
     
-    // Clear and add start message
     addChatMessage({
       id: Math.random().toString(),
       sender: "user",
@@ -118,38 +111,38 @@ export const ScenarioManager: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 py-6 max-w-5xl mx-auto">
-      <div className="space-y-2">
-        <h2 className="text-2xl font-bold text-white">Scenario Demonstrator</h2>
-        <p className="text-zinc-400 text-sm">
-          Run standard end-to-end banking workflows to evaluate coordinated agent actions, ontology constraints, and live decision explainability.
+    <div className="space-y-6 py-4 max-w-5xl mx-auto font-mono text-xs">
+      <div className="space-y-1">
+        <h2 className="text-sm font-bold text-[#F2F2F2] uppercase tracking-wider">SCENARIO DEMONSTRATOR CONSOLE</h2>
+        <p className="text-[#808080] font-sans">
+          Execute standard retail banking workflows to evaluate coordinated agent actions, OWL ontology constraints, and live decision audits.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {scenarios.map((scen) => {
           const Icon = scen.icon;
           return (
-            <div key={scen.id} className="glass-panel p-5 rounded-xl flex flex-col justify-between hover:border-white/15 transition-all duration-300">
+            <div key={scen.id} className="border border-[#2A2A2A] bg-[#171717] p-4 flex flex-col justify-between rounded-sm">
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
-                    <Icon className={`w-5 h-5 ${scen.color}`} />
+                  <div className="p-1.5 border border-[#2A2A2A] bg-[#111111]">
+                    <Icon className="w-4 h-4 text-[#F2F2F2]" />
                   </div>
-                  <h3 className="font-bold text-sm text-white">{scen.title}</h3>
+                  <h3 className="font-bold text-xs text-[#F2F2F2] uppercase tracking-wide">{scen.title}</h3>
                 </div>
-                <p className="text-xs text-zinc-400 leading-relaxed font-light">{scen.desc}</p>
-                <div className="p-2 rounded bg-black/30 border border-white/5">
-                  <span className="text-[9px] text-zinc-500 font-bold uppercase block">Mock Prompt</span>
-                  <span className="text-[10px] text-zinc-300 font-mono italic">&quot;{scen.prompt}&quot;</span>
+                <p className="text-[11px] text-[#808080] leading-relaxed font-sans">{scen.desc}</p>
+                <div className="p-2 bg-[#111111] border border-[#2A2A2A]">
+                  <span className="text-[9px] text-[#808080] font-bold uppercase block">MOCK_INPUT_QUERY</span>
+                  <span className="text-[10px] text-[#B8B8B8] font-mono italic block mt-0.5">&quot;{scen.prompt}&quot;</span>
                 </div>
               </div>
 
               <button
                 onClick={() => handleRunScenario(scen.prompt)}
-                className="w-full mt-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white flex items-center justify-center gap-1.5 transition duration-200"
+                className="w-full mt-4 py-2 bg-[#F2F2F2] hover:bg-[#B8B8B8] text-xs font-semibold text-black flex items-center justify-center gap-1.5 transition duration-150 rounded-sm"
               >
-                <PlayCircle className="w-4 h-4" /> Run Scenario
+                <PlayCircle className="w-4 h-4" /> EXECUTE SCENARIO
               </button>
             </div>
           );

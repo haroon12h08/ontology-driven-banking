@@ -23,7 +23,6 @@ export const GraphExplorer: React.FC = () => {
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const [filterType, setFilterType] = useState<string>("ALL");
 
-  // Coordinates optimized for structured SVG layout
   const nodes: GraphNode[] = [
     { 
       id: "CUST-006", 
@@ -130,12 +129,20 @@ export const GraphExplorer: React.FC = () => {
 
   const getNodeColor = (type: GraphNode["type"]) => {
     switch (type) {
-      case "Customer": return "fill-blue-500 stroke-blue-400";
-      case "Account": return "fill-indigo-500 stroke-indigo-400";
-      case "Transaction": return "fill-amber-500 stroke-amber-400";
-      case "Merchant": return "fill-rose-500 stroke-rose-400";
-      case "Policy": return "fill-purple-500 stroke-purple-400";
-      case "Recommendation": return "fill-emerald-500 stroke-emerald-400";
+      case "Customer": return "fill-[#F2F2F2] stroke-[#808080]";
+      case "Account": return "fill-[#B8B8B8] stroke-[#2A2A2A]";
+      case "Transaction": return "fill-[#1E1E1E] stroke-[#808080]";
+      case "Merchant": return "fill-[#171717] stroke-[#2A2A2A]";
+      case "Policy": return "fill-[#F2F2F2] stroke-[#FFFFFF]";
+      case "Recommendation": return "fill-[#808080] stroke-[#2A2A2A]";
+    }
+  };
+
+  const getNodeTextClass = (type: GraphNode["type"]) => {
+    switch (type) {
+      case "Customer": return "fill-black font-semibold";
+      case "Policy": return "fill-black font-bold";
+      default: return "fill-[#F2F2F2]";
     }
   };
 
@@ -151,24 +158,24 @@ export const GraphExplorer: React.FC = () => {
   };
 
   return (
-    <div className="flex gap-6 h-[calc(100vh-140px)]">
+    <div className="flex gap-4 h-[calc(100vh-120px)] font-mono text-xs">
       {/* Graph Pane */}
-      <div className="flex-1 glass-panel rounded-xl flex flex-col justify-between overflow-hidden relative bg-black/40">
+      <div className="flex-1 border border-[#2A2A2A] bg-[#111111] flex flex-col justify-between overflow-hidden relative rounded-sm">
         {/* Graph Filters */}
-        <div className="p-4 border-b border-white/5 bg-black/20 flex items-center justify-between z-10">
+        <div className="p-3 border-b border-[#2A2A2A] bg-[#171717] flex items-center justify-between z-10">
           <div className="flex items-center gap-2">
-            <Network className="w-5 h-5 text-blue-400" />
-            <h2 className="font-bold text-white">Live Semantic Memory Explorer</h2>
+            <Network className="w-4 h-4 text-[#808080]" />
+            <span className="font-bold text-[#F2F2F2] uppercase tracking-wider">SEMANTIC GRAPH MEMORY EXPLORER</span>
           </div>
-          <div className="flex gap-1.5">
+          <div className="flex gap-1">
             {["ALL", "Customer", "Account", "Transaction", "Policy", "Recommendation"].map((t) => (
               <button
                 key={t}
                 onClick={() => setFilterType(t)}
-                className={`px-2.5 py-1 rounded text-[10px] font-semibold border transition-all ${
+                className={`px-2 py-0.5 rounded-sm text-[9px] font-semibold border transition-all ${
                   filterType === t 
-                    ? "bg-blue-600/10 border-blue-500/30 text-blue-400" 
-                    : "border-white/5 bg-white/[0.01] text-zinc-400 hover:text-white"
+                    ? "bg-[#F2F2F2] border-transparent text-black" 
+                    : "border-[#2A2A2A] bg-[#111111] text-[#808080] hover:text-[#F2F2F2] hover:bg-[#1E1E1E]"
                 }`}
               >
                 {t.toUpperCase()}
@@ -177,16 +184,16 @@ export const GraphExplorer: React.FC = () => {
           </div>
         </div>
 
-        {/* Dynamic SVG Viewport */}
-        <div className="flex-1 overflow-auto flex items-center justify-center">
+        {/* SVG Viewport */}
+        <div className="flex-1 overflow-auto flex items-center justify-center bg-[#0D0D0D]">
           <svg className="w-full h-full min-h-[450px]" viewBox="50 30 700 450">
             {/* Markers for arrows */}
             <defs>
               <marker id="arrow" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#3f3f46" />
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#2a2a2a" />
               </marker>
               <marker id="arrow-highlight" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6" />
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ffffff" />
               </marker>
             </defs>
 
@@ -205,16 +212,16 @@ export const GraphExplorer: React.FC = () => {
                     y1={sourceNode.y}
                     x2={targetNode.x}
                     y2={targetNode.y}
-                    className={`stroke-2 ${
-                      isHighlighted ? "stroke-blue-500" : "stroke-zinc-700"
+                    className={`stroke-1 ${
+                      isHighlighted ? "stroke-white" : "stroke-[#2A2A2A]"
                     }`}
                     markerEnd={`url(#${isHighlighted ? "arrow-highlight" : "arrow"})`}
                   />
                   <text
                     x={(sourceNode.x + targetNode.x) / 2}
                     y={(sourceNode.y + targetNode.y) / 2 - 5}
-                    className={`text-[8px] font-mono text-center select-none ${
-                      isHighlighted ? "fill-blue-400 font-semibold" : "fill-zinc-500"
+                    className={`text-[8px] font-mono select-none ${
+                      isHighlighted ? "fill-[#F2F2F2] font-semibold" : "fill-[#808080]"
                     }`}
                     textAnchor="middle"
                   >
@@ -235,31 +242,31 @@ export const GraphExplorer: React.FC = () => {
                   onClick={() => setSelectedNode(node)}
                   className="cursor-pointer group"
                 >
-                  {/* Outer Glow Ring for Selection */}
+                  {/* Outer Ring for Selection */}
                   <circle
                     cx={node.x}
                     cy={node.y}
-                    r={isSelected ? 20 : 16}
-                    className={`fill-none transition-all duration-300 ${
+                    r={isSelected ? 18 : 15}
+                    className={`fill-none stroke-1 transition-all duration-150 ${
                       isSelected 
-                        ? "stroke-blue-500/80 stroke-2" 
+                        ? "stroke-white" 
                         : isRootCustomer 
-                        ? "stroke-blue-400/40 stroke-2 animate-pulse" 
-                        : "stroke-transparent group-hover:stroke-white/10"
+                        ? "stroke-[#808080] stroke-dasharray-[2,2]" 
+                        : "stroke-transparent group-hover:stroke-[#2A2A2A]"
                     }`}
                   />
                   {/* Central Node Circle */}
                   <circle
                     cx={node.x}
                     cy={node.y}
-                    r={isSelected ? 14 : 12}
-                    className={`transition-all duration-300 ${getNodeColor(node.type)}`}
+                    r={isSelected ? 13 : 11}
+                    className={`transition-all duration-150 ${getNodeColor(node.type)}`}
                   />
-                  {/* Label underneath */}
+                  {/* Label inside or underneath */}
                   <text
                     x={node.x}
-                    y={node.y + 26}
-                    className="text-[9px] fill-zinc-300 font-medium select-none group-hover:fill-white transition-colors"
+                    y={node.y + 24}
+                    className="text-[8px] fill-[#808080] font-mono select-none group-hover:fill-[#F2F2F2] transition-colors"
                     textAnchor="middle"
                   >
                     {node.id}
@@ -272,34 +279,34 @@ export const GraphExplorer: React.FC = () => {
       </div>
 
       {/* Node Properties Panel */}
-      <div className="w-80 space-y-6">
+      <div className="w-72 space-y-4">
         {selectedNode ? (
-          <div className="glass-panel p-5 rounded-xl space-y-4">
+          <div className="border border-[#2A2A2A] bg-[#171717] p-4 space-y-4 rounded-sm">
             <div className="flex items-center gap-2">
-              <Landmark className="w-4 h-4 text-blue-400" />
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">Semantic Entity</h3>
+              <Landmark className="w-4 h-4 text-[#808080]" />
+              <h3 className="text-[10px] font-bold text-[#F2F2F2] uppercase tracking-wider">SEMANTIC ENTITY</h3>
             </div>
 
             {/* Ontology Class */}
-            <div className="p-2 rounded bg-white/[0.02] border border-white/5 space-y-0.5">
-              <span className="text-[9px] text-zinc-500 font-semibold uppercase tracking-wider">OWL Concept Mapping</span>
-              <span className="text-xs font-mono text-blue-400 block">{getOntologyClass(selectedNode.type)}</span>
+            <div className="p-2 rounded-sm bg-[#111111] border border-[#2A2A2A] space-y-0.5">
+              <span className="text-[9px] text-[#808080] font-semibold uppercase tracking-wider">OWL CONCEPT MAPPING</span>
+              <span className="text-[10px] font-mono text-[#F2F2F2] block">{getOntologyClass(selectedNode.type)}</span>
             </div>
 
             {/* Node ID */}
-            <div className="flex justify-between items-center text-xs border-b border-white/5 pb-2">
-              <span className="text-zinc-500">Resource Identifier</span>
-              <span className="font-semibold text-zinc-200">{selectedNode.id}</span>
+            <div className="flex justify-between items-center text-[10px] border-b border-[#2A2A2A] pb-2">
+              <span className="text-[#808080]">RESOURCE IDENTIFIER</span>
+              <span className="font-semibold text-[#F2F2F2]">{selectedNode.id}</span>
             </div>
 
             {/* Node Properties */}
             <div className="space-y-2 pt-2">
-              <span className="text-xs text-zinc-400 font-semibold block">Attributes</span>
-              <div className="space-y-1.5 max-h-[220px] overflow-y-auto pr-1">
+              <span className="text-[10px] text-[#808080] font-bold block uppercase">ATTRIBUTES</span>
+              <div className="space-y-1 max-h-[220px] overflow-y-auto pr-1">
                 {Object.entries(selectedNode.properties).map(([key, val]) => (
-                  <div key={key} className="flex justify-between items-start text-[11px] p-1.5 rounded bg-white/[0.01]">
-                    <span className="text-zinc-500 font-mono">{key}</span>
-                    <span className="text-zinc-200 font-medium text-right truncate max-w-[150px]">
+                  <div key={key} className="flex justify-between items-start text-[10px] p-1.5 bg-[#111111] border border-[#2A2A2A]">
+                    <span className="text-[#808080] font-mono">{key}</span>
+                    <span className="text-[#F2F2F2] font-semibold text-right truncate max-w-[130px]">
                       {typeof val === "number" ? val.toLocaleString("en-IN") : String(val)}
                     </span>
                   </div>
@@ -308,26 +315,26 @@ export const GraphExplorer: React.FC = () => {
             </div>
 
             {/* AI Reasoning Insight */}
-            <div className="p-3 rounded-lg bg-blue-600/5 border border-blue-500/10 space-y-1.5">
+            <div className="p-2.5 bg-[#111111] border border-[#2A2A2A] space-y-1.5">
               <div className="flex items-center gap-1.5">
-                <Info className="w-3.5 h-3.5 text-blue-400" />
-                <span className="text-[10px] text-zinc-300 font-semibold uppercase tracking-wider">Cognitive Insight</span>
+                <Info className="w-3.5 h-3.5 text-[#808080]" />
+                <span className="text-[9px] text-[#F2F2F2] font-bold uppercase">COGNITIVE INSIGHT</span>
               </div>
-              <p className="text-[11px] text-zinc-400 leading-relaxed font-light">
+              <p className="text-[10px] text-[#808080] leading-relaxed font-sans">
                 {selectedNode.type === "Customer" 
-                  ? "High value customer mapping. Asset profile aligns with SBI HNWI segment parameters."
+                  ? "High asset value mapping. Profile parameters match retail HNWI segment rules."
                   : selectedNode.type === "Policy"
-                  ? "Active regulatory rule set loaded from policy engine rules folder. Evaluated on loan cap requests."
+                  ? "Active banking constraints. Evaluated dynamically on credit limits and limits extension."
                   : selectedNode.type === "Transaction"
-                  ? "Anomalous transaction velocity threshold detected. Block triggered based on suspicious merchant flags."
-                  : "Retrieved recommendation computed based on matching customer product affinity weights."}
+                  ? "Anomalous velocity check triggered. Flagged at merchant Delhi Terminal."
+                  : "Product recommendation computed based on matching customer suitability vectors."}
               </p>
             </div>
           </div>
         ) : (
-          <div className="glass-panel p-5 rounded-xl text-center py-20 space-y-2">
-            <Landmark className="w-8 h-8 text-zinc-600 mx-auto" />
-            <p className="text-xs text-zinc-500">Click any node in the canvas to inspect its semantic attributes and OWL mappings.</p>
+          <div className="border border-[#2A2A2A] bg-[#171717] p-5 text-center py-20 space-y-2 rounded-sm">
+            <Landmark className="w-6 h-6 text-[#808080] mx-auto" />
+            <p className="text-[#808080] text-[10px] uppercase font-bold tracking-wider">Awaiting node selection...</p>
           </div>
         )}
       </div>

@@ -16,26 +16,26 @@ export const ExecutiveDashboard: React.FC = () => {
   ];
 
   const agentInvocations = [
-    { name: "Customer", count: metrics.totalAgentCalls * 0.25 },
-    { name: "Advisor", count: metrics.totalAgentCalls * 0.2 },
-    { name: "Risk", count: metrics.totalAgentCalls * 0.18 },
-    { name: "Operations", count: metrics.totalAgentCalls * 0.15 },
-    { name: "Knowledge", count: metrics.totalAgentCalls * 0.12 },
-    { name: "Engagement", count: metrics.totalAgentCalls * 0.1 },
+    { name: "Customer", count: Math.round(metrics.totalAgentCalls * 0.25) },
+    { name: "Advisor", count: Math.round(metrics.totalAgentCalls * 0.2) },
+    { name: "Risk", count: Math.round(metrics.totalAgentCalls * 0.18) },
+    { name: "Operations", count: Math.round(metrics.totalAgentCalls * 0.15) },
+    { name: "Knowledge", count: Math.round(metrics.totalAgentCalls * 0.12) },
+    { name: "Engagement", count: Math.round(metrics.totalAgentCalls * 0.1) },
   ];
 
   const statCards = [
-    { title: "Ontology Classes", val: metrics.totalOntologyClasses, desc: "OWL classes mapped", icon: Network, color: "text-blue-400" },
-    { title: "Graph Node memory", val: metrics.totalGraphNodes, desc: "Total database nodes", icon: ShieldCheck, color: "text-indigo-400" },
-    { title: "Average Latency", val: `${metrics.averageLatencyMs}ms`, desc: "Multi-agent planning time", icon: Clock, color: "text-amber-400" },
-    { title: "Total Agent Calls", val: metrics.totalAgentCalls, desc: "Agent invocations tracked", icon: Cpu, color: "text-purple-400" },
+    { title: "Ontology Classes", val: metrics.totalOntologyClasses, desc: "OWL classes mapped", icon: Network },
+    { title: "Graph Node memory", val: metrics.totalGraphNodes, desc: "Total database nodes", icon: ShieldCheck },
+    { title: "Average Latency", val: `${metrics.averageLatencyMs}ms`, desc: "Multi-agent planning time", icon: Clock },
+    { title: "Total Agent Calls", val: metrics.totalAgentCalls, desc: "Agent invocations tracked", icon: Cpu },
   ];
 
   return (
-    <div className="space-y-6 py-6 max-w-5xl mx-auto">
-      <div className="space-y-2">
-        <h2 className="text-2xl font-bold text-white">Executive Metrics & Telemetry</h2>
-        <p className="text-zinc-400 text-sm">Real-time stats tracking graph memory size, ontology classes, and multi-agent latency performance.</p>
+    <div className="space-y-6 py-4 max-w-5xl mx-auto font-mono text-xs">
+      <div className="space-y-1">
+        <h2 className="text-sm font-bold text-[#F2F2F2] uppercase tracking-wider">SYSTEM MONITORING & TELEMETRY</h2>
+        <p className="text-[#808080] font-sans font-light">Real-time stats tracking graph memory size, ontology classes, and multi-agent latency performance.</p>
       </div>
 
       {/* Grid Stats */}
@@ -43,14 +43,14 @@ export const ExecutiveDashboard: React.FC = () => {
         {statCards.map((card, idx) => {
           const Icon = card.icon;
           return (
-            <div key={idx} className="glass-panel p-5 rounded-xl space-y-2 hover:border-white/10 transition duration-200">
+            <div key={idx} className="border border-[#2A2A2A] bg-[#171717] p-4 rounded-sm space-y-2">
               <div className="flex justify-between items-center">
-                <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">{card.title}</span>
-                <Icon className={`w-4.5 h-4.5 ${card.color}`} />
+                <span className="text-[10px] text-[#808080] font-bold uppercase tracking-wider">{card.title}</span>
+                <Icon className="w-4 h-4 text-[#808080]" />
               </div>
-              <div className="space-y-1">
-                <span className="text-2xl font-bold font-mono text-white">{card.val}</span>
-                <span className="text-[10px] text-zinc-500 font-light block">{card.desc}</span>
+              <div className="space-y-0.5">
+                <span className="text-xl font-bold font-mono text-[#F2F2F2]">{card.val}</span>
+                <span className="text-[9px] text-[#808080] font-sans block">{card.desc}</span>
               </div>
             </div>
           );
@@ -58,40 +58,46 @@ export const ExecutiveDashboard: React.FC = () => {
       </div>
 
       {/* Charts section */}
-      <div className="grid md:grid-cols-2 gap-6 pt-4">
+      <div className="grid md:grid-cols-2 gap-4 pt-2">
         {/* Class Distribution Chart */}
-        <div className="glass-panel p-5 rounded-xl space-y-4">
-          <div className="space-y-1">
-            <h4 className="text-sm font-bold text-white">Database Class Distribution</h4>
-            <p className="text-[10px] text-zinc-500">Number of live node instances loaded into Neo4j</p>
+        <div className="border border-[#2A2A2A] bg-[#171717] p-4 rounded-sm space-y-4">
+          <div className="space-y-0.5">
+            <h4 className="text-xs font-bold text-[#F2F2F2] uppercase">DATABASE CLASS DISTRIBUTION</h4>
+            <p className="text-[9px] text-[#808080] font-sans">Number of live node instances loaded into Neo4j</p>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={classDistribution}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#222" />
-                <XAxis dataKey="name" stroke="#888" fontSize={10} />
-                <YAxis stroke="#888" fontSize={10} />
-                <Tooltip contentStyle={{ background: "#111", border: "1px solid #333", fontSize: 11 }} />
-                <Bar dataKey="count" fill="#2563eb" radius={[4, 4, 0, 0]} />
+                <CartesianGrid strokeDasharray="2 2" stroke="#2A2A2A" />
+                <XAxis dataKey="name" stroke="#808080" fontSize={10} tickLine={false} />
+                <YAxis stroke="#808080" fontSize={10} tickLine={false} />
+                <Tooltip contentStyle={{ background: "#111", border: "1px solid #2a2a2a", fontSize: 10, fontFamily: "monospace" }} />
+                <Bar dataKey="count" fill="#FFFFFF" shape={(props: any) => {
+                  const { x, y, width, height } = props;
+                  return <rect x={x} y={y} width={width} height={height} fill="#F2F2F2" stroke="#2a2a2a" strokeWidth={1} />;
+                }} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Agent Invocation Chart */}
-        <div className="glass-panel p-5 rounded-xl space-y-4">
-          <div className="space-y-1">
-            <h4 className="text-sm font-bold text-white">Agent Invocation Volume</h4>
-            <p className="text-[10px] text-zinc-500">Distribution of requests routed to specialized agents</p>
+        <div className="border border-[#2A2A2A] bg-[#171717] p-4 rounded-sm space-y-4">
+          <div className="space-y-0.5">
+            <h4 className="text-xs font-bold text-[#F2F2F2] uppercase">AGENT INVOCATION VOLUME</h4>
+            <p className="text-[9px] text-[#808080] font-sans">Distribution of requests routed to specialized agents</p>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={agentInvocations}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#222" />
-                <XAxis dataKey="name" stroke="#888" fontSize={10} />
-                <YAxis stroke="#888" fontSize={10} />
-                <Tooltip contentStyle={{ background: "#111", border: "1px solid #333", fontSize: 11 }} />
-                <Bar dataKey="count" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                <CartesianGrid strokeDasharray="2 2" stroke="#2A2A2A" />
+                <XAxis dataKey="name" stroke="#808080" fontSize={10} tickLine={false} />
+                <YAxis stroke="#808080" fontSize={10} tickLine={false} />
+                <Tooltip contentStyle={{ background: "#111", border: "1px solid #2a2a2a", fontSize: 10, fontFamily: "monospace" }} />
+                <Bar dataKey="count" fill="#808080" shape={(props: any) => {
+                  const { x, y, width, height } = props;
+                  return <rect x={x} y={y} width={width} height={height} fill="#B8B8B8" stroke="#2a2a2a" strokeWidth={1} />;
+                }} />
               </BarChart>
             </ResponsiveContainer>
           </div>

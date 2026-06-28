@@ -1,104 +1,115 @@
 import React from "react";
 import { useBankingStore } from "@/store/bankingStore";
-import { ArrowRight, Bot, Compass, ShieldAlert, Zap, Network, BookOpen } from "lucide-react";
+import { ArrowRight, Bot, Compass, ShieldAlert, Zap, Network, BookOpen, Terminal, Shield } from "lucide-react";
 
 export const LandingPage: React.FC = () => {
   const { setActiveTab } = useBankingStore();
 
   const capabilities = [
     {
-      title: "Shared Semantic Memory",
-      desc: "All agents reason over a single global OWL ontology rather than maintaining duplicate local data layers.",
-      icon: Network,
-      color: "text-blue-400"
+      title: "SHARED SEMANTIC MEMORY CORE",
+      desc: "Reasoning over a single global OWL ontology rather than maintaining duplicate local database models. Resolves Neo4j endpoints dynamically.",
+      icon: Network
     },
     {
-      title: "Coordinated Agent Pipelines",
-      desc: "LangGraph-driven pipelines coordinate Customer, Advisor, Risk, Operations, Knowledge, and Engagement agents.",
-      icon: Bot,
-      color: "text-indigo-400"
+      title: "COORDINATED AGENT PIPELINES",
+      desc: "LangGraph-driven pipelines coordinate Customer Intelligence, Financial Advisor, Risk Assessment, and Operations agents in real-time.",
+      icon: Bot
     },
     {
-      title: "Explainable Decisions",
-      desc: "Recommendations are fully auditable down to individual data parameters and Neo4j traversal paths.",
-      icon: Compass,
-      color: "text-purple-400"
+      title: "EXPLAINABLE DECISION TREE",
+      desc: "All reasoning steps are fully auditable. Reconstructs execution logic down to individual policy rules and Neo4j traversal paths.",
+      icon: Compass
     },
     {
-      title: "Policy Enforcement Engine",
-      desc: "Real-time compliance checks validate Loan Eligibility and Fraud limits against formal bank policies.",
-      icon: ShieldAlert,
-      color: "text-rose-400"
+      title: "REAL-TIME COMPLIANCE GATEWAY",
+      desc: "Enforces strict loan eligibility and fraud boundaries by hot-swapping YAML configuration policies without code redeployments.",
+      icon: ShieldAlert
     }
   ];
 
   return (
-    <div className="max-w-6xl mx-auto py-12 px-6 space-y-16">
-      {/* Hero Section */}
-      <div className="text-center space-y-6 max-w-3xl mx-auto pt-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs font-semibold text-blue-400 animate-pulse">
-          <Zap className="w-3 h-3" /> Live Graph & Reasoning Engine Active
+    <div className="max-w-7xl mx-auto space-y-8 font-mono">
+      {/* System Status Banner */}
+      <div className="border border-[#2A2A2A] bg-[#111111] p-3 flex items-center justify-between text-xs">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 bg-white inline-block"></span>
+          <span className="text-[#808080]">SYSTEM PROTOCOL:</span>
+          <span className="text-[#F2F2F2] font-semibold">SBI ENTERPRISE SEMANTIC PLATFORM v1.0</span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
-          SBI Enterprise AI Banking Copilot
-        </h1>
-        <p className="text-lg text-zinc-400 font-light leading-relaxed">
-          A production-quality demonstration platform showcasing multi-agent collaboration, semantic ontology reasoning, and live graph memory built for retail banking.
-        </p>
-        <div className="pt-4 flex justify-center gap-4">
+        <div className="flex items-center gap-3">
+          <span className="text-[#808080]">GRAPH STATE:</span>
+          <span className="text-[#F2F2F2] border border-[#2A2A2A] bg-[#171717] px-2 py-0.5 font-bold">SYNCHRONIZED</span>
+        </div>
+      </div>
+
+      {/* Main Console Section */}
+      <div className="border border-[#2A2A2A] bg-[#171717] p-8 space-y-6">
+        <div className="space-y-3">
+          <div className="text-[10px] text-[#808080] tracking-widest font-semibold">CONSOLE // COGNITIVE CORE</div>
+          <h1 className="text-3xl font-bold text-[#F2F2F2] tracking-tight">
+            SBI BANKING INTELLIGENCE ENGINE
+          </h1>
+          <p className="text-xs text-[#B8B8B8] max-w-3xl leading-relaxed font-sans">
+            This workspace orchestrates multi-agent operations, semantic reasoning, and live graph memory built for retail banking. It provides real-time visibility into agent logs, Cypher query execution, and policy constraints.
+          </p>
+        </div>
+
+        <div className="flex gap-3 pt-2">
           <button
             onClick={() => setActiveTab("copilot")}
-            className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium flex items-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+            className="px-4 py-2 bg-[#F2F2F2] hover:bg-[#B8B8B8] text-black font-semibold flex items-center gap-2 transition-all duration-150 rounded-sm text-xs"
           >
-            Launch Copilot <ArrowRight className="w-4 h-4" />
+            LAUNCH COILOT <ArrowRight className="w-3.5 h-3.5" />
           </button>
           <button
             onClick={() => setActiveTab("scenarios")}
-            className="px-6 py-3 rounded-lg border border-white/10 hover:bg-white/5 text-zinc-300 font-medium transition-all duration-300"
+            className="px-4 py-2 border border-[#2A2A2A] bg-[#111111] hover:bg-[#1E1E1E] text-[#F2F2F2] transition-all duration-150 rounded-sm text-xs"
           >
-            Explore Scenarios
+            EXECUTE SCENARIOS
           </button>
         </div>
       </div>
 
       {/* Grid of Capabilities */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4">
         {capabilities.map((cap, i) => {
           const Icon = cap.icon;
           return (
-            <div key={i} className="glass-panel p-6 rounded-xl space-y-4 hover:border-white/15 transition-all duration-300">
+            <div key={i} className="border border-[#2A2A2A] bg-[#111111] p-5 space-y-3">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/5">
-                  <Icon className={`w-6 h-6 ${cap.color}`} />
+                <div className="p-2 border border-[#2A2A2A] bg-[#171717]">
+                  <Icon className="w-5 h-5 text-[#F2F2F2]" />
                 </div>
-                <h3 className="font-semibold text-lg text-white">{cap.title}</h3>
+                <h3 className="font-semibold text-xs text-[#F2F2F2] tracking-wider">{cap.title}</h3>
               </div>
-              <p className="text-zinc-400 text-sm leading-relaxed">{cap.desc}</p>
+              <p className="text-[#808080] text-xs leading-relaxed font-sans">{cap.desc}</p>
             </div>
           );
         })}
       </div>
 
-      {/* Architecture Flow */}
-      <div className="glass-panel p-8 rounded-xl space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-white">Platform Topology</h2>
-          <p className="text-zinc-400 text-sm">How events, agents, and OWL ontological concepts interact in real-time.</p>
+      {/* Topology Block */}
+      <div className="border border-[#2A2A2A] bg-[#111111] p-6 space-y-4">
+        <div className="space-y-1">
+          <h2 className="text-xs font-bold text-[#F2F2F2] uppercase tracking-wider">PLATFORM TOPOLOGY & MESSAGE ROUTING</h2>
+          <p className="text-[#808080] text-xs font-sans">Sequence flow detailing cognitive event interception to graph database persistence.</p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 pt-2">
           {[
-            { step: "1. Intent / Event", icon: Zap, bg: "bg-amber-500/10 border-amber-500/20 text-amber-400" },
-            { step: "2. Planner", icon: Bot, bg: "bg-blue-500/10 border-blue-500/20 text-blue-400" },
-            { step: "3. Agent Pipeline", icon: BookOpen, bg: "bg-purple-500/10 border-purple-500/20 text-purple-400" },
-            { step: "4. Policy & Rules", icon: ShieldAlert, bg: "bg-rose-500/10 border-rose-500/20 text-rose-400" },
-            { step: "5. Neo4j Memory", icon: Network, bg: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400" }
+            { step: "01 / EVENT", info: "Intent Interception", icon: Zap },
+            { step: "02 / PLANNER", info: "Route Selection", icon: Bot },
+            { step: "03 / PIPELINE", info: "Agent Coordination", icon: BookOpen },
+            { step: "04 / POLICY", info: "Compliance Validation", icon: Shield },
+            { step: "05 / DATABASE", info: "Neo4j Persistence", icon: Network }
           ].map((item, index) => {
             const Icon = item.icon;
             return (
-              <div key={index} className={`p-4 rounded-lg border flex flex-col items-center text-center gap-3 ${item.bg}`}>
-                <Icon className="w-6 h-6" />
-                <span className="text-xs font-semibold">{item.step}</span>
+              <div key={index} className="p-3 border border-[#2A2A2A] bg-[#171717] flex flex-col items-center justify-center text-center gap-2">
+                <Icon className="w-4 h-4 text-[#F2F2F2]" />
+                <div className="text-[11px] font-bold text-[#F2F2F2]">{item.step}</div>
+                <div className="text-[9px] text-[#808080] font-sans truncate w-full">{item.info}</div>
               </div>
             );
           })}

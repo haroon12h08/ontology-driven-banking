@@ -69,38 +69,38 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen bg-black text-white">
+    <div className="flex min-h-screen bg-[#0D0D0D] text-[#F2F2F2] font-mono selection:bg-[#F2F2F2] selection:text-black">
       {/* Navigation Sidebar */}
       <Sidebar healthStatus={health} />
 
       {/* Main Viewport Container */}
       <div className="flex-1 flex flex-col min-h-screen">
         {/* Top bar with Customer context switcher */}
-        <header className="h-16 px-8 border-b border-white/5 bg-black/20 flex items-center justify-between sticky top-0 z-20 backdrop-blur-xl">
+        <header className="h-12 px-6 border-b border-[#2A2A2A] bg-[#111111] flex items-center justify-between sticky top-0 z-20">
           <div className="flex items-center gap-2">
-            <span className="text-xs text-zinc-500 uppercase tracking-widest font-semibold">Active Session:</span>
-            <span className="text-xs text-blue-400 font-semibold font-mono bg-blue-600/10 px-2 py-0.5 rounded border border-blue-500/20">
+            <span className="text-[10px] text-[#808080] uppercase tracking-wider font-semibold">SESSION_TAB:</span>
+            <span className="text-[10px] text-[#F2F2F2] font-semibold font-mono bg-[#1E1E1E] px-2 py-0.5 rounded-sm border border-[#2A2A2A]">
               {activeTab.toUpperCase()}
             </span>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.02] border border-white/5">
-              <User className="w-3.5 h-3.5 text-zinc-400" />
+            <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-sm bg-[#171717] border border-[#2A2A2A]">
+              <User className="w-3.5 h-3.5 text-[#808080]" />
               <select
                 value={customerId}
                 onChange={(e) => setCustomerId(e.target.value)}
-                className="bg-transparent text-xs text-zinc-300 font-semibold outline-none cursor-pointer border-none p-0 pr-6"
+                className="bg-transparent text-xs text-[#F2F2F2] font-semibold outline-none cursor-pointer border-none p-0 pr-6"
               >
-                <option value="CUST-006" className="bg-zinc-950 text-white">CUST-006 (Approval Case)</option>
-                <option value="CUST-001" className="bg-zinc-950 text-white">CUST-001 (Rejection Case)</option>
+                <option value="CUST-006" className="bg-[#171717] text-[#F2F2F2]">CUST-006 (Approval Case)</option>
+                <option value="CUST-001" className="bg-[#171717] text-[#F2F2F2]">CUST-001 (Rejection Case)</option>
               </select>
             </div>
           </div>
         </header>
 
         {/* Dynamic Tab Viewport */}
-        <main className="flex-1 p-8 overflow-y-auto">
+        <main className="flex-1 p-6 overflow-y-auto bg-[#0D0D0D]">
           {renderContent()}
         </main>
       </div>

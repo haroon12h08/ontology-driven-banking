@@ -1,108 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 5.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --radius: 0.75rem;
-  }
+@theme {
+  --font-sans: 'Lora', 'IBM Plex Serif', Georgia, serif;
+
+  --color-blue-50: #ffffff;
+  --color-blue-100: #ffffff;
+  --color-blue-200: #ffffff;
+  --color-blue-300: #ffffff;
+  --color-blue-400: #ffffff;
+  --color-blue-500: #ffffff;
+  --color-blue-600: #ffffff;
+  --color-blue-700: #e5e5e5;
+  --color-blue-800: #d4d4d4;
+  --color-blue-900: #a3a3a3;
+  --color-blue-950: #0d0d0d;
+
+  --color-indigo-50: #ffffff;
+  --color-indigo-100: #ffffff;
+  --color-indigo-200: #ffffff;
+  --color-indigo-300: #ffffff;
+  --color-indigo-400: #ffffff;
+  --color-indigo-500: #ffffff;
+  --color-indigo-600: #ffffff;
+  --color-indigo-700: #e5e5e5;
+  --color-indigo-800: #d4d4d4;
+  --color-indigo-900: #a3a3a3;
+  --color-indigo-950: #0d0d0d;
+
+  --color-purple-50: #ffffff;
+  --color-purple-100: #ffffff;
+  --color-purple-200: #ffffff;
+  --color-purple-300: #ffffff;
+  --color-purple-400: #ffffff;
+  --color-purple-500: #ffffff;
+  --color-purple-600: #ffffff;
+  --color-purple-700: #e5e5e5;
+  --color-purple-800: #d4d4d4;
+  --color-purple-900: #a3a3a3;
+  --color-purple-950: #0d0d0d;
+
+  --color-rose-50: #ffffff;
+  --color-rose-100: #ffffff;
+  --color-rose-200: #ffffff;
+  --color-rose-300: #ffffff;
+  --color-rose-400: #ffffff;
+  --color-rose-500: #ffffff;
+  --color-rose-600: #ffffff;
+  --color-rose-700: #e5e5e5;
+  --color-rose-800: #d4d4d4;
+  --color-rose-900: #a3a3a3;
+  --color-rose-950: #0d0d0d;
+
+  --color-emerald-50: #ffffff;
+  --color-emerald-100: #ffffff;
+  --color-emerald-200: #ffffff;
+  --color-emerald-300: #ffffff;
+  --color-emerald-400: #ffffff;
+  --color-emerald-500: #ffffff;
+  --color-emerald-600: #ffffff;
+  --color-emerald-700: #e5e5e5;
+  --color-emerald-800: #d4d4d4;
+  --color-emerald-900: #a3a3a3;
+  --color-emerald-950: #0d0d0d;
+
+  --color-amber-50: #ffffff;
+  --color-amber-100: #ffffff;
+  --color-amber-200: #ffffff;
+  --color-amber-300: #ffffff;
+  --color-amber-400: #ffffff;
+  --color-amber-500: #ffffff;
+  --color-amber-600: #ffffff;
+  --color-amber-700: #e5e5e5;
+  --color-amber-800: #d4d4d4;
+  --color-amber-900: #a3a3a3;
+  --color-amber-950: #0d0d0d;
+
+  --color-zinc-50: #f2f2f2;
+  --color-zinc-100: #f2f2f2;
+  --color-zinc-200: #b8b8b8;
+  --color-zinc-300: #b8b8b8;
+  --color-zinc-400: #808080;
+  --color-zinc-500: #808080;
+  --color-zinc-600: #2a2a2a;
+  --color-zinc-700: #2a2a2a;
+  --color-zinc-800: #2a2a2a;
+  --color-zinc-900: #171717;
+  --color-zinc-950: #111111;
+
+  --color-black: #0d0d0d;
+  --color-white: #ffffff;
+
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
+  --radius-3xl: 4px;
+  --radius-md: 2px;
+  --radius-sm: 1px;
+}
+
+:root {
+  --background: #0d0d0d;
+  --foreground: #f2f2f2;
+  --border: #2a2a2a;
 }
 
 body {
-  background-color: #030303;
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(244,100%,15%,0.15) 0px, transparent 50%),
-    radial-gradient(at 50% 0%, hsla(220,100%,10%,0.2) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(260,100%,15%,0.15) 0px, transparent 50%);
-  background-attachment: fixed;
-  color: #ededed;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #0d0d0d !important;
+  background-image: none !important;
+  color: #f2f2f2 !important;
+  font-family: 'Lora', 'IBM Plex Serif', Georgia, serif !important;
+  font-size: 13px !important;
   overflow-x: hidden;
+  letter-spacing: -0.01em;
 }
 
-/* Glassmorphism custom classes */
+/* Dense Layout Typography Rules */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', 'IBM Plex Serif', Georgia, serif !important;
+  font-weight: 600 !important;
+  color: #f2f2f2 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Remove all backgrounds gradients */
+.bg-gradient-to-r, .bg-gradient-to-tr, .bg-gradient-to-b, .bg-gradient-to-br, .from-white, .via-zinc-200, .to-zinc-500 {
+  background-image: none !important;
+  background-color: transparent !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  color: #f2f2f2 !important;
+}
+
+/* Custom Scrollbar Override */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #808080;
+}
+
+/* Palantir Glass Panel Override */
 .glass-panel {
-  background: rgba(17, 17, 24, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #171717 !important;
+  border: 1px solid #2a2a2a !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .glass-panel-glow {
-  box-shadow: 0 0 40px rgba(37, 99, 235, 0.15);
+  box-shadow: none !important;
 }
 
-.glass-input {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  transition: all 0.2s ease;
+/* Palantir Inputs, Selects & Textareas */
+.glass-input, input, select, textarea {
+  background: #111111 !important;
+  border: 1px solid #2a2a2a !important;
+  color: #f2f2f2 !important;
+  border-radius: 2px !important;
+  padding: 6px 10px !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 12px !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease !important;
 }
 
-.glass-input:focus {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(37, 99, 235, 0.6);
-  outline: none;
-  box-shadow: 0 0 12px rgba(37, 99, 235, 0.25);
+.glass-input:focus, input:focus, select:focus, textarea:focus {
+  border-color: #ffffff !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Table Formatting Rules */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-family: 'Lora', 'IBM Plex Serif', Georgia, serif !important;
 }
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
+th {
+  background-color: #171717 !important;
+  color: #f2f2f2 !important;
+  border: 1px solid #2a2a2a !important;
+  padding: 6px 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  text-align: left !important;
 }
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
+td {
+  background-color: #111111 !important;
+  color: #b8b8b8 !important;
+  border: 1px solid #2a2a2a !important;
+  padding: 6px 10px !important;
+  font-size: 12px !important;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+tr:nth-child(even) td {
+  background-color: #171717 !important;
+}
+tr:hover td {
+  background-color: #1e1e1e !important;
+  color: #f2f2f2 !important;
 }
 
-/* Pulse agent glow */
-@keyframes agentPulse {
+/* Compact Buttons Overrides */
+button {
+  border-radius: 2px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 6px 12px !important;
+  transition: all 0.15s ease !important;
+  box-shadow: none !important;
+}
+
+/* Force monochrome active agent pulse */
+@keyframes agentPulseMonochrome {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+    border-color: #2a2a2a;
   }
   50% {
-    box-shadow: 0 0 25px rgba(37, 99, 235, 0.6);
+    border-color: #ffffff;
   }
 }
 
 .agent-active {
-  animation: agentPulse 2s infinite ease-in-out;
-  border-color: rgba(37, 99, 235, 0.7) !important;
+  animation: agentPulseMonochrome 2s infinite ease-in-out !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
 }
 
-/* Glow lines */
-.glow-text-blue {
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+.glow-text-blue, .glow-text-purple, .glow-text-emerald {
+  text-shadow: none !important;
+  color: #f2f2f2 !important;
 }
 
-.glow-text-purple {
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+/* Metric Tiles styling override */
+.metric-tile {
+  background-color: #171717;
+  border: 1px solid #2a2a2a;
+  padding: 12px;
+  border-radius: 2px;
 }
 
-.glow-text-emerald {
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+.metric-label {
+  font-size: 10px;
+  color: #808080;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f2f2f2;
+  font-family: 'IBM Plex Mono', monospace;
+  margin-top: 4px;
 }

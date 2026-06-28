@@ -37,21 +37,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ healthStatus }) => {
   ] as const;
 
   return (
-    <aside className="w-64 border-r border-white/5 bg-black/40 backdrop-blur-xl flex flex-col justify-between h-screen sticky top-0">
+    <aside className="w-60 border-r border-[#2A2A2A] bg-[#111111] flex flex-col justify-between h-screen sticky top-0">
       <div className="flex flex-col">
         {/* Brand Header */}
-        <div className="p-6 flex items-center gap-3 border-b border-white/5">
-          <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(37,99,235,0.6)]">
+        <div className="p-4 flex items-center gap-2 border-b border-[#2A2A2A]">
+          <div className="w-6 h-6 rounded bg-[#F2F2F2] flex items-center justify-center font-bold text-black text-xs">
             S
           </div>
           <div>
-            <h1 className="font-semibold text-sm tracking-tight text-white">SBI Enterprise</h1>
-            <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-semibold">Semantic memory</span>
+            <h1 className="font-semibold text-xs tracking-tight text-[#F2F2F2]">SBI INTEL</h1>
+            <span className="text-[9px] text-[#808080] uppercase tracking-wider font-semibold">SEMANTIC LAYER v1.0</span>
           </div>
         </div>
 
         {/* Navigation List */}
-        <nav className="p-4 space-y-1">
+        <nav className="p-2.5 space-y-0.5">
           {menuItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -59,13 +59,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ healthStatus }) => {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-all duration-200 ${
+                className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-sm text-xs transition-all duration-150 border ${
                   isActive 
-                    ? "bg-blue-600/10 text-blue-400 border border-blue-500/20 font-medium" 
-                    : "text-zinc-400 hover:text-white hover:bg-white/5 border border-transparent"
+                    ? "bg-[#171717] text-[#F2F2F2] border-[#2A2A2A] font-semibold" 
+                    : "text-[#808080] hover:text-[#F2F2F2] hover:bg-[#171717]/50 border-transparent"
                 }`}
               >
-                <Icon className={`w-4.5 h-4.5 ${isActive ? "text-blue-400" : "text-zinc-500"}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F2F2F2]" : "text-[#808080]"}`} />
                 {item.label}
               </button>
             );
@@ -74,25 +74,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ healthStatus }) => {
       </div>
 
       {/* Backend connection status */}
-      <div className="p-4 border-t border-white/5 bg-black/20">
-        <div className="flex items-center gap-2.5 px-2 py-1.5 rounded-md border border-white/5 bg-white/[0.02]">
-          <div className="relative flex h-2 w-2">
-            <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-              healthStatus.status === "success" ? "bg-emerald-400" : "bg-amber-400"
-            }`}></span>
-            <span className={`relative inline-flex rounded-full h-2 w-2 ${
-              healthStatus.status === "success" ? "bg-emerald-500" : "bg-amber-500"
+      <div className="p-3 border-t border-[#2A2A2A] bg-[#0D0D0D]">
+        <div className="flex items-center gap-2 px-2 py-1 rounded-sm border border-[#2A2A2A] bg-[#111111]">
+          <div className="relative flex h-1.5 w-1.5">
+            <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${
+              healthStatus.status === "success" ? "bg-[#F2F2F2]" : "bg-[#808080]"
             }`}></span>
           </div>
           <div className="flex flex-col overflow-hidden">
-            <span className="text-[11px] font-medium text-zinc-300 truncate">
-              {healthStatus.status === "success" ? "Live Graph Core" : "Local Mock Mode"}
+            <span className="text-[10px] font-semibold text-[#F2F2F2] truncate">
+              {healthStatus.status === "success" ? "CORE ONLINE" : "OFFLINE MOCK"}
             </span>
-            <span className="text-[9px] text-zinc-500 truncate">
-              {healthStatus.database || "Bolt disconnected"}
+            <span className="text-[9px] text-[#808080] truncate font-mono">
+              {healthStatus.database || "DISCONNECTED"}
             </span>
           </div>
-          <Server className="w-3.5 h-3.5 text-zinc-500 ml-auto flex-shrink-0" />
+          <Server className="w-3 text-[#808080] ml-auto flex-shrink-0" />
         </div>
       </div>
     </aside>

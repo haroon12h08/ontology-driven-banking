@@ -37,7 +37,6 @@ export const JudgeDashboard: React.FC = () => {
   const [isUpdatingRule, setIsUpdatingRule] = useState(false);
   const [activeScenario, setActiveScenario] = useState<string | null>(null);
   
-  // Custom mock latencies for observability dashboard
   const [telemetry, setTelemetry] = useState({
     apiLatency: 145,
     agentExecTime: 230,
@@ -51,7 +50,6 @@ export const JudgeDashboard: React.FC = () => {
     setLogMessages((prev) => [msg, ...prev].slice(0, 10));
   };
 
-  // Run architecture trace animation step-by-step
   const triggerTraceAnimation = async (steps: string[]) => {
     for (const step of steps) {
       setActiveStep(step);
@@ -61,12 +59,10 @@ export const JudgeDashboard: React.FC = () => {
     setActiveStep(null);
   };
 
-  // Reset Demo Action
   const handleResetDemo = async () => {
     addLog("Initiating full clean slate database reset...");
     setIsProcessing(true);
     try {
-      // In mock/offline mode, we simulate database reset
       await new Promise((resolve) => setTimeout(resolve, 1500));
       addLog("Successfully wiped Neo4j nodes and cleared OWL cache.");
       addLog("System in standard clean state.");
@@ -78,7 +74,6 @@ export const JudgeDashboard: React.FC = () => {
     }
   };
 
-  // Seed Demo Action
   const handleSeedDemo = async () => {
     addLog("Seeding standard bank schemas, customer profiles, and rules...");
     setIsProcessing(true);
@@ -93,7 +88,6 @@ export const JudgeDashboard: React.FC = () => {
     }
   };
 
-  // Replay Scenario
   const handleReplayScenario = () => {
     if (activeScenario) {
       addLog(`Replaying active scenario: ${activeScenario}...`);
@@ -103,7 +97,6 @@ export const JudgeDashboard: React.FC = () => {
     }
   };
 
-  // Random Customer
   const handleRandomCustomer = () => {
     const ids = ["CUST-006", "CUST-001"];
     const randomId = ids[Math.floor(Math.random() * ids.length)];
@@ -111,14 +104,12 @@ export const JudgeDashboard: React.FC = () => {
     addLog(`Swapped customer context randomly to: ${randomId}`);
   };
 
-  // Random Scenario
   const handleRandomScenario = () => {
     const scenarios = ["home_loan", "fraud", "salary", "kyc", "complaint"];
     const randomScen = scenarios[Math.floor(Math.random() * scenarios.length)];
     runScenario(randomScen);
   };
 
-  // Policy Rule Modification
   const handleUpdatePolicyRule = async (newScore: number) => {
     setIsUpdatingRule(true);
     addLog(`Sending update-rules payload: Home Loan Minimum Credit Score -> ${newScore}`);
@@ -133,7 +124,6 @@ export const JudgeDashboard: React.FC = () => {
     }
   };
 
-  // Main Scenario Runner
   const runScenario = async (scenId: string) => {
     setIsProcessing(true);
     setActiveScenario(scenId);
@@ -187,7 +177,6 @@ export const JudgeDashboard: React.FC = () => {
         addLog(`Outcome: ${res.final_output?.slice(0, 60)}...`);
 
       } else if (scenId === "fraud") {
-        // Fraud Check Scenario
         const prompt = "Process transaction: Suspicious charge of INR 60,000.00 at M-999 in Delhi.";
         const startTime = Date.now();
         const res = await bankingApi.chatWithAgent(customerId, prompt);
@@ -217,7 +206,6 @@ export const JudgeDashboard: React.FC = () => {
         addLog(`Result: ${res.final_output?.slice(0, 60)}...`);
 
       } else if (scenId === "salary") {
-        // Salary credit event injection
         addLog("Injecting Salary Credit Event: INR 150,000.00 for CUST-006...");
         const startTime = Date.now();
         const res = await bankingApi.simulateEvent(customerId, "Salary Credited", { amount: 150000.00 });
@@ -250,7 +238,6 @@ export const JudgeDashboard: React.FC = () => {
         addLog(`Generated: ${simulated.recommendations.length} Investment recommendations.`);
 
       } else if (scenId === "kyc") {
-        // KYC expiry event injection
         addLog("Injecting KYC Expired Event...");
         const startTime = Date.now();
         const res = await bankingApi.simulateEvent(customerId, "KYC Expired", {});
@@ -281,7 +268,6 @@ export const JudgeDashboard: React.FC = () => {
         addLog("Ops compliance task routed to Relationship Manager.");
 
       } else if (scenId === "complaint") {
-        // Complaint Journey scenario
         const prompt = "I want to lodge a complaint about a double charge on my account.";
         const startTime = Date.now();
         const res = await bankingApi.chatWithAgent(customerId, prompt);
@@ -319,144 +305,144 @@ export const JudgeDashboard: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 pb-12">
+    <div className="space-y-6 pb-12 font-mono text-xs">
       {/* Header Panel */}
-      <div className="glass-panel p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gradient-to-r from-blue-900/20 via-black/40 to-indigo-900/20 border-blue-500/10">
+      <div className="border border-[#2A2A2A] bg-[#171717] p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 rounded-sm">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <Trophy className="w-6 h-6 text-yellow-400" />
-            <h2 className="text-2xl font-bold text-white tracking-tight">Hackathon Judge Presentation Panel</h2>
+            <Trophy className="w-5 h-5 text-[#F2F2F2]" />
+            <h2 className="text-sm font-bold text-white uppercase tracking-wider">Presentation Panel & Control Room</h2>
           </div>
-          <p className="text-zinc-400 text-sm font-light">
+          <p className="text-[#808080] font-sans font-light">
             One-click demonstration framework with live pipeline animation, observability telemetry, and dynamic policy hot-swapping.
           </p>
         </div>
         <div className="flex items-center gap-3">
           <button 
             onClick={() => setJudgeMode(!judgeMode)}
-            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all border ${
+            className={`px-3 py-1.5 rounded-sm text-xs font-bold transition-all border ${
               judgeMode 
-                ? "bg-yellow-500/10 border-yellow-500/30 text-yellow-400" 
-                : "bg-white/[0.02] border-white/5 text-zinc-500"
+                ? "bg-[#F2F2F2] border-transparent text-black" 
+                : "border-[#2A2A2A] bg-[#111111] text-[#808080]"
             }`}
           >
-            {judgeMode ? "JUDGE MODE ACTIVE" : "OFFLINE DEMO MODE"}
+            {judgeMode ? "JUDGE PRESENTATION MODE ACTIVE" : "OFFLINE DEMO MODE"}
           </button>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 gap-4">
         {/* Left Column: One-Click Demo Scenarios */}
-        <div className="space-y-6 lg:col-span-1">
+        <div className="space-y-4 lg:col-span-1">
           {/* Demo Controls */}
-          <div className="glass-panel p-5 rounded-xl space-y-4">
-            <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-white/5 pb-2">
-              <Settings className="w-4 h-4 text-blue-400" /> Demo State Controllers
+          <div className="border border-[#2A2A2A] bg-[#171717] p-4 rounded-sm space-y-3">
+            <h3 className="text-[10px] font-bold text-[#F2F2F2] uppercase tracking-wider flex items-center gap-1.5 border-b border-[#2A2A2A] pb-2">
+              <Settings className="w-3.5 h-3.5 text-[#808080]" /> DEMO STATE CONTROLLERS
             </h3>
             <div className="grid grid-cols-2 gap-2">
               <button 
                 onClick={handleResetDemo}
-                className="py-2.5 rounded bg-rose-600/10 hover:bg-rose-600/20 text-rose-400 border border-rose-500/20 text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition"
+                className="py-2 bg-[#111111] hover:bg-[#1E1E1E] text-[#808080] hover:text-[#F2F2F2] border border-[#2A2A2A] text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition rounded-sm"
               >
-                <RotateCcw className="w-3.5 h-3.5" /> Reset Demo
+                <RotateCcw className="w-3 h-3" /> Reset DB
               </button>
               <button 
                 onClick={handleSeedDemo}
-                className="py-2.5 rounded bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 border border-blue-500/20 text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition"
+                className="py-2 bg-[#111111] hover:bg-[#1E1E1E] text-[#808080] hover:text-[#F2F2F2] border border-[#2A2A2A] text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition rounded-sm"
               >
-                <Database className="w-3.5 h-3.5" /> Seed Demo
+                <Database className="w-3 h-3" /> Seed Graph
               </button>
               <button 
                 onClick={handleReplayScenario}
-                className="py-2.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700 text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition"
+                className="py-2 bg-[#111111] hover:bg-[#1E1E1E] text-[#808080] hover:text-[#F2F2F2] border border-[#2A2A2A] text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition rounded-sm"
               >
-                <PlayCircle className="w-3.5 h-3.5" /> Replay Demo
+                <PlayCircle className="w-3 h-3" /> Replay Last
               </button>
               <button 
                 onClick={handleRandomCustomer}
-                className="py-2.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700 text-[10px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition"
+                className="py-2 bg-[#111111] hover:bg-[#1E1E1E] text-[#808080] hover:text-[#F2F2F2] border border-[#2A2A2A] text-[9px] font-bold uppercase tracking-wider flex items-center justify-center gap-1 transition rounded-sm"
               >
-                <UserCheck className="w-3.5 h-3.5" /> Random User
+                <UserCheck className="w-3 h-3" /> User Context
               </button>
             </div>
             <button
               onClick={handleRandomScenario}
-              className="w-full py-2.5 rounded bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-[10px] uppercase tracking-widest transition flex items-center justify-center gap-1 shadow-lg"
+              className="w-full py-2.5 bg-[#F2F2F2] hover:bg-[#B8B8B8] text-black font-bold text-[10px] uppercase tracking-wider transition flex items-center justify-center gap-1 rounded-sm"
             >
-              <Sparkles className="w-3.5 h-3.5" /> Trigger Random Scenario
+              <Sparkles className="w-3.5 h-3.5" /> TRIGGER RANDOM SCENARIO
             </button>
           </div>
 
           {/* Scenarios Panel */}
-          <div className="glass-panel p-5 rounded-xl space-y-4">
-            <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-white/5 pb-2">
-              <PlayCircle className="w-4 h-4 text-emerald-400" /> One-Click Interactive Journeys
+          <div className="border border-[#2A2A2A] bg-[#171717] p-4 rounded-sm space-y-3">
+            <h3 className="text-[10px] font-bold text-[#F2F2F2] uppercase tracking-wider flex items-center gap-1.5 border-b border-[#2A2A2A] pb-2">
+              <PlayCircle className="w-3.5 h-3.5 text-[#808080]" /> ONE-CLICK INTERACTIVE JOURNEYS
             </h3>
             
-            <div className="space-y-2.5">
+            <div className="space-y-2">
               {/* Scenario 1 */}
               <div 
                 onClick={() => !isProcessing && runScenario("home_loan")}
-                className={`p-3.5 rounded-lg border cursor-pointer transition-all ${
+                className={`p-3 border cursor-pointer transition-all rounded-sm ${
                   activeScenario === "home_loan" 
-                    ? "bg-blue-600/10 border-blue-500/40" 
-                    : "bg-white/[0.01] border-white/5 hover:border-white/10"
+                    ? "bg-[#1E1E1E] border-white" 
+                    : "bg-[#111111] border-[#2A2A2A] hover:border-[#808080]"
                 }`}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-zinc-100">Scenario 1: Home Loan Journey</span>
-                  <span className="text-[9px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-bold uppercase">TRAVERSAL</span>
+                  <span className="text-xs font-bold text-[#F2F2F2]">Scenario 1: Home Loan</span>
+                  <span className="text-[8px] px-1 py-0.25 border border-[#2A2A2A] bg-[#171717] text-[#808080] font-bold uppercase">TRAVERSAL</span>
                 </div>
-                <p className="text-[10px] text-zinc-400 mt-1 font-light">Evaluates DTI and credit thresholds on Customer:CUST-006 / CUST-001.</p>
+                <p className="text-[9px] text-[#808080] mt-1 font-sans">Evaluates DTI and credit thresholds on Customer:CUST-006 / CUST-001.</p>
               </div>
 
               {/* Scenario 2 */}
               <div 
                 onClick={() => !isProcessing && runScenario("fraud")}
-                className={`p-3.5 rounded-lg border cursor-pointer transition-all ${
+                className={`p-3 border cursor-pointer transition-all rounded-sm ${
                   activeScenario === "fraud" 
-                    ? "bg-rose-600/10 border-rose-500/40" 
-                    : "bg-white/[0.01] border-white/5 hover:border-white/10"
+                    ? "bg-[#1E1E1E] border-white" 
+                    : "bg-[#111111] border-[#2A2A2A] hover:border-[#808080]"
                 }`}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-zinc-100">Scenario 2: Fraud Prevention</span>
-                  <span className="text-[9px] px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 font-bold uppercase">SECURITY</span>
+                  <span className="text-xs font-bold text-[#F2F2F2]">Scenario 2: Fraud Prevention</span>
+                  <span className="text-[8px] px-1 py-0.25 border border-[#2A2A2A] bg-[#171717] text-[#808080] font-bold uppercase">SECURITY</span>
                 </div>
-                <p className="text-[10px] text-zinc-400 mt-1 font-light">Simulates suspicious transactions, triggers block rules, routes alert notification.</p>
+                <p className="text-[9px] text-[#808080] mt-1 font-sans">Simulates suspicious transactions, triggers block rules, routes alert notification.</p>
               </div>
 
               {/* Scenario 3 */}
               <div 
                 onClick={() => !isProcessing && runScenario("salary")}
-                className={`p-3.5 rounded-lg border cursor-pointer transition-all ${
+                className={`p-3 border cursor-pointer transition-all rounded-sm ${
                   activeScenario === "salary" 
-                    ? "bg-emerald-600/10 border-emerald-500/40" 
-                    : "bg-white/[0.01] border-white/5 hover:border-white/10"
+                    ? "bg-[#1E1E1E] border-white" 
+                    : "bg-[#111111] border-[#2A2A2A] hover:border-[#808080]"
                 }`}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-zinc-100">Scenario 3: Salary Credit Stream</span>
-                  <span className="text-[9px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold uppercase">REALTIME</span>
+                  <span className="text-xs font-bold text-[#F2F2F2]">Scenario 3: Salary Credit</span>
+                  <span className="text-[8px] px-1 py-0.25 border border-[#2A2A2A] bg-[#171717] text-[#808080] font-bold uppercase">REALTIME</span>
                 </div>
-                <p className="text-[10px] text-zinc-400 mt-1 font-light">Salary credited updates liquid wealth indices, generating dynamic SIP offers.</p>
+                <p className="text-[9px] text-[#808080] mt-1 font-sans">Salary credited updates liquid wealth indices, generating dynamic SIP offers.</p>
               </div>
 
               {/* Scenario 4: Policy Hot-Swap */}
-              <div className="p-3.5 rounded-lg bg-indigo-950/20 border border-indigo-500/20 space-y-2">
+              <div className="p-3 bg-[#111111] border border-[#2A2A2A] space-y-2 rounded-sm">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-indigo-300">Scenario 4: Policy Parameter Hot-Swap</span>
-                  <span className="text-[9px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 font-bold uppercase">ONTOLOGY</span>
+                  <span className="text-xs font-bold text-[#F2F2F2]">Scenario 4: Policy Hot-Swap</span>
+                  <span className="text-[8px] px-1 py-0.25 border border-[#2A2A2A] bg-[#171717] text-[#808080] font-bold uppercase">ONTOLOGY</span>
                 </div>
-                <p className="text-[10px] text-zinc-400 font-light">Change min credit eligibility score rule on-the-fly and observe immediate reasoning changes.</p>
+                <p className="text-[9px] text-[#808080] font-sans">Change min credit eligibility score rule on-the-fly and observe immediate reasoning changes.</p>
                 <div className="flex items-center gap-2 mt-2">
                   <button 
                     disabled={isUpdatingRule}
                     onClick={() => handleUpdatePolicyRule(720)}
-                    className={`flex-1 py-1 rounded text-[10px] font-bold border transition ${
+                    className={`flex-1 py-1 text-[9px] font-bold border transition rounded-sm ${
                       minCreditScoreRule === 720 
-                        ? "bg-indigo-600 text-white border-indigo-400" 
-                        : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white"
+                        ? "bg-[#F2F2F2] text-black border-transparent" 
+                        : "bg-[#171717] border-[#2A2A2A] text-[#808080] hover:text-[#F2F2F2]"
                     }`}
                   >
                     Set Min: 720
@@ -464,10 +450,10 @@ export const JudgeDashboard: React.FC = () => {
                   <button 
                     disabled={isUpdatingRule}
                     onClick={() => handleUpdatePolicyRule(760)}
-                    className={`flex-1 py-1 rounded text-[10px] font-bold border transition ${
+                    className={`flex-1 py-1 text-[9px] font-bold border transition rounded-sm ${
                       minCreditScoreRule === 760 
-                        ? "bg-indigo-600 text-white border-indigo-400" 
-                        : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white"
+                        ? "bg-[#F2F2F2] text-black border-transparent" 
+                        : "bg-[#171717] border-[#2A2A2A] text-[#808080] hover:text-[#F2F2F2]"
                     }`}
                   >
                     Set Min: 760
@@ -475,162 +461,160 @@ export const JudgeDashboard: React.FC = () => {
                 </div>
                 <button
                   onClick={() => !isProcessing && runScenario("home_loan")}
-                  className="w-full py-1 bg-indigo-500 hover:bg-indigo-600 text-white text-[9px] font-bold uppercase rounded tracking-wider mt-1 transition"
+                  className="w-full py-1 bg-[#171717] border border-[#2A2A2A] hover:bg-[#1E1E1E] text-[#F2F2F2] text-[9px] font-bold uppercase tracking-wider mt-1 transition rounded-sm"
                 >
-                  Replay Home Loan with New Rule
+                  REPLAY HOME LOAN
                 </button>
               </div>
 
               {/* Scenario 5 */}
               <div 
                 onClick={() => !isProcessing && runScenario("kyc")}
-                className={`p-3.5 rounded-lg border cursor-pointer transition-all ${
+                className={`p-3 border cursor-pointer transition-all rounded-sm ${
                   activeScenario === "kyc" 
-                    ? "bg-amber-600/10 border-amber-500/40" 
-                    : "bg-white/[0.01] border-white/5 hover:border-white/10"
+                    ? "bg-[#1E1E1E] border-white" 
+                    : "bg-[#111111] border-[#2A2A2A] hover:border-[#808080]"
                 }`}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-zinc-100">Scenario 5: KYC Grace Evaluation</span>
-                  <span className="text-[9px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-bold uppercase">COMPLIANCE</span>
+                  <span className="text-xs font-bold text-[#F2F2F2]">Scenario 5: KYC Grace Period</span>
+                  <span className="text-[8px] px-1 py-0.25 border border-[#2A2A2A] bg-[#171717] text-[#808080] font-bold uppercase">COMPLIANCE</span>
                 </div>
-                <p className="text-[10px] text-zinc-400 mt-1 font-light">Evaluates regulatory grace limits, scheduling renewals without service disruptions.</p>
+                <p className="text-[9px] text-[#808080] mt-1 font-sans">Evaluates regulatory grace limits, scheduling renewals without service disruptions.</p>
               </div>
 
               {/* Scenario 6 */}
               <div 
                 onClick={() => !isProcessing && runScenario("complaint")}
-                className={`p-3.5 rounded-lg border cursor-pointer transition-all ${
+                className={`p-3 border cursor-pointer transition-all rounded-sm ${
                   activeScenario === "complaint" 
-                    ? "bg-purple-600/10 border-purple-500/40" 
-                    : "bg-white/[0.01] border-white/5 hover:border-white/10"
+                    ? "bg-[#1E1E1E] border-white" 
+                    : "bg-[#111111] border-[#2A2A2A] hover:border-[#808080]"
                 }`}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-zinc-100">Scenario 6: Operations Resolver</span>
-                  <span className="text-[9px] px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 font-bold uppercase">OPERATIONS</span>
+                  <span className="text-xs font-bold text-[#F2F2F2]">Scenario 6: Operations Audit</span>
+                  <span className="text-[8px] px-1 py-0.25 border border-[#2A2A2A] bg-[#171717] text-[#808080] font-bold uppercase">OPERATIONS</span>
                 </div>
-                <p className="text-[10px] text-zinc-400 mt-1 font-light">Incoming complaint triggers automated verification log review and advisor outreach draft.</p>
+                <p className="text-[9px] text-[#808080] mt-1 font-sans">Incoming complaint triggers automated verification log review and advisor outreach draft.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Center Column: Live Architecture Animation */}
-        <div className="space-y-6 lg:col-span-2">
+        <div className="space-y-4 lg:col-span-2">
           {/* Architecture Animator */}
-          <div className="glass-panel p-5 rounded-xl space-y-4">
-            <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-white/5 pb-2">
-              <Layers className="w-4 h-4 text-blue-400" /> Live Architecture Flow
+          <div className="border border-[#2A2A2A] bg-[#171717] p-4 rounded-sm space-y-4">
+            <h3 className="text-[10px] font-bold text-[#F2F2F2] uppercase tracking-wider flex items-center gap-1.5 border-b border-[#2A2A2A] pb-2">
+              <Layers className="w-3.5 h-3.5 text-[#808080]" /> LIVE PIPELINE ARCHITECTURE FLOW
             </h3>
             
-            {/* Visual Architecture flowchart */}
-            <div className="relative p-6 rounded-lg bg-black/40 border border-white/5 flex flex-col items-center justify-center min-h-[300px]">
+            <div className="relative p-6 bg-[#0D0D0D] border border-[#2A2A2A] flex flex-col items-center justify-center min-h-[300px] rounded-sm">
               {/* Row 1: Frontend & Orchestrator */}
               <div className="flex justify-around w-full max-w-lg mb-6 relative">
-                <div className={`px-4 py-3 rounded-lg border text-center transition-all ${
+                <div className={`px-4 py-3 border text-center transition-all rounded-sm ${
                   activeStep === "frontend" 
-                    ? "bg-blue-600/20 border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.6)] text-blue-300 scale-105" 
-                    : "bg-white/[0.02] border-white/5 text-zinc-400"
+                    ? "bg-[#1E1E1E] border-white text-[#F2F2F2]" 
+                    : "bg-[#111111] border-[#2A2A2A] text-[#808080]"
                 }`}>
                   <span className="text-[10px] font-bold uppercase block tracking-wider">Client Web App</span>
-                  <span className="text-[8px] font-mono">React / Zustand</span>
+                  <span className="text-[8px] font-mono block mt-0.5">React / Zustand</span>
                 </div>
 
-                <div className="flex items-center text-zinc-600">
-                  <ArrowRight className="w-5 h-5 animate-pulse" />
+                <div className="flex items-center text-[#808080]">
+                  <ArrowRight className="w-4 h-4" />
                 </div>
 
-                <div className={`px-4 py-3 rounded-lg border text-center transition-all ${
+                <div className={`px-4 py-3 border text-center transition-all rounded-sm ${
                   activeStep === "planner" 
-                    ? "bg-blue-600/20 border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.6)] text-blue-300 scale-105" 
-                    : "bg-white/[0.02] border-white/5 text-zinc-400"
+                    ? "bg-[#1E1E1E] border-white text-[#F2F2F2]" 
+                    : "bg-[#111111] border-[#2A2A2A] text-[#808080]"
                 }`}>
-                  <span className="text-[10px] font-bold uppercase block tracking-wider">Orchestrator Planner</span>
-                  <span className="text-[8px] font-mono">LangGraph Router</span>
+                  <span className="text-[10px] font-bold uppercase block tracking-wider">Planner Router</span>
+                  <span className="text-[8px] font-mono block mt-0.5">LangGraph Engine</span>
                 </div>
               </div>
 
               {/* Row 2: Agents */}
               <div className="flex justify-around w-full max-w-xl mb-6 relative">
-                <div className={`px-3 py-2 rounded-lg border text-center transition-all ${
+                <div className={`px-3 py-2 border text-center transition-all rounded-sm ${
                   activeStep === "agents" 
-                    ? "bg-blue-600/20 border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.6)] text-blue-300 scale-105" 
-                    : "bg-white/[0.02] border-white/5 text-zinc-400"
+                    ? "bg-[#1E1E1E] border-white text-[#F2F2F2]" 
+                    : "bg-[#111111] border-[#2A2A2A] text-[#808080]"
                 }`}>
-                  <span className="text-[9px] font-bold uppercase block tracking-wider">Agents Suite</span>
-                  <span className="text-[8px] font-mono">Risk/Advisor/Ops</span>
+                  <span className="text-[9px] font-bold uppercase block tracking-wider">Agent Suite</span>
+                  <span className="text-[8px] font-mono block mt-0.5">Risk/Advisor/Ops</span>
                 </div>
 
-                <div className="flex items-center text-zinc-600">
+                <div className="flex items-center text-[#808080]">
                   <ArrowRight className="w-4 h-4" />
                 </div>
 
-                <div className={`px-3 py-2 rounded-lg border text-center transition-all ${
+                <div className={`px-3 py-2 border text-center transition-all rounded-sm ${
                   activeStep === "intelligence" 
-                    ? "bg-blue-600/20 border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.6)] text-blue-300 scale-105" 
-                    : "bg-white/[0.02] border-white/5 text-zinc-400"
+                    ? "bg-[#1E1E1E] border-white text-[#F2F2F2]" 
+                    : "bg-[#111111] border-[#2A2A2A] text-[#808080]"
                 }`}>
-                  <span className="text-[9px] font-bold uppercase block tracking-wider">Intelligence Core</span>
-                  <span className="text-[8px] font-mono">Rule Engines</span>
+                  <span className="text-[9px] font-bold uppercase block tracking-wider">Reasoning</span>
+                  <span className="text-[8px] font-mono block mt-0.5">Rule Evaluator</span>
                 </div>
 
-                <div className="flex items-center text-zinc-600">
+                <div className="flex items-center text-[#808080]">
                   <ArrowRight className="w-4 h-4" />
                 </div>
 
-                <div className={`px-3 py-2 rounded-lg border text-center transition-all ${
+                <div className={`px-3 py-2 border text-center transition-all rounded-sm ${
                   activeStep === "semantic" 
-                    ? "bg-blue-600/20 border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.6)] text-blue-300 scale-105" 
-                    : "bg-white/[0.02] border-white/5 text-zinc-400"
+                    ? "bg-[#1E1E1E] border-white text-[#F2F2F2]" 
+                    : "bg-[#111111] border-[#2A2A2A] text-[#808080]"
                 }`}>
                   <span className="text-[9px] font-bold uppercase block tracking-wider">Semantic API</span>
-                  <span className="text-[8px] font-mono">FastAPI Wrapper</span>
+                  <span className="text-[8px] font-mono block mt-0.5">FastAPI layer</span>
                 </div>
               </div>
 
               {/* Row 3: Graph and Ontology */}
               <div className="flex justify-around w-full max-w-lg relative">
-                <div className={`px-4 py-3 rounded-lg border text-center transition-all ${
+                <div className={`px-4 py-3 border text-center transition-all rounded-sm ${
                   activeStep === "graph" 
-                    ? "bg-blue-600/20 border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.6)] text-blue-300 scale-105" 
-                    : "bg-white/[0.02] border-white/5 text-zinc-400"
+                    ? "bg-[#1E1E1E] border-white text-[#F2F2F2]" 
+                    : "bg-[#111111] border-[#2A2A2A] text-[#808080]"
                 }`}>
-                  <span className="text-[10px] font-bold uppercase block tracking-wider">Neo4j Graph DB</span>
-                  <span className="text-[8px] font-mono">1.2k Nodes / 3.8k Rels</span>
+                  <span className="text-[10px] font-bold uppercase block tracking-wider">Neo4j Database</span>
+                  <span className="text-[8px] font-mono block mt-0.5">Graph Entities</span>
                 </div>
 
-                <div className="flex items-center text-zinc-600">
-                  <ArrowRight className="w-5 h-5" />
+                <div className="flex items-center text-[#808080]">
+                  <ArrowRight className="w-4 h-4" />
                 </div>
 
-                <div className={`px-4 py-3 rounded-lg border text-center transition-all ${
+                <div className={`px-4 py-3 border text-center transition-all rounded-sm ${
                   activeStep === "ontology" 
-                    ? "bg-blue-600/20 border-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.6)] text-blue-300 scale-105" 
-                    : "bg-white/[0.02] border-white/5 text-zinc-400"
+                    ? "bg-[#1E1E1E] border-white text-[#F2F2F2]" 
+                    : "bg-[#111111] border-[#2A2A2A] text-[#808080]"
                 }`}>
                   <span className="text-[10px] font-bold uppercase block tracking-wider">OWL Ontology</span>
-                  <span className="text-[8px] font-mono">Semantic Rules (TTL)</span>
+                  <span className="text-[8px] font-mono block mt-0.5">Reasoning Rules</span>
                 </div>
               </div>
 
-              {/* Connecting Lines Helper */}
               {isProcessing && (
-                <div className="absolute top-2 right-2 flex items-center gap-1 text-[10px] text-zinc-500 font-mono animate-pulse">
-                  <Cpu className="w-3.5 h-3.5 text-blue-500 animate-spin" /> executing pipelines...
+                <div className="absolute top-2 right-2 flex items-center gap-1 text-[9px] text-[#808080] font-mono">
+                  <Cpu className="w-3 h-3 text-[#F2F2F2]" /> execution_in_progress...
                 </div>
               )}
             </div>
             
             {/* Live trace activity logger */}
-            <div className="p-3.5 rounded bg-zinc-950/80 border border-white/5 font-mono text-[10px] text-zinc-400 space-y-1 max-h-[110px] overflow-y-auto">
-              <span className="text-zinc-500 font-bold block">{"// Presentation Activity Log Stream"}</span>
+            <div className="p-3 bg-[#0D0D0D] border border-[#2A2A2A] font-mono text-[10px] text-[#808080] space-y-1 max-h-[110px] overflow-y-auto rounded-sm">
+              <span className="text-[#808080] font-bold block">{"// Telemetry Logger Stream"}</span>
               {logMessages.length === 0 ? (
-                <span className="text-zinc-600 italic">No events processed yet. Click a scenario to inspect.</span>
+                <span className="text-[#808080] italic">No active telemetry logged. Run a scenario to view trace logs.</span>
               ) : (
                 logMessages.map((log, idx) => (
                   <div key={idx} className="flex gap-2 items-center">
-                    <span className="text-blue-500 font-bold">&gt;&gt;</span>
+                    <span className="text-[#F2F2F2] font-bold">&gt;</span>
                     <span>{log}</span>
                   </div>
                 ))
@@ -640,72 +624,72 @@ export const JudgeDashboard: React.FC = () => {
 
           {/* Telemetry metrics dashboard */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="glass-panel p-4 rounded-xl border-white/5 bg-white/[0.01] text-center space-y-1">
-              <Clock className="w-4 h-4 text-blue-400 mx-auto" />
-              <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">API Latency</span>
-              <span className="text-lg font-mono font-bold text-zinc-200">{telemetry.apiLatency} ms</span>
+            <div className="border border-[#2A2A2A] bg-[#171717] p-3 text-center space-y-0.5 rounded-sm">
+              <Clock className="w-4 h-4 text-[#808080] mx-auto" />
+              <span className="text-[9px] text-[#808080] font-bold uppercase tracking-wider block">API Latency</span>
+              <span className="text-sm font-mono font-bold text-[#F2F2F2]">{telemetry.apiLatency} ms</span>
             </div>
 
-            <div className="glass-panel p-4 rounded-xl border-white/5 bg-white/[0.01] text-center space-y-1">
-              <Activity className="w-4 h-4 text-emerald-400 mx-auto" />
-              <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">Agent Exec</span>
-              <span className="text-lg font-mono font-bold text-zinc-200">{telemetry.agentExecTime} ms</span>
+            <div className="border border-[#2A2A2A] bg-[#171717] p-3 text-center space-y-0.5 rounded-sm">
+              <Activity className="w-4 h-4 text-[#808080] mx-auto" />
+              <span className="text-[9px] text-[#808080] font-bold uppercase tracking-wider block">Agent Exec</span>
+              <span className="text-sm font-mono font-bold text-[#F2F2F2]">{telemetry.agentExecTime} ms</span>
             </div>
 
-            <div className="glass-panel p-4 rounded-xl border-white/5 bg-white/[0.01] text-center space-y-1">
-              <TrendingUp className="w-4 h-4 text-purple-400 mx-auto" />
-              <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">Workflow Total</span>
-              <span className="text-lg font-mono font-bold text-zinc-200">{telemetry.workflowDuration} ms</span>
+            <div className="border border-[#2A2A2A] bg-[#171717] p-3 text-center space-y-0.5 rounded-sm">
+              <TrendingUp className="w-4 h-4 text-[#808080] mx-auto" />
+              <span className="text-[9px] text-[#808080] font-bold uppercase tracking-wider block">Workflow Total</span>
+              <span className="text-sm font-mono font-bold text-[#F2F2F2]">{telemetry.workflowDuration} ms</span>
             </div>
 
-            <div className="glass-panel p-4 rounded-xl border-white/5 bg-white/[0.01] text-center space-y-1">
-              <Database className="w-4 h-4 text-amber-400 mx-auto" />
-              <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">Graph Query</span>
-              <span className="text-lg font-mono font-bold text-zinc-200">{telemetry.graphQueryDuration} ms</span>
+            <div className="border border-[#2A2A2A] bg-[#171717] p-3 text-center space-y-0.5 rounded-sm">
+              <Database className="w-4 h-4 text-[#808080] mx-auto" />
+              <span className="text-[9px] text-[#808080] font-bold uppercase tracking-wider block">Graph Query</span>
+              <span className="text-sm font-mono font-bold text-[#F2F2F2]">{telemetry.graphQueryDuration} ms</span>
             </div>
 
-            <div className="glass-panel p-4 rounded-xl border-white/5 bg-white/[0.01] text-center space-y-1">
-              <Cpu className="w-4 h-4 text-indigo-400 mx-auto" />
-              <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">Reasoning Engine</span>
-              <span className="text-lg font-mono font-bold text-zinc-200">{telemetry.ruleReasoningTime} ms</span>
+            <div className="border border-[#2A2A2A] bg-[#171717] p-3 text-center space-y-0.5 rounded-sm">
+              <Cpu className="w-4 h-4 text-[#808080] mx-auto" />
+              <span className="text-[9px] text-[#808080] font-bold uppercase tracking-wider block">Ontology Reasoning</span>
+              <span className="text-sm font-mono font-bold text-[#F2F2F2]">{telemetry.ruleReasoningTime} ms</span>
             </div>
 
-            <div className="glass-panel p-4 rounded-xl border-white/5 bg-white/[0.01] text-center space-y-1">
-              <Layers className="w-4 h-4 text-rose-400 mx-auto" />
-              <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider block">Event Processing</span>
-              <span className="text-lg font-mono font-bold text-zinc-200">{telemetry.eventProcessTime} ms</span>
+            <div className="border border-[#2A2A2A] bg-[#171717] p-3 text-center space-y-0.5 rounded-sm">
+              <Layers className="w-4 h-4 text-[#808080] mx-auto" />
+              <span className="text-[9px] text-[#808080] font-bold uppercase tracking-wider block">Event Processing</span>
+              <span className="text-sm font-mono font-bold text-[#F2F2F2]">{telemetry.eventProcessTime} ms</span>
             </div>
           </div>
 
           {/* Quick Explanation details */}
-          <div className="glass-panel p-5 rounded-xl space-y-4">
-            <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-white/5 pb-2">
-              <FileText className="w-4 h-4 text-blue-400" /> Explainability & Reasoning Logs
+          <div className="border border-[#2A2A2A] bg-[#171717] p-4 rounded-sm space-y-3">
+            <h3 className="text-[10px] font-bold text-[#F2F2F2] uppercase tracking-wider flex items-center gap-1.5 border-b border-[#2A2A2A] pb-2">
+              <FileText className="w-3.5 h-3.5 text-[#808080]" /> EXPLAINABILITY & REASONING LOGS
             </h3>
             
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-3.5 rounded bg-white/[0.01] border border-white/5 space-y-2">
-                <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest block">Active Constraints Profile</span>
-                <div className="text-xs font-mono text-zinc-400 space-y-1">
+            <div className="grid md:grid-cols-2 gap-4 font-sans">
+              <div className="p-3 bg-[#111111] border border-[#2A2A2A] space-y-1.5 rounded-sm font-mono">
+                <span className="text-[9px] text-[#808080] font-bold uppercase tracking-wider block">Active Constraints Profile</span>
+                <div className="text-[11px] text-[#808080] space-y-1">
                   <div className="flex justify-between">
                     <span>Credit Score Limit:</span>
-                    <span className="text-blue-400 font-semibold">{minCreditScoreRule}</span>
+                    <span className="text-[#F2F2F2] font-semibold">{minCreditScoreRule}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>DTI Limit Ratio:</span>
-                    <span className="text-blue-400 font-semibold">50.0%</span>
+                    <span className="text-[#F2F2F2] font-semibold">50.0%</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Min Annual Income:</span>
-                    <span className="text-blue-400 font-semibold">INR 500,000</span>
+                    <span className="text-[#F2F2F2] font-semibold">INR 500,000</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-3.5 rounded bg-white/[0.01] border border-white/5 space-y-2">
-                <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest block">OWL Mapping Assertions</span>
-                <div className="text-xs text-zinc-400 leading-relaxed font-light">
-                  Ontological rules are mapped via <span className="font-mono text-blue-400">sbi:Policy</span> classes. Updates affect reasoning checks without modifying Python execution paths.
+              <div className="p-3 bg-[#111111] border border-[#2A2A2A] space-y-1 rounded-sm">
+                <span className="text-[9px] text-[#808080] font-mono font-bold uppercase tracking-wider block">OWL Mapping Assertions</span>
+                <div className="text-[10px] text-[#808080] leading-relaxed">
+                  Ontological rules are mapped via <span className="font-mono text-[#F2F2F2] border border-[#2A2A2A] bg-[#171717] px-1">sbi:Policy</span> classes. Updates affect reasoning checks without modifying Python execution paths.
                 </div>
               </div>
             </div>
